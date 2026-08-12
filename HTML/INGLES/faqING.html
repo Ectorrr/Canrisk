@@ -11,6 +11,7 @@
 <!--Nav y Menu de hamburguesa-->
 </head>
 <body>
+    <!-- ===== LOGO AND SIDEBAR TOGGLE BUTTON ===== -->
     <div class="navbar-brand">
         <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Abrir menú lateral">
             <span></span>
@@ -21,6 +22,7 @@
         <img src="../../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L"> 
     </div>
 
+    <!-- ===== SIDEBAR MENU ===== -->
     <nav class="sidebar-menu" id="sidebarMenu">
         <div class="sidebar-decoracion">
             <span></span>
@@ -36,8 +38,10 @@
         </ul>
     </nav>
 
+    <!-- ===== SIDEBAR DARK OVERLAY ===== -->
     <div class="overlay-menu" id="menuOverlay"></div>
 
+    <!-- ===== TOP NAVIGATION BAR ===== -->
     <nav class="navbar" id="mainNav">
 
         <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
@@ -57,8 +61,9 @@
                 <li class="box-I"><a href="loginING.html"><h4>Iniciar Sesión</h4></a></li>
                 <li class="box-I"><a href="registerING.html"><h4>Registrarse</h4></a></li>
             </ul>
+            <a id="langSwitch" class="lang-switch" href="#" aria-label="Cambiar idioma / Switch language">ES</a>
             <div class="Photo">
-                <img src="../../MULTIMEDIA/profile.png" class="PP-default">
+                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="User profile picture">
             </div>
         </div>
 
@@ -66,23 +71,32 @@
 
 <!---Preguntas -->
 
-<div class="Titulos">
+<!-- ===== PAGE HEADER ===== -->
+    <div class="Titulos">
         <h1>Preguntas Frecuentes</h1>
     </div>
 
     <div class="fila-texto-img">
         <div class="content-text">
             <div class="Start">
-                <p> En esta parte estan las preguntas frecuentes, tambien se pueden hacer mas preguntas en el siguiente boton para acceder a un google forms</p>
+                <p>This section exists to support users who have questions about cancer that haven't been answered yet. We know that many people looking for information about cancer can't always find answers to every question they have, but as the Canrisk team we're committed to helping clear up doubts about this disease.</p>
                 <br>
-                <p>boton xd</p>
+                <p>Here you'll find access to our most frequently asked questions, and you can also submit your own question through our form below. Questions are typically answered within 1 to 7 days by email, once you've entered your contact details correctly.</p>
             </div>
         </div>
+
+        <div class="action-container">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJ-OZBvG9wHPYXodas9Sprqf_2tUy8QWFEoFS1lofK0bX32g/viewform?pli=1" target="_blank" class="btn-quizz">
+            Answer the Google Forms questionnaire &rarr;
+        </a>
+    </div>
+    </div>
 
 
 <!--Footer-->
 
-<footer>
+<!-- ===== FOOTER ===== -->
+    <footer>
     <div class="footer-container">
         <div class="footer-content">
             <div class="footer-col">
@@ -140,6 +154,7 @@
     </script>
 
 
+    <script src="../../JS/site.js" defer></script>
 </body>
 
 </html>

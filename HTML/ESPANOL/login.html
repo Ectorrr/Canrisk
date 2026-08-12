@@ -8,28 +8,39 @@
     <link rel="icon" type="image/png" href="../../MULTIMEDIA/Canrisk LOGO.png">
 </head>
 <body>
-    <div>
-        <div class="form">
-            <form action="">
-            <h1>Iniciar Sesión</h1><br><br>
-            <label class ="User-text"for="usuario">Usuario:</label><br>
-            <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" class="username" required><br>
-            <label class ="User-text"for="contraseña">Contraseña:</label><br><br>
-            <input type="password" id="contrasena" name="contraseña" placeholder="Ingrese su contraseña" class="password" required><br><br>
-            <div class ="submit-bttn">
+    <!-- ===== TARJETA DE INICIO DE SESIÓN / REGISTRO ===== -->
+    <div class="form">
+        <!-- Logo y marca -->
+        <a class="auth-brand" href="Principal.html">
+            <img src="../../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk">
+            <span>Canrisk</span>
+        </a>
+        <!-- Formulario -->
+        <form action="">
+            <h1>Iniciar Sesión</h1>
+            <span class="auth-subtitle">Ingresa tus datos para continuar</span>
+
+            <div class="field-group">
+                <label class="User-text" for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" class="username" required>
+            </div>
+
+            <div class="field-group">
+                <label class="User-text" for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contraseña" placeholder="Ingrese su contraseña" class="password" required>
+            </div>
+
+            <div class="submit-bttn">
                 <button type="submit" class="submit-bttn" id="submit-bttn">Ingresa!</button>
-                <label class="submit-bttn" for="submit" ></label>
             </div>
-            <br>
-            <button class="regresar" onclick="window.history.back()">Regresar</button>
+
+            <button type="button" class="regresar" onclick="window.history.back()">Regresar</button>
+
             <div class="register">
-                <a class="resgis-txt" href="../ESPANOL/register.html">¿No tienes una cuenta?
-                <br>
-                Registrate aqui!</a>
+                <a class="resgis-txt" href="register.html">¿No tienes una cuenta?<br>Regístrate aquí</a>
             </div>
-            </form>
-        </div>
-    </div>    
+        </form>
+    </div>
 
     <script src="../../JS/login.js"></script>
 </body>

@@ -1,27 +1,17 @@
 /* ============================================================
    CANRISK — LOGIN / REGISTRO
    Página independiente (no carga Style-Info.css), por eso
-   declara sus propios tokens de marca.
+   declara sus propios colores en esta misma hoja.
+
+   Paleta de referencia (sin variables):
+   Rosa marca: #d65a94  |  oscuro: #b23d74  |  suave: #fbd7e7
+   Fondo: #fdf3f7   Superficie: #ffffff
+   Texto: #3c2a35   Texto suave: #715c68   Bordes: #f0d4e0
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap');
 
-:root {
-  --c-primary: #d65a94;
-  --c-primary-dark: #b23d74;
-  --c-primary-soft: #fbd7e7;
-  --c-bg: #fdf3f7;
-  --c-surface: #ffffff;
-  --c-text: #3c2a35;
-  --c-text-soft: #715c68;
-  --c-border: #f0d4e0;
-  --font-display: 'Poppins', 'Segoe UI', sans-serif;
-  --font-body: 'Nunito', 'Segoe UI', sans-serif;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --shadow-md: 0 12px 34px rgba(178, 61, 116, 0.16);
-}
-
+/* ---------- 1. RESET Y BASE ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -29,12 +19,12 @@
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--c-bg);
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  background-color: #fdf3f7;
   background-image:
-    radial-gradient(circle at 10% 15%, var(--c-primary-soft) 0%, transparent 40%),
-    radial-gradient(circle at 90% 85%, var(--c-primary-soft) 0%, transparent 40%);
-  color: var(--c-text);
+    radial-gradient(circle at 10% 15%, #fbd7e7 0%, transparent 40%),
+    radial-gradient(circle at 90% 85%, #fbd7e7 0%, transparent 40%);
+  color: #3c2a35;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -42,28 +32,63 @@ body {
   padding: 40px 16px;
 }
 
+/* ---------- 2. TARJETA DEL FORMULARIO ---------- */
 .form {
   width: 100%;
   max-width: 420px;
 }
 
+.auth-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  text-decoration: none;
+}
+
+.auth-brand img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.auth-brand span {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #d65a94;
+}
+
 form {
-  background: var(--c-surface);
-  padding: 44px 40px 36px;
+  background: #ffffff;
+  padding: 40px 40px 32px;
   width: 100%;
-  border-radius: var(--radius-lg);
+  border-radius: 24px;
   text-align: center;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--c-border);
+  box-shadow: 0 12px 34px rgba(178, 61, 116, 0.16);
+  border: 1px solid #f0d4e0;
 }
 
 h1 {
-  font-family: var(--font-display);
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
-  color: var(--c-primary-dark);
-  margin-bottom: 22px;
+  color: #b23d74;
+  margin-bottom: 6px;
   line-height: 1.3;
+}
+
+.auth-subtitle {
+  display: block;
+  font-size: 0.88rem;
+  color: #715c68;
+  margin-bottom: 22px;
+}
+
+/* ---------- 3. CAMPOS DEL FORMULARIO ---------- */
+.field-group {
+  margin-bottom: 4px;
 }
 
 .User-text {
@@ -71,7 +96,7 @@ h1 {
   text-align: left;
   font-weight: 700;
   font-size: 0.85rem;
-  color: var(--c-text-soft);
+  color: #715c68;
   margin: 16px 0 6px;
 }
 
@@ -82,21 +107,21 @@ h1 {
   width: 100%;
   height: 46px;
   padding: 10px 15px;
-  background: var(--c-bg);
-  border: 1.5px solid var(--c-border);
-  border-radius: var(--radius-md);
+  background: #fdf3f7;
+  border: 1.5px solid #f0d4e0;
+  border-radius: 16px;
   outline: none;
-  font-family: var(--font-body);
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
   font-size: 0.95rem;
-  color: var(--c-text);
+  color: #3c2a35;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .name:focus,
 .username:focus,
 .password:focus {
-  background: var(--c-surface);
-  border-color: var(--c-primary);
+  background: #ffffff;
+  border-color: #d65a94;
 }
 
 .name::placeholder,
@@ -105,6 +130,7 @@ h1 {
   color: #b09aa5;
 }
 
+/* ---------- 4. BOTONES Y ENLACES ---------- */
 .submit-bttn {
   margin-top: 22px;
 }
@@ -114,10 +140,10 @@ button.submit-bttn {
   width: 100%;
   height: 50px;
   border: none;
-  border-radius: var(--radius-md);
-  background: var(--c-primary);
-  color: var(--c-surface);
-  font-family: var(--font-display);
+  border-radius: 16px;
+  background: #d65a94;
+  color: #ffffff;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
@@ -126,7 +152,7 @@ button.submit-bttn {
 
 .submit-bttn button:hover,
 button.submit-bttn:hover {
-  background: var(--c-primary-dark);
+  background: #b23d74;
   transform: translateY(-2px);
 }
 
@@ -134,9 +160,9 @@ button.submit-bttn:hover {
   display: inline-block;
   margin-top: 18px;
   background: none;
-  color: var(--c-text-soft);
+  color: #715c68;
   border: none;
-  font-family: var(--font-body);
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
@@ -146,19 +172,20 @@ button.submit-bttn:hover {
 }
 
 .regresar:hover {
-  color: var(--c-primary-dark);
+  color: #b23d74;
 }
 
+/* ---------- 5. ENLACE CRUZADO (¿ya tienes cuenta? / ¿no tienes cuenta?) ---------- */
 .register {
   margin-top: 18px;
   padding-top: 18px;
-  border-top: 1px solid var(--c-border);
+  border-top: 1px solid #f0d4e0;
 }
 
 .resgis-txt {
   display: inline-block;
   text-decoration: none;
-  color: var(--c-primary-dark);
+  color: #b23d74;
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.5;
@@ -166,10 +193,11 @@ button.submit-bttn:hover {
 }
 
 .resgis-txt:hover {
-  color: var(--c-primary);
+  color: #d65a94;
   text-decoration: underline;
 }
 
+/* ---------- 6. RESPONSIVE ---------- */
 @media (max-width: 480px) {
   form { padding: 34px 24px 28px; }
   h1 { font-size: 1.3rem; }

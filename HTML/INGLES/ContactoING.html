@@ -10,6 +10,7 @@
 </head>
 <body>
     
+    <!-- ===== LOGO AND SIDEBAR TOGGLE BUTTON ===== -->
     <div class="navbar-brand">
         <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Abrir menú lateral">
             <span></span>
@@ -20,6 +21,7 @@
         <img src="../../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L"> 
     </div>
     
+    <!-- ===== SIDEBAR MENU ===== -->
     <nav class="sidebar-menu" id="sidebarMenu">
         <div class="sidebar-decoracion">
             <span></span>
@@ -35,8 +37,10 @@
         </ul>
     </nav>
 
+    <!-- ===== SIDEBAR DARK OVERLAY ===== -->
     <div class="overlay-menu" id="menuOverlay"></div>
  
+    <!-- ===== TOP NAVIGATION BAR ===== -->
     <nav class="navbar" id="mainNav">
  
         <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
@@ -56,8 +60,9 @@
                 <li class="box-I"><a href="loginING.html"><h4>Log In</h4></a></li>
                 <li class="box-I"><a href="registerING.html"><h4>Sign up</h4></a></li>
             </ul>
+            <a id="langSwitch" class="lang-switch" href="#" aria-label="Cambiar idioma / Switch language">ES</a>
             <div class="Photo">
-                <img src="../../MULTIMEDIA/profile.png" class="PP-default">
+                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="User profile picture">
             </div>
         </div>
  
@@ -73,7 +78,7 @@
             <h2 style="font-size: 1.5rem; letter-spacing: 1px;">Phone numbers for hospitals that treat cancer</h2>
         </div>
  
-        <div class="contacto-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+        <div class="contacto-grid">
 
             <div class="contacto-card">
                 <div class="icono-card" aria-hidden="true">
@@ -260,7 +265,7 @@
             <h2 style="font-size: 1.5rem; letter-spacing: 1px;">Canrisk technical support contact</h2>
         </div>
 
-        <div class="contacto-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+        <div class="contacto-grid">
 
             <div class="contacto-card">
                 <div class="icono-card" aria-hidden="true">
@@ -302,7 +307,8 @@
         </div>
         
     </main>
-<footer>
+<!-- ===== FOOTER ===== -->
+    <footer>
     <div class="footer-container">
         <div class="footer-content">
             <div class="footer-col">
@@ -357,5 +363,6 @@
         sidebarBtn.addEventListener('click', toggleSidebar);
         menuOverlay.addEventListener('click', toggleSidebar);
     </script>
-    </body>
+        <script src="../../JS/site.js" defer></script>
+</body>
 </html>

@@ -9,6 +9,7 @@
 </head>
 <body>
 
+    <!-- ===== LOGO AND SIDEBAR TOGGLE BUTTON ===== -->
     <div class="navbar-brand">
         <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Abrir menú lateral">
             <span></span>
@@ -19,6 +20,7 @@
         <img src="../../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L"> 
     </div>
 
+    <!-- ===== SIDEBAR MENU ===== -->
     <nav class="sidebar-menu" id="sidebarMenu">
         <div class="sidebar-decoracion">
             <span></span>
@@ -28,15 +30,17 @@
 
         <ul class="sidebar-list">
             <li><a href="cancer-introING.html">Introduction to cancer &rarr;</a></li>
-            <li><a href="CancerING.html" style="color: #ffffff; font-weight: 800;">Tipes of Cancer &rarr;</a></li>
+            <li><a href="CancerING.html">Tipes of Cancer &rarr;</a></li>
             <li><a href="psychohelpING.html">Psychological support &rarr;</a></li>
             <li><a href="helpING.html">Help center &rarr;</a></li>
             <li><a href="quizzING.html">Quizz &rarr;</a></li>
         </ul>
     </nav>
 
+    <!-- ===== SIDEBAR DARK OVERLAY ===== -->
     <div class="overlay-menu" id="menuOverlay"></div>
 
+    <!-- ===== TOP NAVIGATION BAR ===== -->
     <nav class="navbar" id="mainNav">
 
         <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
@@ -56,13 +60,15 @@
                 <li class="box-I"><a href="../../HTML/INGLES/loginING.html"><h4>Log in</h4></a></li>
                 <li class="box-I"><a href="../../HTML/INGLES/registerING.html"><h4>Sign in</h4></a></li>
             </ul>
+            <a id="langSwitch" class="lang-switch" href="#" aria-label="Cambiar idioma / Switch language">ES</a>
             <div class="Photo">
-                <img src="../../MULTIMEDIA/profile.png" class="PP-default">
+                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="User profile picture">
             </div>
         </div>
 
     </nav>
 
+    <!-- ===== PAGE HEADER ===== -->
     <header class="hero-section">
         <div class="hero-container">
             <h1 class="hero-title">Assessment, Support, and Hope</h1>
@@ -120,7 +126,8 @@
         sidebarBtn.addEventListener('click', toggleSidebar);
         menuOverlay.addEventListener('click', toggleSidebar);
     </script>
-<footer>
+<!-- ===== FOOTER ===== -->
+    <footer>
     <div class="footer-container">
         <div class="footer-content">
             <div class="footer-col">
@@ -152,5 +159,6 @@
         </div>
     </div>
 </footer>
+    <script src="../../JS/site.js" defer></script>
 </body>
 </html>

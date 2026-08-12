@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
 <!--Nav y Menu de hamburguesa-->
 </head>
 <body>
+    <!-- ===== LOGO Y BOTÓN DEL MENÚ LATERAL ===== -->
     <div class="navbar-brand">
         <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Abrir menú lateral">
             <span></span>
@@ -21,6 +22,7 @@
         <img src="../../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L"> 
     </div>
 
+    <!-- ===== MENÚ LATERAL (SIDEBAR) ===== -->
     <nav class="sidebar-menu" id="sidebarMenu">
         <div class="sidebar-decoracion">
             <span></span>
@@ -36,8 +38,10 @@
         </ul>
     </nav>
 
+    <!-- ===== FONDO OSCURO AL ABRIR EL SIDEBAR ===== -->
     <div class="overlay-menu" id="menuOverlay"></div>
 
+    <!-- ===== BARRA DE NAVEGACIÓN SUPERIOR ===== -->
     <nav class="navbar" id="mainNav">
 
         <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
@@ -57,8 +61,9 @@
                 <li class="box-I"><a href="../../HTML/ESPANOL/login.html"><h4>Iniciar Sesión</h4></a></li>
                 <li class="box-I"><a href="../../HTML/ESPANOL/register.html"><h4>Registrarse</h4></a></li>
             </ul>
+            <a id="langSwitch" class="lang-switch" href="#" aria-label="Cambiar idioma / Switch language">ES</a>
             <div class="Photo">
-                <img src="../../MULTIMEDIA/profile.png" class="PP-default">
+                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="Foto de perfil del usuario">
             </div>
         </div>
 
@@ -66,7 +71,8 @@
 
 <!---Preguntas -->
 
-<div class="Titulos">
+<!-- ===== ENCABEZADO DE LA PÁGINA ===== -->
+    <div class="Titulos">
         <h1>Preguntas Frecuentes</h1>
     </div>
 
@@ -84,6 +90,7 @@
             Responder Cuestionario en Google Forms &rarr;
         </a>
     </div>
+    </div>
 
     
 
@@ -91,7 +98,8 @@
 
 <!--Footer-->
 
-<footer>
+<!-- ===== PIE DE PÁGINA ===== -->
+    <footer>
     <div class="footer-container">
         <div class="footer-content">
             <div class="footer-col">
@@ -154,6 +162,7 @@
     </script>
 
 
+    <script src="../../JS/site.js" defer></script>
 </body>
 
 </html>
