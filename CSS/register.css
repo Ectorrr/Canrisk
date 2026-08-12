@@ -1,0 +1,176 @@
+/* ============================================================
+   CANRISK — LOGIN / REGISTRO
+   Página independiente (no carga Style-Info.css), por eso
+   declara sus propios tokens de marca.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --c-primary: #d65a94;
+  --c-primary-dark: #b23d74;
+  --c-primary-soft: #fbd7e7;
+  --c-bg: #fdf3f7;
+  --c-surface: #ffffff;
+  --c-text: #3c2a35;
+  --c-text-soft: #715c68;
+  --c-border: #f0d4e0;
+  --font-display: 'Poppins', 'Segoe UI', sans-serif;
+  --font-body: 'Nunito', 'Segoe UI', sans-serif;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-md: 0 12px 34px rgba(178, 61, 116, 0.16);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--c-bg);
+  background-image:
+    radial-gradient(circle at 10% 15%, var(--c-primary-soft) 0%, transparent 40%),
+    radial-gradient(circle at 90% 85%, var(--c-primary-soft) 0%, transparent 40%);
+  color: var(--c-text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.form {
+  width: 100%;
+  max-width: 420px;
+}
+
+form {
+  background: var(--c-surface);
+  padding: 44px 40px 36px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--c-border);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--c-primary-dark);
+  margin-bottom: 22px;
+  line-height: 1.3;
+}
+
+.User-text {
+  display: block;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--c-text-soft);
+  margin: 16px 0 6px;
+}
+
+.name,
+.username,
+.password {
+  display: block;
+  width: 100%;
+  height: 46px;
+  padding: 10px 15px;
+  background: var(--c-bg);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--c-text);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.name:focus,
+.username:focus,
+.password:focus {
+  background: var(--c-surface);
+  border-color: var(--c-primary);
+}
+
+.name::placeholder,
+.username::placeholder,
+.password::placeholder {
+  color: #b09aa5;
+}
+
+.submit-bttn {
+  margin-top: 22px;
+}
+
+.submit-bttn button,
+button.submit-bttn {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--c-primary);
+  color: var(--c-surface);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.submit-bttn button:hover,
+button.submit-bttn:hover {
+  background: var(--c-primary-dark);
+  transform: translateY(-2px);
+}
+
+.regresar {
+  display: inline-block;
+  margin-top: 18px;
+  background: none;
+  color: var(--c-text-soft);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.regresar:hover {
+  color: var(--c-primary-dark);
+}
+
+.register {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--c-border);
+}
+
+.resgis-txt {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--c-primary-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+.resgis-txt:hover {
+  color: var(--c-primary);
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  form { padding: 34px 24px 28px; }
+  h1 { font-size: 1.3rem; }
+}

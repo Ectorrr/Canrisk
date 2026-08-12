@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes</title>
+    <link rel="stylesheet" href="../../CSS/Style-Info.css">
+    <link rel="icon" type="image/png" href="../../MULTIMEDIA/Canrisk LOGO.png">
+</head>
+
+<!--Nav y Menu de hamburguesa-->
+</head>
+<body>
+    <div class="navbar-brand">
+        <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Abrir menú lateral">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <h1>Canrisk</h1>
+        <img src="../../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L"> 
+    </div>
+
+    <nav class="sidebar-menu" id="sidebarMenu">
+        <div class="sidebar-decoracion">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="sidebar-list">
+            <li><a href="cancer-intro.html">Introducción al cáncer &rarr;</a></li>
+            <li><a href="psycho-help.html">Apoyo psicológico &rarr;</a></li>
+            <li><a href="help.html">Centro de ayuda &rarr;</a></li>
+            <li><a href="quizz.html">Cuestionario &rarr;</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay-menu" id="menuOverlay"></div>
+
+    <nav class="navbar" id="mainNav">
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="Info-nav">
+            <li class="box-II"><h4><a href="../ESPANOL/Principal.html">Inicio</a></h4></li>
+            <li class="box-II"><a href="../ESPANOL/aboutus.html"><h4>Sobre nosotros</h4></a></li>
+            <li class="box-II"><a href="../ESPANOL/Contacto.html"><h4>Contáctanos</h4></a></li>
+        </ul>
+
+        <div class="right-group">
+            <ul class="Index">
+                <li class="box-I"><a href="../../HTML/ESPANOL/login.html"><h4>Iniciar Sesión</h4></a></li>
+                <li class="box-I"><a href="../../HTML/ESPANOL/register.html"><h4>Registrarse</h4></a></li>
+            </ul>
+            <div class="Photo">
+                <img src="../../MULTIMEDIA/profile.png" class="PP-default">
+            </div>
+        </div>
+
+    </nav>
+
+<!---Preguntas -->
+
+<div class="Titulos">
+        <h1>Preguntas Frecuentes</h1>
+    </div>
+
+    <div class="fila-texto-img">
+        <div class="content-text">
+            <div class="Start">
+                <p>Este apartado tiene como proposito apoyar a los usuarios que tienen preguntas sobre el cáncer que no les han sido resueltas. Somos concientes que muchos usuarios que buscan información sobre el cancer, pero esta información no puede satisfacer exitosamente algunas cuestionantes que poseen sobre el cáncer, sin embargo, nosotros como equipo de canrisk buscamos solventar las dudas sobre esta enfermedad.</p>
+                <br>
+                <p>Mediante esta sección ofrecemos acceso a las preguntas mas frecuentes de nuestro sitio, y tambien brindamos la posibilidad de realizar preguntas en nuestro apartado de preguntas, las cuales seran resueltas en un lapso de tiempo de entre 1 a 7 dias, mediante gmail, despues de ingresar correctamente los datos personales para poder enviar el mensaje.</p>
+            </div>
+        </div>
+
+        <div class="action-container">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJ-OZBvG9wHPYXodas9Sprqf_2tUy8QWFEoFS1lofK0bX32g/viewform?pli=1" target="_blank" class="btn-quizz">
+            Responder Cuestionario en Google Forms &rarr;
+        </a>
+    </div>
+
+    
+
+
+
+<!--Footer-->
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h2 class="Title">DERECHOS DE AUTOR</h2>
+                <ul class="Advice">
+                    <li>&copy; Canrisk 2026</li>
+                    <li>&copy; Todos los derechos reservados al equipo de Canrisk. Agradecimientos especiales al equipo de Canrisk que han hecho esta página algo posible.</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h2 class="Title_1">INFORMACIÓN IMPORTANTE</h2>
+                <ul class="Advice_1">
+                    <li>Esta página NO reemplaza la ayuda de un profesional médico.</li>
+                    <li>En caso de tener algún tipo de emergencia o un síntoma puede apoyarse en los diferentes números de hospitales que nosotros proporcionamos, o llamar directamente al 911.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-social">
+            <h2 class="Title_2">Redes sociales de Canrisk!</h2>
+            <ul class="Social">
+                <li><a href="https://www.instagram.com/canrisk/" target="_blank">
+                    <img src="../../MULTIMEDIA/instagram.png" class="Inst-IMG" alt="Instagram logo">
+                    <span class="Inst-txt">Instagram</span>
+                </a></li>
+                <li><a href="https://www.facebook.com/Canrisk-110882646091155" target="_blank">
+                    <img src="../../MULTIMEDIA/facebook.png" class="Face-IMG" alt="Facebook logo">
+                    <span class="Face-txt">Facebook</span>
+                </a></li>
+                <li><a href="https://twitter.com/Canrisk1" target="_blank">
+                    <img src="../../MULTIMEDIA/gorjeo.png" class="Twit-IMG" alt="Twitter">
+                    <span class="Twit-txt">Twitter</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        const btn = document.getElementById('hamburgerBtn');
+        const nav = document.getElementById('mainNav');
+
+        btn.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('open');
+            btn.classList.toggle('open', isOpen);
+            btn.setAttribute('aria-expanded', isOpen);
+        });
+
+        const sidebarBtn = document.getElementById('sidebarBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        const toggleSidebar = () => {
+            const isOpen = sidebarMenu.classList.toggle('open');
+            sidebarBtn.classList.toggle('open', isOpen);
+            menuOverlay.classList.toggle('show', isOpen);
+        };
+
+        sidebarBtn.addEventListener('click', toggleSidebar);
+        menuOverlay.addEventListener('click', toggleSidebar);
+    </script>
+
+
+</body>
+
+</html>
