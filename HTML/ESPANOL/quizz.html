@@ -6,9 +6,127 @@
     <title>Cuestionario - Canrisk</title>
     <link rel="stylesheet" href="../../CSS/Style-Info.css">
     <link rel="icon" type="image/png" href="../../MULTIMEDIA/Canrisk LOGO.png">
+    <style>
+        /* ===== TARJETA QUE ROTA (FLIP CARD) ===== */
+        .flip-card {
+            perspective: 1200px;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            cursor: pointer;
+        }
+ 
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+ 
+        .flip-card.flipped .flip-card-inner,
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+ 
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+ 
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+ 
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(145deg, #a83862, #5e1c38);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.8rem;
+            gap: 0.6rem;
+        }
+ 
+        .flip-card-back .flip-icon {
+            font-size: 2rem;
+        }
+ 
+        .flip-card-back p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+ 
+        .flip-hint {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.8rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+ 
+        /* ===== BLOQUE DE DATOS RÁPIDOS ===== */
+        .quick-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+            padding: 0 1rem;
+        }
+ 
+        .stat-box {
+            flex: 1 1 220px;
+            max-width: 260px;
+            background: #fff;
+            border: 2px solid #a83862;
+            border-radius: 14px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(168, 56, 98, 0.15);
+        }
+ 
+        .stat-box .stat-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+ 
+        .stat-box .stat-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #a83862;
+            display: block;
+        }
+ 
+        .stat-box .stat-label {
+            font-size: 0.85rem;
+            color: #555;
+        }
+ 
+        /* ===== ÍCONOS EN TÍTULOS ===== */
+        .info-card h3 .card-icon {
+            margin-right: 0.4rem;
+        }
+    </style>
 </head>
 <body>
-
+ 
     <!-- ===== LOGO Y BOTÓN DEL MENÚ LATERAL ===== -->
     <div class="navbar-brand">
         <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Abrir menú lateral">
@@ -19,7 +137,7 @@
         <h1>Canrisk</h1>
         <img src="../../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L"> 
     </div>
-
+ 
     <!-- ===== MENÚ LATERAL (SIDEBAR) ===== -->
     <nav class="sidebar-menu" id="sidebarMenu">
         <div class="sidebar-decoracion">
@@ -27,7 +145,7 @@
             <span></span>
             <span></span>
         </div>
-
+ 
         <ul class="sidebar-list">
             <li><a href="cancer-intro.html">Introducción al cáncer &rarr;</a></li>
             <li><a href="psycho-help.html">Apoyo psicológico &rarr;</a></li>
@@ -35,25 +153,25 @@
             <li><a href="quizz.html">Cuestionario &rarr;</a></li>
         </ul>
     </nav>
-
+ 
     <!-- ===== FONDO OSCURO AL ABRIR EL SIDEBAR ===== -->
     <div class="overlay-menu" id="menuOverlay"></div>
-
+ 
     <!-- ===== BARRA DE NAVEGACIÓN SUPERIOR ===== -->
     <nav class="navbar" id="mainNav">
-
+ 
         <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
-
+ 
         <ul class="Info-nav">
             <li class="box-II"><h4><a href="../ESPANOL/Principal.html">Inicio</a></h4></li>
             <li class="box-II"><a href="../ESPANOL/aboutus.html"><h4>Sobre nosotros</h4></a></li>
             <li class="box-II"><a href="../ESPANOL/Contacto.html"><h4>Contáctanos</h4></a></li>
         </ul>
-
+ 
         <div class="right-group">
             <ul class="Index">
                 <li class="box-I"><a href="../../HTML/ESPANOL/login.html"><h4>Iniciar Sesión</h4></a></li>
@@ -64,14 +182,14 @@
                 <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="Foto de perfil del usuario">
             </div>
         </div>
-
+ 
     </nav>
-
+ 
     <!-- ===== ENCABEZADO DE LA PÁGINA ===== -->
     <div class="Titulos">
         <h1>Cuestionario de Concientización</h1>
     </div>
-
+ 
     <div class="fila-texto-img">
         <div class="content-text">
             <div class="Start">
@@ -80,40 +198,70 @@
                 <p>Tu participación nos ayuda a identificar áreas críticas donde se requiere mayor difusión de contenido educativo, entender la relación de las personas con los chequeos médicos y fortalecer la empatía colectiva.</p>
             </div>
         </div>
-
+ 
         <div class="IMG">
-            <img src="../../MULTIMEDIA/cancer img.2.jpe" alt="Evaluación de conocimiento sobre el cáncer" class="IMG-TXT">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="../../MULTIMEDIA/cancer img.2.jpe" alt="Evaluación de conocimiento sobre el cáncer" class="IMG-TXT">
+                    </div>
+                    <div class="flip-card-back">
+                        <span class="flip-icon">📝</span>
+                        <p>Tus respuestas son completamente anónimas y solo toman unos minutos. Cada dato recopilado nos ayuda a mejorar la educación sobre el cáncer en la comunidad.</p>
+                    </div>
+                </div>
+            </div>
+            <span class="flip-hint">Pasa el mouse sobre la imagen para más info</span>
         </div>
     </div>
-
+ 
+    <!-- ===== DATOS RÁPIDOS ===== -->
+    <div class="quick-stats">
+        <div class="stat-box">
+            <span class="stat-icon">🗂️</span>
+            <span class="stat-number">4</span>
+            <span class="stat-label">categorías evaluadas en el cuestionario</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-icon">⏱️</span>
+            <span class="stat-number">~5 min</span>
+            <span class="stat-label">tiempo estimado para completarlo</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-icon">🔒</span>
+            <span class="stat-number">100%</span>
+            <span class="stat-label">anónimo y sin datos sensibles</span>
+        </div>
+    </div>
+ 
     <div class="action-container">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeA_wRqpODvoCKK3eUJ1uvN3IjVLjKseehsvB1lB7wfm2d04A/viewform?usp=publish-editor" target="_blank" class="btn-quizz">
             Responder Cuestionario en Google Forms &rarr;
         </a>
     </div>
-
+ 
     <div class="info-grid">
         <div class="info-card">
             <h3>Concepto y Conocimiento Real</h3>
             <p>¿Qué es el cáncer para ti? Analizamos la autopercepción que posees de la enfermedad, midiendo si te consideras poco, medianamente o bien informado frente a sus implicaciones.</p>
         </div>
-
+ 
         <div class="info-card">
             <h3>Prevención y Rutina Médica</h3>
             <p>La prevención salva vidas. Registramos la frecuencia con la que las personas se realizan chequeos médicos periódicos para evaluar el nivel de proactividad en el cuidado de la salud.</p>
         </div>
-
+ 
         <div class="info-card">
             <h3>Entorno Hospitalario e Interés</h3>
             <p>Evaluamos si los usuarios conocen los centros médicos especializados en tratamientos oncológicos y medimos su interés en continuar informándose para apoyar a sus seres queridos.</p>
         </div>
-
+ 
         <div class="info-card">
             <h3>Empatía y Acompañamiento</h3>
             <p>Buscamos entender la perspectiva humana y social del proceso, analizando la disposición individual de acompañar, visitar y comprender el día a día de un paciente en tratamiento.</p>
         </div>
     </div>
-
+ 
 <!-- ===== PIE DE PÁGINA ===== -->
     <footer>
     <div class="footer-container">
@@ -151,27 +299,28 @@
     <script>
         const btn = document.getElementById('hamburgerBtn');
         const nav = document.getElementById('mainNav');
-
+ 
         btn.addEventListener('click', () => {
             const isOpen = nav.classList.toggle('open');
             btn.classList.toggle('open', isOpen);
             btn.setAttribute('aria-expanded', isOpen);
         });
-
+ 
         const sidebarBtn = document.getElementById('sidebarBtn');
         const sidebarMenu = document.getElementById('sidebarMenu');
         const menuOverlay = document.getElementById('menuOverlay');
-
+ 
         const toggleSidebar = () => {
             const isOpen = sidebarMenu.classList.toggle('open');
             sidebarBtn.classList.toggle('open', isOpen);
             menuOverlay.classList.toggle('show', isOpen);
         };
-
+ 
         sidebarBtn.addEventListener('click', toggleSidebar);
         menuOverlay.addEventListener('click', toggleSidebar);
     </script>
-
+ 
     <script src="../../JS/site.js" defer></script>
 </body>
 </html>
+ 
