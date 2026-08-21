@@ -6,6 +6,266 @@
     <title>Principal - Canrisk</title>
     <link rel="stylesheet" href="../../CSS/Style-Info.css">
     <link rel="icon" type="image/png" href="../../MULTIMEDIA/Canrisk LOGO.png">
+    <style>
+        /* ===== DATOS RÁPIDOS DEL HERO ===== */
+        .home-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: -1.5rem auto 2.5rem;
+            max-width: 1000px;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .home-stat-box {
+            flex: 1 1 200px;
+            max-width: 240px;
+            background: #fff;
+            border: 2px solid #a83862;
+            border-radius: 14px;
+            padding: 1.1rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(168, 56, 98, 0.15);
+        }
+
+        .home-stat-box .stat-icon {
+            font-size: 1.7rem;
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+
+        .home-stat-box .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #a83862;
+            display: block;
+        }
+
+        .home-stat-box .stat-label {
+            font-size: 0.82rem;
+            color: #555;
+        }
+
+        /* ===== EXPLORA CANRISK ===== */
+        .explore-section {
+            max-width: 1150px;
+            margin: 3.5rem auto;
+            padding: 0 1.2rem;
+        }
+
+        .explore-section h2 {
+            text-align: center;
+            color: #a83862;
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .explore-section .sub {
+            text-align: center;
+            color: #777;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .explore-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+            border-top: 5px solid #a83862;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: block;
+        }
+
+        .explore-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(168, 56, 98, 0.2);
+        }
+
+        .explore-card .explore-icon {
+            font-size: 1.9rem;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .explore-card h3 {
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 0.4rem;
+        }
+
+        .explore-card p {
+            font-size: 0.78rem;
+            color: #777;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .explore-card .explore-arrow {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-size: 0.8rem;
+            color: #a83862;
+            font-weight: 700;
+        }
+
+        /* ===== TARJETA QUE ROTA (FLIP CARD) — faltaba esto ===== */
+        .IMG .flip-card {
+            perspective: 1200px;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner,
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(145deg, #a83862, #5e1c38);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.8rem;
+            gap: 0.6rem;
+        }
+
+        .flip-card-back p {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .flip-hint {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.8rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* ===== TARJETAS DE TESTIMONIOS DE FE ===== */
+        .test-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            border-left: 6px solid #a83862;
+            padding: 1.6rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .test-photo {
+            flex: 0 0 150px;
+        }
+
+        .test-photo img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #a83862;
+            display: block;
+        }
+
+        .test-info {
+            flex: 1 1 300px;
+            min-width: 0;
+        }
+
+        .test-info h3 {
+            color: #a83862;
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .test-desc {
+            position: relative;
+            max-height: 5.6em;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .test-desc.expanded {
+            max-height: 1200px;
+        }
+
+        .test-desc:not(.expanded)::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2.4em;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+        }
+
+        .test-toggle {
+            display: inline-block;
+            margin-top: 0.8rem;
+            background: none;
+            border: none;
+            color: #a83862;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .test-toggle:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
@@ -33,7 +293,7 @@
             <li><a href="cancer.html">Tipos de Cáncer &rarr;</a></li>
             <li><a href="psycho-help.html">Apoyo psicológico &rarr;</a></li>
             <li><a href="help.html">Centro de ayuda &rarr;</a></li>
-            <li><a href="quizz.html">Encuesta &rarr;</a></li>
+            <li><a href="quizz.html">Cuestionario &rarr;</a></li>
             <li><a href="faq.html">Preguntas frecuentes &rarr;</a></li>
         </ul>
     </nav>
@@ -82,6 +342,26 @@
         </div>
     </header>
 
+    <!-- ===== DATOS RÁPIDOS ===== -->
+    <br><br>
+    <div class="home-stats">
+        <div class="home-stat-box">
+            <span class="stat-icon">🎗️</span>
+            <span class="stat-number">6</span>
+            <span class="stat-label">tipos de cáncer explicados en detalle</span>
+        </div>
+        <div class="home-stat-box">
+            <span class="stat-icon">💬</span>
+            <span class="stat-number">10</span>
+            <span class="stat-label">testimonios reales de sobrevivientes</span>
+        </div>
+        <div class="home-stat-box">
+            <span class="stat-icon">🤝</span>
+            <span class="stat-number">100%</span>
+            <span class="stat-label">acompañamiento gratuito e informativo</span>
+        </div>
+    </div>
+
     <section class="info-row-container">
         <h2 class="info-row-title">Acompañamiento en el Camino</h2>
         <div class="fila-texto-img">
@@ -95,24 +375,25 @@
                 </div>
             </div>
 
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="../../MULTIMEDIA/image 5.png" alt="Acompañamiento y empatía">
+            <div class="IMG">
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="../../MULTIMEDIA/image 5.png" alt="Acompañamiento y empatía" class="IMG-TXT">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Respeta siempre su autonomía, tratándola como la persona 
+                                que es y no solo como un paciente bajo tratamiento. Evita 
+                                dar consejos médicos no solicitados o contar historias de 
+                                otros casos que generen presión innecesaria. El silencio 
+                                acompañado suele ser más reconfortante que las frases 
+                                hechas o los discursos motivacionales</p>
+                        </div>
+                    </div>
+                </div>
+                <span class="flip-hint">Toca la imagen para ver más consejos</span>
+            </div>
         </div>
-        <div class="flip-card-back">
-          <p>Respeta siempre su autonomía, tratándola como la persona 
-            que es y no solo como un paciente bajo tratamiento. Evita 
-            dar consejos médicos no solicitados o contar historias de 
-            otros casos que generen presión innecesaria. El silencio 
-            acompañado suele ser más reconfortante que las frases 
-            hechas o los discursos motivacionales</p>
-        </div>
-      </div>
-    </div>
-
-    </div>
-
     </section>
 
 <!--Testimonios de fe-->
@@ -128,7 +409,7 @@
    </div>
    <br>
         <div class="test-card">
-            <div class="help-photo">
+            <div class="test-photo">
                 <img src="../../MULTIMEDIA/ana-maria1200x675.jpg" alt="Ana María">
             </div>
             <div class="test-info">
@@ -140,6 +421,7 @@
                     A mí nada lo que es negativo me sirve. Y como todo era negativo, en un momento dado tuve que sentarme con él y explicarle de que yo no funciono con cosas negativas, sus porcentajes y sus estadísticas. A mí no me sirven porque yo no me manejo con este tipo de cosas. Una vez que le expliqué que a mí eso me hacía mal y que no me sirve, que por suerte pudo entender que le costó.<br>
                     Una gran ayuda el mantenerse uno positivo y rodearse de gente y de cosas. Si uno puede confrontar la enfermedad, puede confrontar a una persona o varias que sean negativas.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div>
   <br>
@@ -149,16 +431,17 @@
             </div>
             <div class="test-info">
                 <h3>Juan Luis, sobreviviente de cáncer de lengua. </h3>
-                <div class="help-desc">
+                <div class="test-desc">
                  <p>Hace aproximadamente 4 años, Juan Luis Tintaya tenía molestias en la lengua. Le salían llagas y le ardía. Él esperaba que estos síntomas se fueran, pero no ocurrió así y, a los dos meses, acudió al médico. El experto en cabeza y cuello le mandó a hacer una biopsia para descartar la posibilidad de una neoplasia maligna.<br>
                    El resultado fue positivo para cáncer de lengua, piso de boca y ganglios. En ese entonces Juan Luis tenía 41 años y trabajaba bastante. Sin embargo, esta noticia, le dio una pausa a su vida laboral y se ocupó de su salud. Se operó y luego pasó por quimioterapia y radiación.
                    Su experiencia con el tratamiento de cáncer duró 3 meses. Fue corta, pero intensa. Se logró extirpar la parte afectada y se le retiraron los ganglios. Tuvo 33 sesiones de radiación y le dieron tres dosis fuertes de quimioterapia. Después de eso estuvo bien.<br></p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div>
    <br>
          <div class="test-card">
-            <div class="help-photo">
+            <div class="test-photo">
                 <img src="../../MULTIMEDIA/felix salomon-1.webp" alt="Felix Salomon">
             </div>
             <div class="test-info">
@@ -167,6 +450,7 @@
                     <p>A Félix Salomon le dio cáncer de próstata en el año 2009, cuando tenía 61 años. Lamentablemente, pasó por la experiencia de una mala praxis y después de eso llegó a otro hospital, ahí le realizaron los exámenes respectivos y se sometió a otra operación.<br>
                     Después de esa operación, el señor Salomón siguió sus controles médicos y, gracias a esa buena costumbre le detectaron tempranamente una reactivación del cáncer, en el 2012. Pasó por 36 sesiones de radioterapia y actualmente se controla una vez al año.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div>   
     <br>
@@ -181,11 +465,12 @@
                    Este es su testimonio como paciente de cáncer: “Cuando me hicieron la biopsia, según mi estilo, les dije a los médicos: Si es bingo, anotamos el número, porque tiene que ser premiado. Ellos se rieron. Y, efectivamente, era cáncer. No me deprimí, confié en los médicos y me sometí a la operación que me indicaron”.<br>
                    Yanes no tuvo necesidad de hacer quimioterapia o radioterapia, en su caso bastó la operación. Después ha seguido los controles periódicos muy ordenadamente y aconseja a todos que hagan lo mismo, pues así se puede encontrar un cáncer en sus inicios.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div> 
     <br>
          <div class="test-card">
-            <div class="help-photo">
+            <div class="test-photo">
                 <img src="../../MULTIMEDIA/amy-16x9-1.jpg" alt="Amy">
             </div>
             <div class="test-info">
@@ -195,6 +480,7 @@
                    Luego, en noviembre del 2011 tuve un sangrado vaginal significativo por alrededor de una semana, seguido de ausencia total del periodo en el mes siguiente, lo cual no era normal para mí.<br>
                    Con el paso del tiempo y cob el tratamiento aprendí a tratarme mejor. Escucho a mi cuerpo. Cuando estoy cansada, descanso. Cuando estoy triste, lloro. Cuando estoy feliz, río. Todavía sigo conociendo mi "nuevo" cuerpo. Algunas veces, funciona bien, otras no. Pero estoy viva y estoy bien, ¡y estoy rodeada por aquellos que más amo!</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div>
     <br>
@@ -209,11 +495,12 @@
                     Decidí someterme a un procedimiento para sacar las células. Recuerdo estar descansando en casa durante mi recuperación y sentirme muy agradecida por esa cita médica. De no haberla tenido, el futuro podría haber sido muy distinto para mí.<br> 
                     La gente escucha la palabra "cáncer" y se pregunta, "¿Lo sobreviviré? ¿Tendré que vivir siempre con esto?". Pero sé que ese no tiene que ser siempre el caso. Podemos encontrar estos problemas al inicio, prevenir el cáncer antes de que comience y luego recuperarnos y alcanzar nuestro máximo potencial en la vida.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div>
     <br>
           <div class="test-card">
-            <div class="help-photo">
+            <div class="test-photo">
                 <img src="../../MULTIMEDIA/brittany-16x9-1.jpg" alt="Brittany">
             </div>
             <div class="test-info">
@@ -223,6 +510,7 @@
                    Como la masa era de unos 6 cm, decidimos realizar una operación ambulatoria y enviarla a patología. Me hicieron la operación el 2 de febrero del 2016 y 2 semanas después tuve una cita de seguimiento para asegurarnos de que estaba sanando bien, resultó ser que los márgenes dieron resultados positivos para sarcoma de la vulva y me remitieron a un especialista. <br>
                    Cuando cuento mi historia, mi mensaje para otras mujeres es que ustedes conocen su cuerpo mejor que nadie. Si hay cualquier cambio que no puedan entender, háganse un chequeo. Creo firmemente que el diagnóstico temprano me salvó la vida. </p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div>       
     <br>
@@ -237,6 +525,7 @@
                    Busqué a un gastroenterólogo que de inmediato palpó mi estómago y ordenó una tomografía computarizada. Me llamó de vuelta a su consultorio y me dijo: "Tiene cáncer de ovario". Quedé atónita y me puse histérica. Tengo la bendición de que mi tía sea enfermera oncológica. Ella llamó a un oncólogo que me puso en las manos de uno de los mejores ginecólogos oncólogos del país. Él me hizo una histerectomía radical y, siguiendo su recomendación, me sometí a seis rondas de quimioterapia. <br> 
                    Terminé el tratamiento en noviembre del 2013.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div>
     <br> 
@@ -251,6 +540,7 @@
                    Me hicieron radioterapia y quimioterapia. Tuve la suerte de no sufrir efectos secundarios por el tratamiento. Después de la radiación y la quimioterapia, me hicieron una histerectomía completa y me sacaron los ovarios. Ahora no tengo cáncer.<br>
                    Hoy en día, el cáncer ya no es una sentencia de muerte. No piensen que no tienen cáncer solo porque creen que no pueden pagar por la consulta para el diagnóstico y el tratamiento que necesiten.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div>
     <br>
@@ -265,32 +555,9 @@
                    Me hice la colonoscopia el 10 de enero del 2017 y el médico tomó muestras de tejido para realizar una biopsia. Una semana más tarde, llegaron los resultados y mostraron que sí tenía cáncer de colon. El 2 de febrero del 2017, me operaron para extirpar el cáncer.<br>
                    Afortunadamente, debido a que el cáncer fue hallado lo suficientemente temprano, la operación fue exitosa. Pero nunca lo hubieran encontrado de forma temprana si yo no me hubiera hecho la prueba de detección.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
             </div>
         </div>
-
-    <script>
-        const btn = document.getElementById('hamburgerBtn');
-        const nav = document.getElementById('mainNav');
-
-        btn.addEventListener('click', () => {
-            const isOpen = nav.classList.toggle('open');
-            btn.classList.toggle('open', isOpen);
-            btn.setAttribute('aria-expanded', isOpen);
-        });
-
-        const sidebarBtn = document.getElementById('sidebarBtn');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-
-        const toggleSidebar = () => {
-            const isOpen = sidebarMenu.classList.toggle('open');
-            sidebarBtn.classList.toggle('open', isOpen);
-            menuOverlay.classList.toggle('show', isOpen);
-        };
-
-        sidebarBtn.addEventListener('click', toggleSidebar);
-        menuOverlay.addEventListener('click', toggleSidebar);
-    </script>
 
 <!-- ===== PIE DE PÁGINA ===== -->
     <footer>
@@ -325,6 +592,36 @@
         </div>
     </div>
 </footer>
+
+    <script>
+        const btn = document.getElementById('hamburgerBtn');
+        const nav = document.getElementById('mainNav');
+
+        btn.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('open');
+            btn.classList.toggle('open', isOpen);
+            btn.setAttribute('aria-expanded', isOpen);
+        });
+
+        const sidebarBtn = document.getElementById('sidebarBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        const toggleSidebar = () => {
+            const isOpen = sidebarMenu.classList.toggle('open');
+            sidebarBtn.classList.toggle('open', isOpen);
+            menuOverlay.classList.toggle('show', isOpen);
+        };
+
+        sidebarBtn.addEventListener('click', toggleSidebar);
+        menuOverlay.addEventListener('click', toggleSidebar);
+
+        function toggleTestimonio(button) {
+            const desc = button.previousElementSibling;
+            const expanded = desc.classList.toggle('expanded');
+            button.textContent = expanded ? 'Leer menos ▲' : 'Leer testimonio completo ▼';
+        }
+    </script>
     <script src="../../JS/site.js" defer></script>
 </body>
 </html>
