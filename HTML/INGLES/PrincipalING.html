@@ -3,16 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts - Canrisk</title>
-    <link rel="stylesheet" href="../../CSS/contacto.css">
+    <title>Home - Canrisk</title>
     <link rel="stylesheet" href="../../CSS/Style-Info.css">
     <link rel="icon" type="image/png" href="../../MULTIMEDIA/Canrisk LOGO.png">
+    <style>
+        /* ===== HERO QUICK FACTS ===== */
+        .home-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: -1.5rem auto 2.5rem;
+            max-width: 1000px;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .home-stat-box {
+            flex: 1 1 200px;
+            max-width: 240px;
+            background: #fff;
+            border: 2px solid #a83862;
+            border-radius: 14px;
+            padding: 1.1rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(168, 56, 98, 0.15);
+        }
+
+        .home-stat-box .stat-icon {
+            font-size: 1.7rem;
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+
+        .home-stat-box .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #a83862;
+            display: block;
+        }
+
+        .home-stat-box .stat-label {
+            font-size: 0.82rem;
+            color: #555;
+        }
+
+        /* ===== EXPLORE CANRISK ===== */
+        .explore-section {
+            max-width: 1150px;
+            margin: 3.5rem auto;
+            padding: 0 1.2rem;
+        }
+
+        .explore-section h2 {
+            text-align: center;
+            color: #a83862;
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .explore-section .sub {
+            text-align: center;
+            color: #777;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .explore-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+            border-top: 5px solid #a83862;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: block;
+        }
+
+        .explore-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(168, 56, 98, 0.2);
+        }
+
+        .explore-card .explore-icon {
+            font-size: 1.9rem;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .explore-card h3 {
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 0.4rem;
+        }
+
+        .explore-card p {
+            font-size: 0.78rem;
+            color: #777;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .explore-card .explore-arrow {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-size: 0.8rem;
+            color: #a83862;
+            font-weight: 700;
+        }
+
+        /* ===== FLIP CARD ===== */
+        .IMG .flip-card {
+            perspective: 1200px;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner,
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(145deg, #a83862, #5e1c38);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.8rem;
+            gap: 0.6rem;
+        }
+
+        .flip-card-back p {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .flip-hint {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.8rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* ===== TESTIMONIES OF FAITH CARDS ===== */
+        .test-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            border-left: 6px solid #a83862;
+            padding: 1.6rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .test-photo {
+            flex: 0 0 150px;
+        }
+
+        .test-photo img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #a83862;
+            display: block;
+        }
+
+        .test-info {
+            flex: 1 1 300px;
+            min-width: 0;
+        }
+
+        .test-info h3 {
+            color: #a83862;
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .test-desc {
+            position: relative;
+            max-height: 5.6em;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .test-desc.expanded {
+            max-height: 1200px;
+        }
+
+        .test-desc:not(.expanded)::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2.4em;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+        }
+
+        .test-toggle {
+            display: inline-block;
+            margin-top: 0.8rem;
+            background: none;
+            border: none;
+            color: #a83862;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .test-toggle:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
     <!-- ===== LOGO AND SIDEBAR TOGGLE BUTTON ===== -->
     <div class="navbar-brand">
-        <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Abrir menú lateral">
+        <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Open side menu">
             <span></span>
             <span></span>
             <span></span>
@@ -31,9 +290,11 @@
 
         <ul class="sidebar-list">
             <li><a href="cancer-introING.html">Introduction to Cancer &rarr;</a></li>
-            <li><a href="psychohelpING.html">Psychological support &rarr;</a></li>
-            <li><a href="helpING.html">Help center &rarr;</a></li>
-            <li><a href="quizzING.html">Quizz &rarr;</a></li>
+            <li><a href="cancerING.html">Cancer Types &rarr;</a></li>
+            <li><a href="psycho-helpING.html">Psychological Support &rarr;</a></li>
+            <li><a href="helpING.html">Help Center &rarr;</a></li>
+            <li><a href="quizzING.html">Quiz &rarr;</a></li>
+            <li><a href="faqING.html">FAQ &rarr;</a></li>
         </ul>
     </nav>
 
@@ -43,7 +304,7 @@
     <!-- ===== TOP NAVIGATION BAR ===== -->
     <nav class="navbar" id="mainNav">
 
-        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -68,20 +329,40 @@
 
     </nav>
 
-    <!-- ===== ENCABEZADO DE LA PÁGINA ===== -->
+    <!-- ===== PAGE HEADER ===== -->
     <header class="hero-section">
         <div class="hero-container">
-            <h1 class="hero-title">Evaluación, Apoyo y Esperanza</h1>
+            <h1 class="hero-title">Assessment, Support and Hope</h1>
             <p class="hero-subtitle">
-                Bienvenido a Canrisk. Somos una plataforma dedicada a brindar herramientas de prevención, soporte emocional y asistencia para jóvenes y familias enfrentando procesos oncológicos.
+                Welcome to Canrisk. We are a platform dedicated to providing prevention tools, emotional support, and assistance for young people and families facing oncological processes.
             </p>
-            <a href="cancer.html" class="btn-cancer">
-                <span>Conocer Tipos de Cáncer</span> &rarr;
+            <a href="cancerING.html" class="btn-cancer">
+                <span>Learn About Cancer Types</span> &rarr;
             </a>
         </div>
     </header>
 
-<section class="info-row-container">
+    <!-- ===== QUICK FACTS ===== -->
+    <br><br>
+    <div class="home-stats">
+        <div class="home-stat-box">
+            <span class="stat-icon">🎗️</span>
+            <span class="stat-number">6</span>
+            <span class="stat-label">cancer types explained in detail</span>
+        </div>
+        <div class="home-stat-box">
+            <span class="stat-icon">💬</span>
+            <span class="stat-number">10</span>
+            <span class="stat-label">real testimonies from survivors</span>
+        </div>
+        <div class="home-stat-box">
+            <span class="stat-icon">🤝</span>
+            <span class="stat-number">100%</span>
+            <span class="stat-label">free, informative support</span>
+        </div>
+    </div>
+
+    <section class="info-row-container">
         <h2 class="info-row-title">Support Along the Way</h2>
         <div class="fila-texto-img">
             <div class="content-text">
@@ -94,24 +375,25 @@
                 </div>
             </div>
 
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="../../MULTIMEDIA/image 5.png" alt="Acompañamiento y empatía">
+            <div class="IMG">
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="../../MULTIMEDIA/image 5.png" alt="Acompañamiento y empatía" class="IMG-TXT">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Always respect her autonomy, treating her as the person 
+                                she is rather than just a patient undergoing treatment. Avoid 
+                                giving unsolicited medical advice or sharing stories about 
+                                other cases that create unnecessary pressure. Supportive 
+                                silence is often more comforting than clichés 
+                                or motivational speeches</p>
+                        </div>
+                    </div>
+                </div>
+                <span class="flip-hint">Tap the image for more tips</span>
+            </div>
         </div>
-        <div class="flip-card-back">
-          <p>Always respect her autonomy, treating her as the person 
-            she is rather than just a patient undergoing treatment. Avoid 
-            offering unsolicited medical advice or sharing stories 
-            about other cases that create unnecessary pressure. Supportive 
-            silence is often more comforting than clichés 
-            or motivational speeches.</p>
-        </div>
-      </div>
-    </div>
-
-    </div>
-
     </section>
 
 <!--Testimonies of Faith-->
@@ -125,39 +407,41 @@
             </p>
      </div>
    </div>
-<br>
+   <br>
         <div class="test-card">
-            <div class="help-photo">
+            <div class="test-photo">
                 <img src="../../MULTIMEDIA/ana-maria1200x675.jpg" alt="Ana María">
             </div>
             <div class="test-info">
                 <h3>Ana María, lung cancer survivor. </h3>
                 <div class="test-desc">
-                    <p><strong>In case I need to fight again, I’ve got my gloves tucked away and ready.</strong><br>
-                    I’m Ana María, a stage 4 lung cancer survivor, and I’ve been cancer-free for six months.<br>
+                    <p><strong>In case I need to fight again, I've got my gloves tucked away and ready.</strong><br>
+                    I'm Ana María, a stage 4 lung cancer survivor, and I've been cancer-free for six months.<br>
                     My son-in-law is an oncologist; having a doctor for a son-in-law who understood the subject was a positive thing at times, but at other times, it wasn't.<br>
                     Anything negative does me no good. And since everything was negative, at one point I had to sit down with him and explain that I don't respond well to negative things—like his percentages and statistics. They don't help me because I don't operate that way. Once I explained that it was hurting me and wasn't helpful—and luckily he was able to understand, though it took some effort—things changed.<br>
                     Staying positive and surrounding yourself with the right people and things is a huge help. If you can face the disease, you can also stand up to one or several negative people.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div>
   <br>
-          <div class="test-card">
+        <div class="test-card">
             <div class="test-photo">
                 <img src="../../MULTIMEDIA/juan luis tintaya-1.webp" alt="Juan Luis">
             </div>
             <div class="test-info">
                 <h3>Juan Luis, tongue cancer survivor. </h3>
-                <div class="help-desc">
+                <div class="test-desc">
                  <p>About four years ago, Juan Luis Tintaya began experiencing discomfort in his tongue. Sores appeared, and he felt a burning sensation. He hoped the symptoms would go away on their own, but they didn't, so after two months, he visited a doctor. A head and neck specialist ordered a biopsy to rule out the possibility of a malignant tumor.<br>
                    The results confirmed cancer of the tongue, the floor of the mouth, and the lymph nodes. At the time, Juan Luis was 41 years old and working hard. However, the diagnosis brought his professional life to a halt so he could focus on his health. He underwent surgery, followed by chemotherapy and radiation.
                    His cancer treatment lasted three months—a short but intense period. Surgeons successfully removed the affected area and the lymph nodes. He underwent 33 radiation sessions and received three high-dose chemotherapy treatments. He recovered well after that.<br></p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div>
    <br>
-          <div class="test-card">
-            <div class="help-photo">
+         <div class="test-card">
+            <div class="test-photo">
                 <img src="../../MULTIMEDIA/felix salomon-1.webp" alt="Felix Salomon">
             </div>
             <div class="test-info">
@@ -166,10 +450,11 @@
                     <p>Felix Salomon was diagnosed with prostate cancer in 2009, at the age of 61. Unfortunately, he experienced medical malpractice; subsequently, he went to a different hospital where he underwent the necessary tests and another surgery.<br>
                     After that surgery, Mr. Salomon continued his medical check-ups, and thanks to this good habit, a recurrence of the cancer was detected early in 2012. He underwent 36 sessions of radiotherapy and currently has a check-up once a year.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div>   
     <br>
-         <div class="test-card">
+          <div class="test-card">
             <div class="test-photo">
                 <img src="../../MULTIMEDIA/felipe yanes-1.webp" alt="Felipe Yanes">
             </div>
@@ -177,14 +462,15 @@
                 <h3>Felipe Yanes, prostate cancer survivor. </h3>
                 <div class="test-desc">
                 <p>Nine years ago, Felipe Yanes discovered he had prostate cancer, thanks to the routine medical check-ups he made a habit of getting. His great sense of humor and positive outlook on life worked in his favor throughout his treatment.<br>
-                   Here is his testimonial as a cancer patient: “When I had the biopsy, true to form, I told the doctors: ‘If it’s a bingo, we’d better note the number, because it’s bound to be a winner.’ They laughed. And sure enough, it was cancer. I didn’t get depressed; I trusted the doctors and underwent the surgery they recommended.”<br>
+                   Here is his testimonial as a cancer patient: "When I had the biopsy, true to form, I told the doctors: 'If it's a bingo, we'd better note the number, because it's bound to be a winner.' They laughed. And sure enough, it was cancer. I didn't get depressed; I trusted the doctors and underwent the surgery they recommended."<br>
                    Yanes did not need chemotherapy or radiation therapy; in his case, the surgery was sufficient. Since then, he has diligently kept up with his periodic check-ups and advises everyone to do the same, as this allows cancer to be detected in its early stages.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div> 
     <br>
-          <div class="test-card">
-            <div class="help-photo">
+         <div class="test-card">
+            <div class="test-photo">
                 <img src="../../MULTIMEDIA/amy-16x9-1.jpg" alt="Amy">
             </div>
             <div class="test-info">
@@ -192,12 +478,13 @@
                 <div class="test-desc">
                 <p>Before my cancer diagnosis, I was always in excellent health. I didn't have any serious issues, and my menstrual cycle was normal. 
                    Then, in November 2011, I experienced significant vaginal bleeding for about a week, followed by a complete absence of my period the next month—which wasn't normal for me.<br>
-                   Over time and through treatment, I’ve learned to treat myself better. I listen to my body. When I’m tired, I rest. When I’m sad, I cry. When I’m happy, I laugh. I’m still getting to know my "new" body. Sometimes it works well, other times it doesn’t. But I’m alive and I’m doing well, and I’m surrounded by the people I love most!</p>
+                   Over time and through treatment, I've learned to treat myself better. I listen to my body. When I'm tired, I rest. When I'm sad, I cry. When I'm happy, I laugh. I'm still getting to know my "new" body. Sometimes it works well, other times it doesn't. But I'm alive and I'm doing well, and I'm surrounded by the people I love most!</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div>
     <br>
-          <div class="test-card">
+         <div class="test-card">
             <div class="test-photo">
                 <img src="../../MULTIMEDIA/cindy-16x9-1.jpg" alt="Cindy">
             </div>
@@ -208,11 +495,12 @@
                     I decided to undergo a procedure to remove the cells. I remember resting at home during my recovery and feeling so grateful for that appointment. Had I not gone, the future might have looked very different for me.<br> 
                     People hear the word "cancer" and wonder, "Will I survive? Will I have to live with this forever?" But I know that doesn't always have to be the case. We can catch these issues early, prevent cancer before it starts, and then recover and reach our full potential in life.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div>
     <br>
           <div class="test-card">
-            <div class="help-photo">
+            <div class="test-photo">
                 <img src="../../MULTIMEDIA/brittany-16x9-1.jpg" alt="Brittany">
             </div>
             <div class="test-info">
@@ -222,10 +510,11 @@
                    Since the mass was about 6 cm in size, we decided to perform an outpatient procedure and send the tissue to pathology. I had the surgery on February 2, 2016, and two weeks later, I went for a follow-up appointment to ensure I was healing properly; it turned out the margins tested positive for vulvar sarcoma, and I was referred to a specialist. <br>
                    When I share my story, my message to other women is that you know your body better than anyone else. If there is any change you don't understand, get a check-up. I firmly believe that early diagnosis saved my life. </p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div>       
     <br>
-         <div class="test-card">
+          <div class="test-card">
             <div class="test-photo">
                 <img src="../../MULTIMEDIA/tiffany-16x9-1.jpg" alt="Tiffany">
             </div>
@@ -236,10 +525,11 @@
                    I sought out a gastroenterologist who immediately palpated my stomach and ordered a CT scan. He called me back to his office and told me, "You have ovarian cancer." I was stunned and became hysterical. I am blessed to have an aunt who is an oncology nurse. She called an oncologist who put me in the hands of one of the best gynecologic oncologists in the country. He performed a radical hysterectomy and, following his recommendation, I underwent six rounds of chemotherapy. <br> 
                    I finished treatment in November 2013.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div>
-    <br>
-        <div class="test-card">
+    <br> 
+          <div class="test-card">
             <div class="test-photo">
                 <img src="../../MULTIMEDIA/eileen-16x9-1.jpg" alt="Eileen">
             </div>
@@ -250,10 +540,11 @@
                    I underwent radiation therapy and chemotherapy. Fortunately, I did not experience any side effects from the treatment. After the radiation and chemotherapy, I had a complete hysterectomy and my ovaries were removed. I am now cancer-free.<br>
                    Nowadays, cancer is no longer a death sentence. Do not assume you don't have cancer simply because you think you cannot afford the consultation for the diagnosis and treatment you need.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div>
     <br>
-        <div class="test-card">
+          <div class="test-card">
             <div class="test-photo">
                 <img src="../../MULTIMEDIA/RobertSmith.jpg" alt="Roberto">
             </div>
@@ -264,32 +555,9 @@
                    I had the colonoscopy on January 10, 2017, and the doctor took tissue samples for a biopsy. A week later, the results came back confirming I had colon cancer. On February 2, 2017, I underwent surgery to remove the cancer.<br>
                    Fortunately, because the cancer was detected early enough, the surgery was successful. But they never would have found it early if I hadn't gotten screened.</p>
                 </div>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimony ▼</button>
             </div>
         </div>
-
-    <script>
-        const btn = document.getElementById('hamburgerBtn');
-        const nav = document.getElementById('mainNav');
-
-        btn.addEventListener('click', () => {
-            const isOpen = nav.classList.toggle('open');
-            btn.classList.toggle('open', isOpen);
-            btn.setAttribute('aria-expanded', isOpen);
-        });
-
-        const sidebarBtn = document.getElementById('sidebarBtn');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-
-        const toggleSidebar = () => {
-            const isOpen = sidebarMenu.classList.toggle('open');
-            sidebarBtn.classList.toggle('open', isOpen);
-            menuOverlay.classList.toggle('show', isOpen);
-        };
-
-        sidebarBtn.addEventListener('click', toggleSidebar);
-        menuOverlay.addEventListener('click', toggleSidebar);
-    </script>
 
 <!-- ===== FOOTER ===== -->
     <footer>
@@ -324,6 +592,36 @@
         </div>
     </div>
 </footer>
+
+    <script>
+        const btn = document.getElementById('hamburgerBtn');
+        const nav = document.getElementById('mainNav');
+
+        btn.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('open');
+            btn.classList.toggle('open', isOpen);
+            btn.setAttribute('aria-expanded', isOpen);
+        });
+
+        const sidebarBtn = document.getElementById('sidebarBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        const toggleSidebar = () => {
+            const isOpen = sidebarMenu.classList.toggle('open');
+            sidebarBtn.classList.toggle('open', isOpen);
+            menuOverlay.classList.toggle('show', isOpen);
+        };
+
+        sidebarBtn.addEventListener('click', toggleSidebar);
+        menuOverlay.addEventListener('click', toggleSidebar);
+
+        function toggleTestimonio(button) {
+            const desc = button.previousElementSibling;
+            const expanded = desc.classList.toggle('expanded');
+            button.textContent = expanded ? 'Read less ▲' : 'Read full testimony ▼';
+        }
+    </script>
     <script src="../../JS/site.js" defer></script>
 </body>
 </html>
