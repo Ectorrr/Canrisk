@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../CSS/Style-Info.css">
     <link rel="icon" type="image/png" href="../../MULTIMEDIA/Canrisk LOGO.png">
     <style>
-        /* ===== FAQ ===== */
+        /*  FAQ  */
         .faq-section {
             max-width: 950px;
             margin: 2.5rem auto 3rem;
@@ -119,7 +119,7 @@
 </head>
 
 <body>
-    <!-- ===== LOGO Y BOTÓN DEL MENÚ LATERAL ===== -->
+    <!--  LOGO Y BOTÓN DEL MENÚ LATERAL  -->
     <div class="navbar-brand">
         <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Abrir menú lateral">
             <span></span>
@@ -130,7 +130,7 @@
         <img src="../../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L"> 
     </div>
 
-    <!-- ===== MENÚ LATERAL (SIDEBAR) ===== -->
+    <!--  MENÚ LATERAL (SIDEBAR)  -->
     <nav class="sidebar-menu" id="sidebarMenu">
         <div class="sidebar-decoracion">
             <span></span>
@@ -148,10 +148,10 @@
         </ul>
     </nav>
 
-    <!-- ===== FONDO OSCURO AL ABRIR EL SIDEBAR ===== -->
+    <!-- FONDO OSCURO AL ABRIR EL SIDEBAR  -->
     <div class="overlay-menu" id="menuOverlay"></div>
 
-    <!-- ===== BARRA DE NAVEGACIÓN SUPERIOR ===== -->
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR  -->
     <nav class="navbar" id="mainNav">
 
         <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
@@ -181,11 +181,10 @@
 
 <!---Preguntas -->
 
-<!-- ===== ENCABEZADO DE LA PÁGINA ===== -->
     <div class="Titulos">
         <h1>Preguntas Frecuentes</h1>
     </div>
-
+    <br>
     <div class="fila-texto-img">
         <div class="content-text">
             <div class="Start">
@@ -202,7 +201,7 @@
     </div>
     </div>
 
-    <!-- ===== PREGUNTAS FRECUENTES ===== -->
+    <!-- PREGUNTAS FRECUENTES -->
     <div class="faq-section">
         <div class="faq-search-wrap">
             <input type="text" id="faqSearch" class="faq-search" placeholder="🔎 Busca tu pregunta aquí...">
@@ -312,9 +311,7 @@
         <p class="faq-no-results" id="faqNoResults">No encontramos preguntas que coincidan con tu búsqueda. Intenta con otra palabra clave.</p>
     </div>
 
-<!--Footer-->
-
-<!-- ===== PIE DE PÁGINA ===== -->
+<!--  PIE DE PÁGINA -->
     <footer>
     <div class="footer-container">
         <div class="footer-content">
@@ -376,7 +373,6 @@
         sidebarBtn.addEventListener('click', toggleSidebar);
         menuOverlay.addEventListener('click', toggleSidebar);
 
-        // ===== BUSCADOR DE PREGUNTAS FRECUENTES =====
         const faqSearch = document.getElementById('faqSearch');
         const faqItems = document.querySelectorAll('.faq-item');
         const faqCategories = document.querySelectorAll('.faq-category');

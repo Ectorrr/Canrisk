@@ -6,6 +6,133 @@
     <title>Cancer Information- Canrisk</title>
     <link rel="stylesheet" href="../../CSS/Style-Info.css">
     <link rel="icon" type="image/png" href="../../MULTIMEDIA/Canrisk LOGO.png">
+     <style>
+        /*  GLOSARIO MÉDICO  */
+        .glossary-section {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.2rem;
+        }
+ 
+        .glossary-section h2 {
+            text-align: center;
+            color: #a83862;
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+        }
+ 
+        .glossary-section .sub {
+            text-align: center;
+            color: #777;
+            font-size: 0.85rem;
+            margin-bottom: 1.8rem;
+        }
+ 
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.1rem;
+        }
+ 
+        .glossary-term {
+            background: #fff;
+            border: 1px solid #eed4dd;
+            border-left: 5px solid #a83862;
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+ 
+        .glossary-term dt {
+            font-weight: 700;
+            color: #a83862;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+ 
+        .glossary-term dd {
+            margin: 0;
+            font-size: 0.87rem;
+            line-height: 1.5;
+            color: #555;
+        }
+ 
+        /* ===== RUTA DEL DIAGNÓSTICO (TIMELINE) ===== */
+        .diagnosis-path {
+            background: linear-gradient(145deg, #5e1c38, #a83862);
+            padding: 3rem 1.2rem;
+            margin: 3rem 0;
+        }
+ 
+        .diagnosis-path h2 {
+            text-align: center;
+            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+        }
+ 
+        .diagnosis-path .sub {
+            text-align: center;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+            margin-bottom: 2.2rem;
+        }
+ 
+        .timeline {
+            max-width: 950px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0;
+            counter-reset: step;
+        }
+ 
+        .timeline-step {
+            flex: 1 1 170px;
+            max-width: 200px;
+            text-align: center;
+            padding: 0 0.8rem;
+            position: relative;
+        }
+ 
+        .timeline-step .step-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            color: #a83862;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.7rem;
+            font-size: 1.1rem;
+        }
+ 
+        .timeline-step h4 {
+            color: #fff;
+            font-size: 0.92rem;
+            margin: 0 0 0.4rem 0;
+        }
+ 
+        .timeline-step p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+ 
+        /* NOTA FINAL  */
+        .glossary-note {
+            max-width: 700px;
+            margin: 2rem auto 0;
+            text-align: center;
+            font-size: 0.82rem;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,7 +147,7 @@
         <img src="../../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L"> 
     </div>
 
-    <!-- ===== SIDEBAR MENU ===== -->
+    <!-- SIDEBAR MENU -->
     <nav class="sidebar-menu" id="sidebarMenu">
         <div class="sidebar-decoracion">
             <span></span>
@@ -33,13 +160,14 @@
             <li><a href="psychohelpING.html">Psychological support &rarr;</a></li>
             <li><a href="helpING.html">Help center &rarr;</a></li>
             <li><a href="quizzING.html">Quizz &rarr;</a></li>
+            <li><a href="faqING.html">Frequently asked questions &rarr;</a></li>
         </ul>
     </nav>
 
-    <!-- ===== SIDEBAR DARK OVERLAY ===== -->
+    <!-- SIDEBAR DARK OVERLAY -->
     <div class="overlay-menu" id="menuOverlay"></div>
 
-    <!-- ===== TOP NAVIGATION BAR ===== -->
+    <!-- TOP NAVIGATION BAR  -->
     <nav class="navbar" id="mainNav">
 
         <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
@@ -348,6 +476,87 @@
         </div>
 
     </main>
+
+    <!-- DIAGNOSIS PATHWAY -->
+        <div class="diagnosis-path">
+            <h2>🧭 What happens after noticing a symptom?</h2>
+            <p class="sub">A general guide to the process — each case may vary based on medical judgment</p>
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="step-circle">1</div>
+                    <h4>Initial consultation</h4>
+                    <p>You visit a general practitioner and explain the symptoms you have noticed.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">2</div>
+                    <h4>Screening tests</h4>
+                    <p>Laboratory tests, imaging, or specific studies are ordered based on the case.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">3</div>
+                    <h4>Biopsy</h4>
+                    <p>If a suspicious lesion is found, a small tissue sample is taken for analysis.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">4</div>
+                    <h4>Diagnosis and staging</h4>
+                    <p>The medical team confirms the diagnosis and determines the stage of the condition.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">5</div>
+                    <h4>Treatment plan</h4>
+                    <p>A personalized plan is defined in collaboration with oncology specialists.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--  MEDICAL GLOSSARY  -->
+        <div class="glossary-section">
+            <h2>Basic Medical Glossary</h2>
+            <p class="sub">Terms frequently used when discussing cancer, explained in simple language</p>
+            <dl class="glossary-grid">
+                <div class="glossary-term">
+                    <dt>Benign tumor</dt>
+                    <dd>A growth of cells that does not invade other tissues or spread to other parts of the body.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Malignant tumor</dt>
+                    <dd>A growth of cells capable of invading nearby tissues and spreading to other areas of the body.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Metastasis</dt>
+                    <dd>The process by which cancer cells break away from the original tumor and form new tumors in other parts of the body.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Biopsy</dt>
+                    <dd>The removal of a small tissue sample for microscopic analysis to confirm the presence of cancer cells.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Adenocarcinoma</dt>
+                    <dd>A type of cancer that originates in glandular cells, found in organs such as the breast, prostate, lung, or stomach.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Chemotherapy</dt>
+                    <dd>Treatment with medications intended to destroy or slow the growth of cancer cells in the body.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Radiotherapy</dt>
+                    <dd>Use of high-energy radiation directed at a specific area to destroy cancer cells or shrink tumors.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Screening</dt>
+                    <dd>Tests performed on people without symptoms to detect possible signs of cancer at very early stages.</dd>
+                </div>
+                <div class="glossary-term">
+                    <dt>Remission</dt>
+                    <dd>Decrease or disappearance of the signs and symptoms of cancer, whether partial or complete.</dd>
+                </div>
+            </dl>
+            <p class="glossary-note">This glossary is for informational purposes only and does not replace an explanation from a healthcare professional regarding your specific case.</p>
+        </div>
+ 
+    </main>
+
 <!-- ===== FOOTER ===== -->
     <footer>
     <div class="footer-container">
