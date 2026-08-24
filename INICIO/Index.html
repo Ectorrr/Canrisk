@@ -5,35 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canrisk - Información y apoyo sobre el cáncer</title>
     <link rel="stylesheet" href="../CSS/Style-Info.css">
-    <link rel="icon" type="image/png" href="../MULTIMEDIA/Canrisk LOGO.png">
+    <link rel="icon" type="image/png" href="../MULTIMEDIA/Canrisk LOGO.svg">
 </head>
 <body>
 
     <!-- ===== LOGO Y BOTÓN DEL MENÚ LATERAL ===== -->
     <div class="navbar-brand">
         <h1>Canrisk</h1>
-        <img src="../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L">
+        <img src="../MULTIMEDIA/Canrisk LOGO.svg" alt="Canrisk" class="C-L">
     </div>
 
 
 
     <!-- ===== BARRA DE NAVEGACIÓN SUPERIOR ===== -->
-    <header class="navbar" id="mainNav">
+    <nav class="navbar" id="mainNav">
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="Info-nav">
+            <li class="box-II"><h4><a href="Faq.N.html">Preguntas frecuentes</a></h4></li>
+            <li class="box-II"><a href="Index.html"><h4>Inicio</h4></a></li>
+        </ul>
+
         <div class="right-group">
             <ul class="Index">
-                <li class="box-I"><a href="HTML/ESPANOL/login.html"><h4>Iniciar sesión</h4></a></li>
-                <li class="box-I"><a href="HTML/ESPANOL/register.html"><h4>Registrarse</h4></a></li>
+                <li class="box-I"><a href="../../HTML/ESPANOL/login.html"><h4>Iniciar Sesión</h4></a></li>
+                <li class="box-I"><a href="../../HTML/ESPANOL/register.html"><h4>Registrarse</h4></a></li>
             </ul>
-            <a id="langSwitch" class="lang-switch" href="IndexING.html" aria-label="Cambiar idioma / Switch language">ES</a>
+            <a id="langSwitchNL" class="lang-switchNL" href="IndexING.html" aria-label="Cambiar idioma / Switch language">ES</a>
             <div class="Photo">
-                <img src="../MULTIMEDIA/profile.png" class="PP-default" alt="Foto de perfil del usuario">
+                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="Foto de perfil del usuario">
             </div>
         </div>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir navegación" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-    </header>
 
+    </nav>
     <!-- ===== ENCABEZADO PRINCIPAL (HERO) ===== -->
     <header class="hero-section">
         <div class="hero-container">
@@ -42,7 +51,9 @@
                 Herramientas de prevención, apoyo emocional y acompañamiento para jóvenes y familias
                 que enfrentan un proceso oncológico.
                 <br>
-                <span class="Negrita">Esta plataforma NO reemplaza la ayuda médica de un profesional.</span>
+                <strong>
+                    <span class="Negrita">Esta plataforma NO reemplaza la ayuda médica de un profesional.</span>
+                </strong>
             </p>
             <a href="../HTML/ESPANOL/register.html" class="btn-cancer">
                 <span>Regístrate para saber más</span> &rarr;
@@ -125,7 +136,7 @@
         function prevSlide() { showSlide(index - 1); }
 
     </script>
-    <script src="JS/site.js" defer></script>
+    <script src="../JS/site.js" defer></script>
 
     <!-- ===== PIE DE PÁGINA ===== -->
     <footer>
