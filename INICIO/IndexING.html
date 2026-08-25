@@ -97,16 +97,18 @@
         const sidebarBtn = document.getElementById('sidebarBtn');
         const sidebarMenu = document.getElementById('sidebarMenu');
         const menuOverlay = document.getElementById('menuOverlay');
- 
-        const toggleSidebar = () => {
-            const isOpen = sidebarMenu.classList.toggle('open');
-            sidebarBtn.classList.toggle('open', isOpen);
-            menuOverlay.classList.toggle('show', isOpen);
-            sidebarBtn.setAttribute('aria-expanded', isOpen);
-        };
- 
-        sidebarBtn.addEventListener('click', toggleSidebar);
-        menuOverlay.addEventListener('click', toggleSidebar);
+
+        if (sidebarBtn && sidebarMenu && menuOverlay) {
+            const toggleSidebar = () => {
+                const isOpen = sidebarMenu.classList.toggle('open');
+                sidebarBtn.classList.toggle('open', isOpen);
+                menuOverlay.classList.toggle('show', isOpen);
+                sidebarBtn.setAttribute('aria-expanded', isOpen);
+            };
+
+            sidebarBtn.addEventListener('click', toggleSidebar);
+            menuOverlay.addEventListener('click', toggleSidebar);
+        }
     </script>
     <script src="../JS/site.js" defer></script>
  

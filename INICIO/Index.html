@@ -46,7 +46,9 @@
     <!-- ===== ENCABEZADO PRINCIPAL (HERO) ===== -->
     <header class="hero-section">
         <div class="hero-container">
-            <h1 class="hero-title">Canrisk, tu sitio informativo sobre el cáncer</h1>
+            <div class="Titulos-DEG">
+                <h1 class="hero-title">Canrisk, tu sitio informativo sobre el cáncer</h1>
+            </div>
             <p class="hero-subtitle">
                 Herramientas de prevención, apoyo emocional y acompañamiento para jóvenes y familias
                 que enfrentan un proceso oncológico.
@@ -55,24 +57,19 @@
                     <span class="Negrita">Esta plataforma NO reemplaza la ayuda médica de un profesional.</span>
                 </strong>
             </p>
-            <a href="../HTML/ESPANOL/register.html" class="btn-cancer">
-                <span>Regístrate para saber más</span> &rarr;
-            </a>
         </div>
-    </header>
-
- <!--Carousel de la evaluación-->
-<div class="carousel">
-    <div class="carousel-track" id="track">
-      <div class="carousel-slide"><img src="../MULTIMEDIA/1.jpg" alt=></div>
-      <div class="carousel-slide"><img src="../MULTIMEDIA/2.jpg" alt=></div>
-      <div class="carousel-slide"><img src="../MULTIMEDIA/3.jpg" alt=></div>
-      <div class="carousel-slide"><img src="../MULTIMEDIA/4.jpg" alt=></div>
+             <!-- ==== CAROUSEL DE IMAGENES ====-->
+    <div class="carousel">
+        <div class="carousel-track" id="track">
+        <div class="carousel-slide"><img src="../MULTIMEDIA/1.jpg" alt=></div>
+        <div class="carousel-slide"><img src="../MULTIMEDIA/2.jpg" alt=></div>
+        <div class="carousel-slide"><img src="../MULTIMEDIA/3.jpg" alt=></div>
+        </div>
     </div>
-    <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
-    <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
-  </div>
-    
+        <div class="action-container" style="padding-top: 0;">
+                <a href="HTML/ESPANOL/register.html" class="btn-quizz">Regístrate hoy y sé parte del cambio</a>
+    </div>
+    </header>
 
 
     <!-- ===== SECCIÓN "¿CUÁL ES NUESTRO OBJETIVO?" ===== -->
@@ -98,43 +95,58 @@
         </div>
     </section>
 
-    <!-- ===== SCRIPT: MENÚ HAMBURGUESA Y SIDEBAR ===== -->
     <script>
+        /* ---- Menú hamburguesa ---- */
         const btn = document.getElementById('hamburgerBtn');
         const nav = document.getElementById('mainNav');
 
-        btn.addEventListener('click', () => {
-            const isOpen = nav.classList.toggle('open');
-            btn.classList.toggle('open', isOpen);
-            btn.setAttribute('aria-expanded', isOpen);
-        });
+        if (btn && nav) {
+            btn.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                btn.classList.toggle('open', isOpen);
+                btn.setAttribute('aria-expanded', isOpen);
+            });
+        }
 
+        /* ---- Sidebar (solo existe en páginas internas) ---- */
         const sidebarBtn = document.getElementById('sidebarBtn');
         const sidebarMenu = document.getElementById('sidebarMenu');
         const menuOverlay = document.getElementById('menuOverlay');
 
-        const toggleSidebar = () => {
-            const isOpen = sidebarMenu.classList.toggle('open');
-            sidebarBtn.classList.toggle('open', isOpen);
-            menuOverlay.classList.toggle('show', isOpen);
-            sidebarBtn.setAttribute('aria-expanded', isOpen);
-        };
-
-        sidebarBtn.addEventListener('click', toggleSidebar);
-        menuOverlay.addEventListener('click', toggleSidebar);
-
-        let index = 0;
-        const track = document.getElementById("track");
-        const slides = document.querySelectorAll(".carousel-slide");
-
-        function showSlide(i) {
-            index = (i + slides.length) % slides.length;
-            track.style.transform = `translateX(-${index * 100}%)`;
+        if (sidebarBtn && sidebarMenu && menuOverlay) {
+            const toggleSidebar = () => {
+                const isOpen = sidebarMenu.classList.toggle('open');
+                sidebarBtn.classList.toggle('open', isOpen);
+                menuOverlay.classList.toggle('show', isOpen);
+                sidebarBtn.setAttribute('aria-expanded', isOpen);
+            };
+            sidebarBtn.addEventListener('click', toggleSidebar);
+            menuOverlay.addEventListener('click', toggleSidebar);
         }
 
-        function nextSlide() { showSlide(index + 1); }
-        function prevSlide() { showSlide(index - 1); }
+        /* ---- Carousel ---- */
+        var carouselIndex = 0;
+        var track = document.getElementById("track");
+        var slides = document.querySelectorAll(".carousel-slide");
+        var carousel = document.querySelector('.carousel');
 
+        function showSlide(i) {
+            if (!track || slides.length === 0) return;
+            carouselIndex = (i + slides.length) % slides.length;
+            track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+        }
+
+        function nextSlide() { showSlide(carouselIndex + 1); }
+        function prevSlide() { showSlide(carouselIndex - 1); }
+
+        /* Auto-play: avanza cada 4 s, se pausa al pasar el cursor */
+        var autoPlay = setInterval(nextSlide, 15000);
+        if (carousel) {
+            carousel.addEventListener('mouseenter', function() { clearInterval(autoPlay); });
+            carousel.addEventListener('mouseleave', function() {
+                autoPlay = setInterval(nextSlide, 15000);
+            });
+        }
     </script>
     <script src="../JS/site.js" defer></script>
 
