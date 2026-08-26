@@ -65,7 +65,7 @@ img {
    3. LOGO / MARCA (esquina superior izquierda)
    ============================================================ */
 .navbar-brand {
-  padding: 0 18px;
+  padding: 0 34px;
   border-radius: 16px;
   background: #ffffff;
   position: fixed;
@@ -88,8 +88,8 @@ img {
 }
 
 .C-L {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 50px;
   object-fit: contain;
 }
 
@@ -419,6 +419,32 @@ img {
   box-shadow: 0 2px 10px rgba(182, 64, 118, 0.08);
 }
 
+/* Botón de cambio de idioma (solo visible cuando no han inciado sesión) */
+.lang-switchNL {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1.5px solid #b6559c;
+  background: linear-gradient(135deg, #f6e6f1 0%, #ffffff 100%);
+  color: #8a3c78;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 0 0 auto;
+}
+
+.lang-switchNL:hover {
+  background: linear-gradient(135deg, #b6559c 0%, #8a3c78 100%);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(182, 64, 118, 0.08);
+}
+
 /* ---------- Estado activo: página actual, igual en ambas barras ---------- */
 .box-II.active::after {
   transform: scaleX(1);
@@ -519,11 +545,19 @@ img {
   color: #b23d74;
 }
 
+.Titulos-DEG h1 {
+  background: radial-gradient(circle, #d65a94 50%, #b6559c 20%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 /* ============================================================
-   7. SECCIONES DE CONTENIDO (texto + imagen)
+   7. SECCIONES DE CONTENIDO (texto + imagen + resaltado)
    ============================================================ */
 .info-row-container {
-  max-width: 1150px;
+  max-width: 1950px;
   margin: 0 auto 64px auto;
   padding: 0 5%;
 }
@@ -532,7 +566,7 @@ img {
   color: #b23d74;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
   font-weight: 700;
-  font-size: 1.7rem;
+  font-size: 2.0rem;
   text-align: center;
   margin-bottom: 28px;
 }
@@ -594,6 +628,12 @@ img {
   box-shadow: 0 8px 24px rgba(182, 64, 118, 0.12);
 }
 
+::selection {
+  background-color: #b23d74; /* Color del fondo (ej: rosa brillante) */
+  color: #ffffff;            /* Color de las letras al seleccionarse */
+}
+
+
 /* ============================================================
    8. TARJETAS DE INFORMACIÓN (grids reutilizables)
    ============================================================ */
@@ -601,7 +641,7 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
-  max-width: 1150px;
+  max-width: 1950px;
   margin: 0 auto;
   padding: 0 5% 50px;
 }
@@ -1254,22 +1294,23 @@ footer {
 
 .test-desc strong { color: #b23d74; }
 
-
-/*Carrusel*/
-
+/* ============================================================
+   16. CAROUSEL DE IMÁGENES
+   ============================================================ */
 
 .carousel {
   position: relative;
-  width: 90%;
+  width: 65%;
+  height: 70%;
   margin: 20px auto;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 10px 8px 24px rgba(182, 64, 118, 0.12);
+  border-radius: 24px;
 }
 
 .carousel-track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 1.2s ease-in-out;
 }
 
     .carousel-slide {
@@ -1285,9 +1326,9 @@ footer {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
+      background: rgb(249, 248, 248);
       border: none;
-      color: #fff;
+      color: #000000;
       font-size: 24px;
       padding: 10px;
       cursor: pointer;
@@ -1302,7 +1343,7 @@ footer {
     }
 
     .carousel-button:hover {
-      background: var(#d98aa1);
+      background: var(--primary-color, #b23d74);
       transform: translateY(-50%) scale(1.1);
     }
 
