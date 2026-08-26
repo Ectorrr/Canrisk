@@ -3,97 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canrisk - Cancer Information and Support</title>
+    <title>Canrisk - Cancer information and support</title>
     <link rel="stylesheet" href="../CSS/Style-Info.css">
-    <link rel="icon" type="image/png" href="../MULTIMEDIA/Canrisk LOGO.png">
+    <link rel="icon" type="image/png" href="../MULTIMEDIA/Canrisk LOGO.svg">
 </head>
 <body>
 
-    <!-- ===== LOGO Y BOTÓN DEL MENÚ LATERAL ===== -->
+    <!-- ===== LOGO AND SIDEBAR TOGGLE BUTTON ===== -->
     <div class="navbar-brand">
         <h1>Canrisk</h1>
-        <img src="../MULTIMEDIA/Canrisk LOGO.png" alt="Canrisk" class="C-L">
+        <img src="../MULTIMEDIA/Canrisk LOGO.svg" alt="Canrisk" class="C-L">
     </div>
 
 
 
-    <!-- ===== BARRA DE NAVEGACIÓN SUPERIOR ===== -->
+    <!-- ===== TOP NAVIGATION BAR ===== -->
     <nav class="navbar" id="mainNav">
 
-        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
         <ul class="Info-nav">
-            <li class="box-II"><h4><a href="Faq.N-ING.html">FAQ</a></h4></li>
-            <li class="box-II"><a href="IndexING.html"><h4>Home page</h4></a></li>
+            <li class="box-II"><h4><a href="Faq.N.html">FAQ</a></h4></li>
+            <li class="box-II"><a href="Index.html"><h4>Home</h4></a></li>
         </ul>
 
         <div class="right-group">
             <ul class="Index">
-                <li class="box-I"><a href="../../HTML/ESPANOL/login.html"><h4>Iniciar Sesión</h4></a></li>
-                <li class="box-I"><a href="../../HTML/ESPANOL/register.html"><h4>Registrarse</h4></a></li>
+                <li class="box-I"><a href="../../HTML/ESPANOL/login.html"><h4>Log in</h4></a></li>
+                <li class="box-I"><a href="../../HTML/ESPANOL/register.html"><h4>Register</h4></a></li>
             </ul>
-            <a id="langSwitchNL" class="lang-switchNL" href="Index.html" aria-label="Cambiar idioma / Switch language">EN</a>
+            <a id="langSwitchNL" class="lang-switchNL" href="IndexING.html" aria-label="Cambiar idioma / Switch language">ES</a>
             <div class="Photo">
-                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="Foto de perfil del usuario">
+                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="User profile picture">
             </div>
         </div>
 
     </nav>
- 
     <!-- ===== MAIN HEADER (HERO) ===== -->
     <header class="hero-section">
         <div class="hero-container">
-            <h1 class="hero-title">Canrisk, your cancer information site</h1>
+            <div class="Titulos-DEG">
+                <h1 class="hero-title">Canrisk, your cancer information site</h1>
+            </div>
             <p class="hero-subtitle">
-                Prevention tools, emotional support, and guidance for young people and families
-                facing a cancer journey.
+                Prevention tools, emotional support, and companionship for young people and families
+                facing an oncological process.
                 <br>
-                <span class="Negrita">This platform does NOT replace the help of a medical professional.</span>
+                <strong>
+                    <span class="Negrita">This platform does NOT replace the help of a medical professional.</span>
+                </strong>
             </p>
-            <a href="../HTML/INGLES/registerING.html" class="btn-cancer">
-                <span>Sign up to learn more</span> &rarr;
-            </a>
         </div>
+             <!-- ==== IMAGE CAROUSEL ====-->
+    <div class="carousel">
+        <div class="carousel-track" id="track">
+        <div class="carousel-slide"><img src="../MULTIMEDIA/1.jpg" alt=></div>
+        <div class="carousel-slide"><img src="../MULTIMEDIA/5.jpg" alt=></div>
+        <div class="carousel-slide"><img src="../MULTIMEDIA/6.jpg" alt=></div>
+        </div>
+    </div>
+        <div class="action-container" style="padding-top: 0;">
+                <a href="../HTML/INGLES/registerING.html" class="btn-quizz">Sign up today and be part of the change</a>
+    </div>
     </header>
- 
-    <!-- ===== "WHAT IS OUR GOAL?" SECTION ===== -->
+
+
+    <!-- ===== "WHAT'S OUR GOAL?" SECTION ===== -->
     <section class="info-row-container">
         <br>
-        <h2 class="info-row-title">What is our goal?</h2>
+        <h2 class="info-row-title">What's Our Goal?</h2>
         <div class="info-grid">
             <div class="info-card">
                 <h3>Awareness</h3>
                 <p>We share information about the different types of cancer and how to support a
-                    family member going through the illness.</p>
+                    family member going through the disease.</p>
             </div>
             <div class="info-card">
-                <h3>Real support</h3>
+                <h3>Real Support</h3>
                 <p>We offer financial and psychological guidance to those who don't have many
-                    resources to cover their treatment.</p>
+                    resources to cover their treatments.</p>
             </div>
             <div class="info-card">
-                <h3>Privacy first</h3>
+                <h3>Privacy First</h3>
                 <p>We respect the privacy of every person who seeks help on our site, without
                     exception.</p>
             </div>
         </div>
     </section>
- 
-    <!-- ===== SCRIPT: HAMBURGER MENU AND SIDEBAR ===== -->
+
     <script>
+        /* ---- Hamburger menu ---- */
         const btn = document.getElementById('hamburgerBtn');
         const nav = document.getElementById('mainNav');
- 
-        btn.addEventListener('click', () => {
-            const isOpen = nav.classList.toggle('open');
-            btn.classList.toggle('open', isOpen);
-            btn.setAttribute('aria-expanded', isOpen);
-        });
- 
+
+        if (btn && nav) {
+            btn.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                btn.classList.toggle('open', isOpen);
+                btn.setAttribute('aria-expanded', isOpen);
+            });
+        }
+
+        /* ---- Sidebar (only exists on internal pages) ---- */
         const sidebarBtn = document.getElementById('sidebarBtn');
         const sidebarMenu = document.getElementById('sidebarMenu');
         const menuOverlay = document.getElementById('menuOverlay');
@@ -105,13 +120,36 @@
                 menuOverlay.classList.toggle('show', isOpen);
                 sidebarBtn.setAttribute('aria-expanded', isOpen);
             };
-
             sidebarBtn.addEventListener('click', toggleSidebar);
             menuOverlay.addEventListener('click', toggleSidebar);
         }
+
+        /* ---- Carousel ---- */
+        var carouselIndex = 0;
+        var track = document.getElementById("track");
+        var slides = document.querySelectorAll(".carousel-slide");
+        var carousel = document.querySelector('.carousel');
+
+        function showSlide(i) {
+            if (!track || slides.length === 0) return;
+            carouselIndex = (i + slides.length) % slides.length;
+            track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+        }
+
+        function nextSlide() { showSlide(carouselIndex + 1); }
+        function prevSlide() { showSlide(carouselIndex - 1); }
+
+        /* Auto-play: advances every 4s, pauses on hover */
+        var autoPlay = setInterval(nextSlide, 15000);
+        if (carousel) {
+            carousel.addEventListener('mouseenter', function() { clearInterval(autoPlay); });
+            carousel.addEventListener('mouseleave', function() {
+                autoPlay = setInterval(nextSlide, 15000);
+            });
+        }
     </script>
     <script src="../JS/site.js" defer></script>
- 
+
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-container">
@@ -120,21 +158,21 @@
                     <h2 class="Title">COPYRIGHT</h2>
                     <ul class="Advice">
                         <li>&copy; Canrisk 2026</li>
-                        <li>All rights reserved by the Canrisk team.</li>
-                        <li>Special thanks to everyone who made this page possible.</li>
+                        <li>All rights reserved to the Canrisk team.</li>
+                        <li>Special thanks to the whole team who made this page possible.</li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h2 class="Title_1">IMPORTANT INFORMATION</h2>
                     <ul class="Advice_1">
-                        <li>This page does NOT replace the help of a medical professional.</li>
-                        <li>In case of an emergency or symptom, use the hospital phone numbers
-                            we provide, or call 911 directly.</li>
+                        <li>This page DOES NOT replace the help of a medical professional.</li>
+                        <li>In case of an emergency or symptom, rely on the hospital numbers
+                            that we provide, or call 911 directly.</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-social">
-                <h2 class="Title_2">Canrisk social media</h2>
+                <h2 class="Title_2">Canrisk social networks</h2>
                 <ul class="Social">
                     <li><a href="https://www.instagram.com/canrisk/" target="_blank"><img src="MULTIMEDIA/instagram.png" class="Inst-IMG" alt="Instagram logo"><p class="Inst-txt">Instagram</p></a></li>
                     <li><a href="https://www.facebook.com/Canrisk-110882646091155" target="_blank"><img src="MULTIMEDIA/facebook.png" class="Face-IMG" alt="Facebook logo"><p class="Face-txt">Facebook</p></a></li>
@@ -145,4 +183,3 @@
     </footer>
 </body>
 </html>
- 

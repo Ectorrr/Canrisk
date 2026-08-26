@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal - Canrisk</title>
+    <title>Home - Canrisk</title>
     <link rel="stylesheet" href="../../CSS/Style-Info.css">
     <link rel="icon" type="image/png" href="../../MULTIMEDIA/Canrisk LOGO.svg">
     <style>
-        /*  DATOS RÁPIDOS DEL HERO  */
+        /*  HERO QUICK STATS  */
         .home-stats {
             display: flex;
             flex-wrap: wrap;
@@ -49,7 +49,7 @@
             color: #555;
         }
 
-        /*  EXPLORA CANRISK  */
+        /*  EXPLORE CANRISK  */
         .explore-section {
             max-width: 1150px;
             margin: 3.5rem auto;
@@ -120,7 +120,7 @@
             font-weight: 700;
         }
 
-        /* TARJETA QUE ROTA (FLIP CARD) — faltaba esto  */
+        /* FLIP CARD — was missing here  */
         .IMG .flip-card {
             perspective: 1200px;
             width: 100%;
@@ -188,7 +188,7 @@
             opacity: 0.7;
         }
 
-        /* TARJETAS DE TESTIMONIOS DE FE  */
+        /* FAITH TESTIMONIAL CARDS  */
         .test-card {
             display: flex;
             flex-wrap: wrap;
@@ -269,9 +269,9 @@
 </head>
 <body>
 
-    <!--  LOGO Y BOTÓN DEL MENÚ LATERAL  -->
+    <!--  LOGO AND SIDEBAR MENU BUTTON  -->
     <div class="navbar-brand">
-        <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Abrir menú lateral">
+        <button class="hamburger-sidebar-btn" id="sidebarBtn" aria-label="Open sidebar menu">
             <span></span>
             <span></span>
             <span></span>
@@ -280,7 +280,7 @@
         <img src="../../MULTIMEDIA/Canrisk LOGO.svg" alt="Canrisk" class="C-L"> 
     </div>
 
-    <!--  MENÚ LATERAL (SIDEBAR)  -->
+    <!--  SIDEBAR MENU  -->
     <nav class="sidebar-menu" id="sidebarMenu">
         <div class="sidebar-decoracion">
             <span></span>
@@ -289,88 +289,88 @@
         </div>
 
         <ul class="sidebar-list">
-            <li><a href="cancer-intro.html">Introducción al cáncer &rarr;</a></li>
-            <li><a href="cancer.html">Tipos de Cáncer &rarr;</a></li>
-            <li><a href="psycho-help.html">Apoyo psicológico &rarr;</a></li>
-            <li><a href="help.html">Centro de ayuda &rarr;</a></li>
-            <li><a href="quizz.html">Cuestionario &rarr;</a></li>
-            <li><a href="faq.html">Preguntas frecuentes &rarr;</a></li>
+            <li><a href="cancer-introING.html">Introduction to Cancer &rarr;</a></li>
+            <li><a href="cancerING.html">Cancer Types &rarr;</a></li>
+            <li><a href="psycho-helpING.html">Psychological Support &rarr;</a></li>
+            <li><a href="helpING.html">Help Center &rarr;</a></li>
+            <li><a href="quizzING.html">Quiz &rarr;</a></li>
+            <li><a href="faqING.html">FAQ &rarr;</a></li>
         </ul>
     </nav>
 
-    <!--  FONDO OSCURO AL ABRIR EL SIDEBAR  -->
+    <!--  DARK OVERLAY WHEN SIDEBAR OPENS  -->
     <div class="overlay-menu" id="menuOverlay"></div>
 
-    <!--  BARRA DE NAVEGACIÓN SUPERIOR -->
+    <!--  TOP NAVIGATION BAR -->
     <nav class="navbar" id="mainNav">
 
-        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
         <ul class="Info-nav">
-            <li class="box-II"><h4><a href="../ESPANOL/Principal.html">Inicio</a></h4></li>
-            <li class="box-II"><a href="../ESPANOL/aboutus.html"><h4>Sobre nosotros</h4></a></li>
-            <li class="box-II"><a href="../ESPANOL/Contacto.html"><h4>Contáctanos</h4></a></li>
+            <li class="box-II"><h4><a href="../INGLES/PrincipalING.html">Home Page</a></h4></li>
+            <li class="box-II"><a href="../INGLES/aboutusENG.html"><h4>About us</h4></a></li>
+            <li class="box-II"><a href="../INGLES/ContactoING.html"><h4>Contact us</h4></a></li>
         </ul>
 
         <div class="right-group">
             <ul class="Index">
-                <li class="box-I"><a href="../../HTML/ESPANOL/login.html"><h4>Iniciar Sesión</h4></a></li>
-                <li class="box-I"><a href="../../HTML/ESPANOL/register.html"><h4>Registrarse</h4></a></li>
+                <li class="box-I"><a href="../../HTML/INGLES/loginING.html"><h4>Log In</h4></a></li>
+                <li class="box-I"><a href="../../HTML/INGLES/registerING.html"><h4>Sign Up</h4></a></li>
             </ul>
-            <a id="langSwitch" class="lang-switch" href="#" aria-label="Cambiar idioma / Switch language">ES</a>
+            <a id="langSwitch" class="lang-switch" href="#" aria-label="Cambiar idioma / Switch language">EN</a>
             <div class="Photo">
-                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="Foto de perfil del usuario">
+                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="User profile photo">
             </div>
         </div>
 
     </nav>
 
-    <!--  ENCABEZADO DE LA PÁGINA -->
+    <!--  PAGE HEADER -->
     <header class="hero-section">
         <div class="hero-container">
-            <h1 class="hero-title">Evaluación, Apoyo y Esperanza</h1>
+            <h1 class="hero-title">Awareness, Support, and Hope</h1>
             <p class="hero-subtitle">
-                Bienvenido a Canrisk. Somos una plataforma dedicada a brindar herramientas de prevención, soporte emocional y asistencia para jóvenes y familias enfrentando procesos oncológicos.
+                Welcome to Canrisk. We're a platform dedicated to providing prevention tools, emotional support, and assistance for young people and families going through oncology treatment.
             </p>
-            <a href="cancer.html" class="btn-cancer">
-                <span>Conocer Tipos de Cáncer</span> &rarr;
+            <a href="cancerING.html" class="btn-cancer">
+                <span>Learn About Cancer Types</span> &rarr;
             </a>
         </div>
     </header>
 
-    <!--  DATOS RÁPIDOS  -->
+    <!--  QUICK STATS  -->
     <br><br>
     <div class="home-stats">
         <div class="home-stat-box">
             <span class="stat-icon">🎗️</span>
             <span class="stat-number">6</span>
-            <span class="stat-label">tipos de cáncer explicados en detalle</span>
+            <span class="stat-label">types of cancer explained in detail</span>
         </div>
         <div class="home-stat-box">
             <span class="stat-icon">💬</span>
             <span class="stat-number">10</span>
-            <span class="stat-label">testimonios reales de sobrevivientes</span>
+            <span class="stat-label">real testimonials from survivors</span>
         </div>
         <div class="home-stat-box">
             <span class="stat-icon">🤝</span>
             <span class="stat-number">100%</span>
-            <span class="stat-label">acompañamiento gratuito e informativo</span>
+            <span class="stat-label">free, informational support</span>
         </div>
     </div>
 
     <section class="info-row-container">
-        <h2 class="info-row-title">Acompañamiento en el Camino</h2>
+        <h2 class="info-row-title">Support Along the Way</h2>
         <div class="fila-texto-img">
             <div class="content-text">
                 <div class="Start">
                     <p>
-                        Para apoyar a alguien con cáncer, la clave es la presencia auténtica y evitar el positivismo forzado que invalida sus miedos.
-                        Escucha activamente sin juzgar, permitiendo que la persona exprese su tristeza o enojo de forma segura. En lugar de preguntar
-                        "¿en qué ayudo?", ofrece acciones concretas como llevar comida, limpiar o hacer recados específicos. 
+                        To support someone with cancer, the key is authentic presence and avoiding forced positivity that dismisses their fears.
+                        Listen actively without judgment, letting the person express their sadness or anger safely. Instead of asking
+                        "how can I help?", offer concrete actions like bringing food, cleaning, or running specific errands. 
                     </p>
                 </div>
             </div>
@@ -379,31 +379,31 @@
                 <div class="flip-card" onclick="this.classList.toggle('flipped')">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="../../MULTIMEDIA/image 5.png" alt="Acompañamiento y empatía" class="IMG-TXT">
+                            <img src="../../MULTIMEDIA/image 5.png" alt="Support and empathy" class="IMG-TXT">
                         </div>
                         <div class="flip-card-back">
-                            <p>Respeta siempre su autonomía, tratándola como la persona 
-                                que es y no solo como un paciente bajo tratamiento. Evita 
-                                dar consejos médicos no solicitados o contar historias de 
-                                otros casos que generen presión innecesaria. El silencio 
-                                acompañado suele ser más reconfortante que las frases 
-                                hechas o los discursos motivacionales</p>
+                            <p>Always respect their autonomy, treating them as the person 
+                                they are and not just as a patient in treatment. Avoid 
+                                giving unsolicited medical advice or telling stories about 
+                                other cases that create unnecessary pressure. Quiet 
+                                companionship is often more comforting than stock phrases 
+                                or motivational speeches.</p>
                         </div>
                     </div>
                 </div>
-                <span class="flip-hint">Toca la imagen para ver más consejos</span>
+                <span class="flip-hint">Tap the image to see more tips</span>
             </div>
         </div>
     </section>
 
-<!--Testimonios de fe-->
+<!--Faith testimonials-->
 
    <div class="title">
      <div class="hero-container">
-            <h1 class="hero-title">Testimonios de fé</h1>
+            <h1 class="hero-title">Testimonials of Faith</h1>
             <p class="hero-subtitle">
-               <strong>En este apartado encontrarás diferentes testimonios de guerreros que vencieron el cáncer.
-                Nunca pierdas la esperanza.</strong><br>
+               <strong>In this section you'll find testimonials from warriors who beat cancer.
+                Never lose hope.</strong><br>
             </p>
      </div>
    </div>
@@ -413,15 +413,15 @@
                 <img src="../../MULTIMEDIA/ana-maria1200x675.jpg" alt="Ana María">
             </div>
             <div class="test-info">
-                <h3>Ana María, sobreviviente de cáncer de pulmón. </h3>
+                <h3>Ana María, lung cancer survivor. </h3>
                 <div class="test-desc">
-                    <p><strong> En el caso que necesite volver a pelear, tengo los guantes ahí guardaditos.</strong><br>
-                    Soy Ana María, sobreviviente de cáncer de pulmón categoría 4 y llevo 6 meses libre de cáncer.<br>
-                    Con mi yerno, que es oncólogo, de la cual por momentos era positivo tener un yerno médico que entendiera del tema, pero en otros momentos no era positivo.<br>
-                    A mí nada lo que es negativo me sirve. Y como todo era negativo, en un momento dado tuve que sentarme con él y explicarle de que yo no funciono con cosas negativas, sus porcentajes y sus estadísticas. A mí no me sirven porque yo no me manejo con este tipo de cosas. Una vez que le expliqué que a mí eso me hacía mal y que no me sirve, que por suerte pudo entender que le costó.<br>
-                    Una gran ayuda el mantenerse uno positivo y rodearse de gente y de cosas. Si uno puede confrontar la enfermedad, puede confrontar a una persona o varias que sean negativas.</p>
+                    <p><strong>If I ever need to fight again, I've got my gloves put away, ready.</strong><br>
+                    I'm Ana María, a stage 4 lung cancer survivor, and I've been cancer-free for 6 months.<br>
+                    My son-in-law is an oncologist, and at times it was helpful to have a doctor in the family who understood the topic, but at other times it wasn't so helpful.<br>
+                    Nothing negative works for me. And since everything felt negative, at one point I had to sit down with him and explain that I don't function with negative things, his percentages and his statistics. Those don't help me because that's not how I operate. Once I explained that it hurt me and wasn't useful to me, thankfully he was able to understand, even though it was hard for him.<br>
+                    Staying positive and surrounding yourself with good people and things is a huge help. If you can face the illness, you can face a person, or several, who bring negativity.</p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div>
   <br>
@@ -430,13 +430,13 @@
                 <img src="../../MULTIMEDIA/juan luis tintaya-1.webp" alt="Juan Luis">
             </div>
             <div class="test-info">
-                <h3>Juan Luis, sobreviviente de cáncer de lengua. </h3>
+                <h3>Juan Luis, tongue cancer survivor. </h3>
                 <div class="test-desc">
-                 <p>Hace aproximadamente 4 años, Juan Luis Tintaya tenía molestias en la lengua. Le salían llagas y le ardía. Él esperaba que estos síntomas se fueran, pero no ocurrió así y, a los dos meses, acudió al médico. El experto en cabeza y cuello le mandó a hacer una biopsia para descartar la posibilidad de una neoplasia maligna.<br>
-                   El resultado fue positivo para cáncer de lengua, piso de boca y ganglios. En ese entonces Juan Luis tenía 41 años y trabajaba bastante. Sin embargo, esta noticia, le dio una pausa a su vida laboral y se ocupó de su salud. Se operó y luego pasó por quimioterapia y radiación.
-                   Su experiencia con el tratamiento de cáncer duró 3 meses. Fue corta, pero intensa. Se logró extirpar la parte afectada y se le retiraron los ganglios. Tuvo 33 sesiones de radiación y le dieron tres dosis fuertes de quimioterapia. Después de eso estuvo bien.<br></p>
+                 <p>About 4 years ago, Juan Luis Tintaya started having discomfort in his tongue. Sores appeared and it burned. He hoped the symptoms would go away, but they didn't, and after two months he went to see a doctor. The head and neck specialist ordered a biopsy to rule out a malignant tumor.<br>
+                   The result came back positive for cancer of the tongue, floor of the mouth, and lymph nodes. Juan Luis was 41 at the time and worked a lot. This news, however, put a pause on his career and he focused on his health. He had surgery, followed by chemotherapy and radiation.<br>
+                   His cancer treatment lasted 3 months. It was short but intense. The affected area was successfully removed, and the lymph nodes were taken out too. He had 33 radiation sessions and received three strong doses of chemotherapy. After that, he was doing well.<br></p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div>
    <br>
@@ -445,12 +445,12 @@
                 <img src="../../MULTIMEDIA/felix salomon-1.webp" alt="Felix Salomon">
             </div>
             <div class="test-info">
-                <h3>Felix Salomon, sobreviviente de cáncer de próstata. </h3>
+                <h3>Felix Salomon, prostate cancer survivor. </h3>
                 <div class="test-desc">
-                    <p>A Félix Salomon le dio cáncer de próstata en el año 2009, cuando tenía 61 años. Lamentablemente, pasó por la experiencia de una mala praxis y después de eso llegó a otro hospital, ahí le realizaron los exámenes respectivos y se sometió a otra operación.<br>
-                    Después de esa operación, el señor Salomón siguió sus controles médicos y, gracias a esa buena costumbre le detectaron tempranamente una reactivación del cáncer, en el 2012. Pasó por 36 sesiones de radioterapia y actualmente se controla una vez al año.</p>
+                    <p>Félix Salomon was diagnosed with prostate cancer in 2009, at age 61. Unfortunately, he went through a case of medical malpractice, and afterward went to a different hospital, where he underwent the proper tests and had another operation.<br>
+                    After that operation, Mr. Salomon kept up with his medical checkups, and thanks to that good habit, a recurrence of the cancer was caught early, in 2012. He went through 36 radiotherapy sessions and is now checked once a year.</p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div>   
     <br>
@@ -459,13 +459,13 @@
                 <img src="../../MULTIMEDIA/felipe yanes-1.webp" alt="Felipe Yanes">
             </div>
             <div class="test-info">
-                <h3>Felipe Yanes, sobreviviente de cáncer de próstata. </h3>
+                <h3>Felipe Yanes, prostate cancer survivor. </h3>
                 <div class="test-desc">
-                <p>Hace 9 años, Felipe Yanes se enteró de que tenía cáncer de próstata, gracias a los chequeos médicos de rutina que él acostumbraba realizarse. Su gran sentido del humor y su mirada positiva de la vida jugaron a su favor durante todo el tratamiento de la enfermedad.<br>
-                   Este es su testimonio como paciente de cáncer: “Cuando me hicieron la biopsia, según mi estilo, les dije a los médicos: Si es bingo, anotamos el número, porque tiene que ser premiado. Ellos se rieron. Y, efectivamente, era cáncer. No me deprimí, confié en los médicos y me sometí a la operación que me indicaron”.<br>
-                   Yanes no tuvo necesidad de hacer quimioterapia o radioterapia, en su caso bastó la operación. Después ha seguido los controles periódicos muy ordenadamente y aconseja a todos que hagan lo mismo, pues así se puede encontrar un cáncer en sus inicios.</p>
+                <p>9 years ago, Felipe Yanes found out he had prostate cancer thanks to the routine medical checkups he was in the habit of getting. His great sense of humor and positive outlook on life worked in his favor throughout his treatment.<br>
+                   Here's his testimony as a cancer patient: "When they did my biopsy, true to my style, I told the doctors: If it's bingo, write down the number, because it has to be a prize-winner. They laughed. And sure enough, it was cancer. I didn't get depressed, I trusted the doctors, and I went through with the surgery they recommended."<br>
+                   Yanes didn't need chemotherapy or radiotherapy — in his case, surgery alone was enough. Since then he has kept up with his checkups very consistently and advises everyone to do the same, since that's how cancer can be caught in its early stages.</p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div> 
     <br>
@@ -474,13 +474,13 @@
                 <img src="../../MULTIMEDIA/amy-16x9-1.jpg" alt="Amy">
             </div>
             <div class="test-info">
-                <h3>Amy, sobreviviente de cáncer de cuello uterino (Cérvix).</h3>
+                <h3>Amy, cervical cancer survivor.</h3>
                 <div class="test-desc">
-                <p>Antes de recibir mi diagnóstico de cáncer, mi salud siempre estuvo muy bien. No tuve ningún problema grave y mi ciclo menstrual era normal. 
-                   Luego, en noviembre del 2011 tuve un sangrado vaginal significativo por alrededor de una semana, seguido de ausencia total del periodo en el mes siguiente, lo cual no era normal para mí.<br>
-                   Con el paso del tiempo y cob el tratamiento aprendí a tratarme mejor. Escucho a mi cuerpo. Cuando estoy cansada, descanso. Cuando estoy triste, lloro. Cuando estoy feliz, río. Todavía sigo conociendo mi "nuevo" cuerpo. Algunas veces, funciona bien, otras no. Pero estoy viva y estoy bien, ¡y estoy rodeada por aquellos que más amo!</p>
+                <p>Before I got my cancer diagnosis, my health had always been very good. I never had any serious problems and my menstrual cycle was normal. 
+                   Then, in November 2011, I had significant vaginal bleeding for about a week, followed by a complete absence of my period the following month, which wasn't normal for me.<br>
+                   Over time, and through treatment, I learned to treat myself better. I listen to my body. When I'm tired, I rest. When I'm sad, I cry. When I'm happy, I laugh. I'm still getting to know my "new" body. Sometimes it works well, sometimes it doesn't. But I'm alive, I'm well, and I'm surrounded by the people I love most!</p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div>
     <br>
@@ -489,13 +489,13 @@
                 <img src="../../MULTIMEDIA/cindy-16x9-1.jpg" alt="Cindy">
             </div>
             <div class="test-info">
-                <h3>Cindy, sobreviviente de cáncer de cuello uterino (Cérvix).</h3>
+                <h3>Cindy, cervical cancer survivor.</h3>
                 <div class="test-desc">
-                <p>Fue alrededor de Navidad que fui a hacerme una de mis pruebas de detección de rutina. No le di importancia porque era solo una cita médica de rutina, como tantas otras anteriores. Pero nunca olvidaré la llamada del médico que recibí después: la prueba de Papanicoláu había dado anormal y había células precancerosas en la muestra que me tomaron.<br>
-                    Decidí someterme a un procedimiento para sacar las células. Recuerdo estar descansando en casa durante mi recuperación y sentirme muy agradecida por esa cita médica. De no haberla tenido, el futuro podría haber sido muy distinto para mí.<br> 
-                    La gente escucha la palabra "cáncer" y se pregunta, "¿Lo sobreviviré? ¿Tendré que vivir siempre con esto?". Pero sé que ese no tiene que ser siempre el caso. Podemos encontrar estos problemas al inicio, prevenir el cáncer antes de que comience y luego recuperarnos y alcanzar nuestro máximo potencial en la vida.</p>
+                <p>It was around Christmas that I went in for one of my routine screening tests. I didn't think much of it because it was just a routine appointment, like so many before. But I'll never forget the call I got from the doctor afterward: the Pap smear had come back abnormal, and there were precancerous cells in the sample they'd taken.<br>
+                    I decided to go through with a procedure to remove the cells. I remember resting at home during my recovery and feeling so grateful for that appointment. If I hadn't gone, the future could have looked very different for me.<br> 
+                    People hear the word "cancer" and wonder, "Will I survive it? Will I have to live with this forever?" But I know that doesn't always have to be the case. We can catch these problems early, prevent cancer before it starts, and then recover and reach our full potential in life.</p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div>
     <br>
@@ -504,13 +504,13 @@
                 <img src="../../MULTIMEDIA/brittany-16x9-1.jpg" alt="Brittany">
             </div>
             <div class="test-info">
-                <h3>Brittany, sobreviviente de cáncer de Cérvix. </h3>
+                <h3>Brittany, vulvar cancer survivor. </h3>
                 <div class="test-desc">
-                <p>En septiembre del 2015, estaba completando mis estudios en la Squadron Officer School cuando noté un bulto en mi vulva un día cuando salía de la ducha. No le puse mucha atención al comienzo porque pensé que me lo podía haber causado durante el entrenamiento.<br>
-                   Como la masa era de unos 6 cm, decidimos realizar una operación ambulatoria y enviarla a patología. Me hicieron la operación el 2 de febrero del 2016 y 2 semanas después tuve una cita de seguimiento para asegurarnos de que estaba sanando bien, resultó ser que los márgenes dieron resultados positivos para sarcoma de la vulva y me remitieron a un especialista. <br>
-                   Cuando cuento mi historia, mi mensaje para otras mujeres es que ustedes conocen su cuerpo mejor que nadie. Si hay cualquier cambio que no puedan entender, háganse un chequeo. Creo firmemente que el diagnóstico temprano me salvó la vida. </p>
+                <p>In September 2015, I was finishing up my studies at the Squadron Officer School when I noticed a lump on my vulva one day stepping out of the shower. I didn't pay much attention to it at first because I thought it might have come from training.<br>
+                   Since the mass was about 6 cm, we decided to do an outpatient procedure and send it to pathology. I had the surgery on February 2, 2016, and two weeks later I had a follow-up appointment to make sure I was healing well. It turned out the margins came back positive for vulvar sarcoma, and I was referred to a specialist. <br>
+                   When I share my story, my message to other women is that you know your body better than anyone. If there's any change you can't explain, get checked out. I firmly believe that early diagnosis saved my life. </p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div>       
     <br>
@@ -519,13 +519,13 @@
                 <img src="../../MULTIMEDIA/tiffany-16x9-1.jpg" alt="Tiffany">
             </div>
             <div class="test-info">
-                <h3>Tiffany, sobreviviente de cáncer de ovario. </h3>
+                <h3>Tiffany, ovarian cancer survivor. </h3>
                 <div class="test-desc">
-                <p>En marzo del 2013, comencé a tener un poco de hinchazón abdominal y a aumentar de peso sin explicación. Fui a un par de médicos. Me hicieron una radiografía y una EGD.<br>
-                   Busqué a un gastroenterólogo que de inmediato palpó mi estómago y ordenó una tomografía computarizada. Me llamó de vuelta a su consultorio y me dijo: "Tiene cáncer de ovario". Quedé atónita y me puse histérica. Tengo la bendición de que mi tía sea enfermera oncológica. Ella llamó a un oncólogo que me puso en las manos de uno de los mejores ginecólogos oncólogos del país. Él me hizo una histerectomía radical y, siguiendo su recomendación, me sometí a seis rondas de quimioterapia. <br> 
-                   Terminé el tratamiento en noviembre del 2013.</p>
+                <p>In March 2013, I started having some unexplained abdominal bloating and weight gain. I saw a couple of doctors. They did an X-ray and an EGD.<br>
+                   I found a gastroenterologist who immediately felt my stomach and ordered a CT scan. He called me back into his office and told me: "You have ovarian cancer." I was in shock and became hysterical. I'm blessed that my aunt is an oncology nurse. She called an oncologist who put me in the hands of one of the best gynecologic oncologists in the country. He performed a radical hysterectomy on me, and on his recommendation, I went through six rounds of chemotherapy. <br> 
+                   I finished treatment in November 2013.</p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div>
     <br> 
@@ -534,13 +534,13 @@
                 <img src="../../MULTIMEDIA/eileen-16x9-1.jpg" alt="Eileen">
             </div>
             <div class="test-info">
-                <h3>Eileen, sobreviviente de cáncer de cuello uterino (Cérvix) y utero. </h3>
+                <h3>Eileen, cervical and uterine cancer survivor. </h3>
                 <div class="test-desc">
-                <p>En agosto del 2007, comencé a tener un sangrado abundante y acudí a un centro de salud cercano. Los médicos encontraron algo sospechoso en mi útero. Me remitieron a un ginecólogo para que me hiciera una biopsia, la cual reveló que tenía cáncer. Luego me remitieron a un ginecólogo oncólogo y al hacerme una biopsia adicional en el cuello uterino, descubrió también células cancerosas. A la fecha, los médicos no saben con seguridad si el cáncer de útero apareció antes del cáncer de cuello uterino o viceversa.<br>
-                   Me hicieron radioterapia y quimioterapia. Tuve la suerte de no sufrir efectos secundarios por el tratamiento. Después de la radiación y la quimioterapia, me hicieron una histerectomía completa y me sacaron los ovarios. Ahora no tengo cáncer.<br>
-                   Hoy en día, el cáncer ya no es una sentencia de muerte. No piensen que no tienen cáncer solo porque creen que no pueden pagar por la consulta para el diagnóstico y el tratamiento que necesiten.</p>
+                <p>In August 2007, I started having heavy bleeding and went to a nearby health center. The doctors found something suspicious in my uterus. I was referred to a gynecologist for a biopsy, which revealed that I had cancer. I was then referred to a gynecologic oncologist, and after an additional biopsy on my cervix, he also found cancer cells there. To this day, doctors aren't sure whether the uterine cancer appeared before the cervical cancer or the other way around.<br>
+                   I went through radiation and chemotherapy. I was lucky not to suffer side effects from the treatment. After radiation and chemotherapy, I had a full hysterectomy and my ovaries were removed. I'm now cancer-free.<br>
+                   Nowadays, cancer is no longer a death sentence. Don't assume you can't get checked just because you think you can't afford the diagnosis and treatment you need.</p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div>
     <br>
@@ -549,41 +549,41 @@
                 <img src="../../MULTIMEDIA/RobertSmith.jpg" alt="Roberto">
             </div>
             <div class="test-info">
-                <h3>Roberto sobreviviente de cáncer colorrectal.</h3>
+                <h3>Roberto, colorectal cancer survivor.</h3>
                 <div class="test-desc">
-                <p>En el 2016, me di cuenta de que me estaba cansando más; pensé que era por los viajes. Decidí ir al médico para hacerme un chequeo. Le hablé sobre hacerme una colonoscopia, aunque no había tenido ningún síntoma, además de sentirme cansado. Quería hacerme una prueba de detección porque habían pasado 7 años desde mi última colonoscopia. Además, mi padre tuvo cáncer de colon cuando tenía solamente 45 años y sobrevivió. Hoy en día mi padre tiene 75 años y su salud es relativamente buena.<br>
-                   Me hice la colonoscopia el 10 de enero del 2017 y el médico tomó muestras de tejido para realizar una biopsia. Una semana más tarde, llegaron los resultados y mostraron que sí tenía cáncer de colon. El 2 de febrero del 2017, me operaron para extirpar el cáncer.<br>
-                   Afortunadamente, debido a que el cáncer fue hallado lo suficientemente temprano, la operación fue exitosa. Pero nunca lo hubieran encontrado de forma temprana si yo no me hubiera hecho la prueba de detección.</p>
+                <p>In 2016, I noticed I was getting more tired; I thought it was from traveling. I decided to see a doctor for a checkup. I brought up getting a colonoscopy, even though I hadn't had any symptoms besides feeling tired. I wanted to get screened because it had been 7 years since my last colonoscopy. Also, my father had colon cancer when he was only 45 and survived. Today my father is 75 and in relatively good health.<br>
+                   I had the colonoscopy on January 10, 2017, and the doctor took tissue samples for a biopsy. A week later, the results came back showing that I did have colon cancer. On February 2, 2017, I had surgery to remove it.<br>
+                   Fortunately, because the cancer was caught early enough, the surgery was successful. But it never would have been caught early if I hadn't gotten screened.</p>
                 </div>
-                <button class="test-toggle" onclick="toggleTestimonio(this)">Leer testimonio completo ▼</button>
+                <button class="test-toggle" onclick="toggleTestimonio(this)">Read full testimonial ▼</button>
             </div>
         </div>
 
-<!--  PIE DE PÁGINA  -->
+<!--  FOOTER  -->
     <footer>
     <div class="footer-container">
         <div class="footer-content">
             <div class="footer-col">
-                <h2 class="Title">DERECHOS DE AUTOR</h2>
+                <h2 class="Title">COPYRIGHT</h2>
                 <ul class="Advice">
                     <li>&copy; Canrisk 2026</li>
-                    <li>&copy; Todos los derechos reservados al equipo de Canrisk</li>
-                    <li>Agradecimientos especiales al equipo de Canrisk</li>
-                    <li>que han hecho esta pagina algo posible.</li>
+                    <li>&copy; All rights reserved by the Canrisk team</li>
+                    <li>Special thanks to the Canrisk team</li>
+                    <li>who have made this page possible.</li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h2 class="Title_1">INFORMACIÓN IMPORTANTE</h2>
+                <h2 class="Title_1">IMPORTANT INFORMATION</h2>
                 <ul class="Advice_1">
-                    <li>Esta pagina NO reemplaza la ayuda de un profesional medico.</li>
-                    <li>En caso de tener algun tipo de emergencia o un sintoma puede</li>
-                    <li>apoyarse en los diferentes números de hospitales que nosotros</li>
-                    <li>proporcionamos, o llame directamente al 911.</li>
+                    <li>This page does NOT replace the help of a medical professional.</li>
+                    <li>If you have an emergency or a symptom, you can</li>
+                    <li>rely on the different hospital numbers we</li>
+                    <li>provide, or call 911 directly.</li>
                 </ul>
             </div>
         </div>
         <div class="footer-social">
-            <h2 class="Title_2">Redes sociales de Canrisk!</h2>
+            <h2 class="Title_2">Canrisk's social media!</h2>
             <ul class="Social">
                 <li><a href="https://www.instagram.com/canrisk/" target="_blank"><img src="../../MULTIMEDIA/instagram.png" class="Inst-IMG" alt="Instagram logo"><p class="Inst-txt">Instagram</p></a></li>
                 <li><a href="https://www.facebook.com/Canrisk-110882646091155" target="_blank"><img src="../../MULTIMEDIA/facebook.png" class="Face-IMG" alt="Facebook logo"><p class="Face-txt">Facebook</p></a></li>
@@ -619,7 +619,7 @@
         function toggleTestimonio(button) {
             const desc = button.previousElementSibling;
             const expanded = desc.classList.toggle('expanded');
-            button.textContent = expanded ? 'Leer menos ▲' : 'Leer testimonio completo ▼';
+            button.textContent = expanded ? 'Read less ▲' : 'Read full testimonial ▼';
         }
     </script>
     <script src="../../JS/site.js" defer></script>
