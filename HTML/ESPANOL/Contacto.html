@@ -80,9 +80,42 @@
 
     <main class="contacto-main">
 
-        <div class="contacto-grid">
+        <!-- INTRODUCCIÓN -->
+        <div class="contacto-intro-box">
+            <p>
+                Encontrar el número correcto en un momento de urgencia no debería ser difícil.
+                Por eso reunimos en un solo lugar los contactos de los principales hospitales
+                públicos de El Salvador que atienden casos de cáncer, junto con nuestro propio
+                soporte técnico. Usa el buscador para filtrar por nombre de hospital o por
+                departamento, o simplemente explora la lista completa abajo.
+            </p>
+        </div>
 
-            <div class="contacto-card">
+        <!-- MINI ESTADÍSTICAS -->
+        <div class="contacto-stats">
+            <div class="stat-pill">
+                <strong>15</strong>
+                <span>Centros hospitalarios</span>
+            </div>
+            <div class="stat-pill">
+                <strong>6</strong>
+                <span>Departamentos cubiertos</span>
+            </div>
+            <div class="stat-pill">
+                <strong>24/7</strong>
+                <span>Mayoría con servicio continuo</span>
+            </div>
+        </div>
+
+        <!-- BUSCADOR INTERACTIVO -->
+        <div class="contacto-buscador">
+            <input type="text" id="buscadorHospital" placeholder="Busca por hospital o departamento (ej. Santa Ana)">
+            <p class="buscador-resultado" id="buscadorResultado"></p>
+        </div>
+
+        <div class="contacto-grid" id="gridHospitales">
+
+            <div class="contacto-card" data-nombre="Hospital de Oncología ISSS" data-depto="San Salvador">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -94,7 +127,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
  
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Nacional Rosales" data-depto="San Salvador">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -106,7 +139,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital de Niños Benjamín Bloom" data-depto="San Salvador">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -118,7 +151,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Nacional de la Mujer" data-depto="San Salvador">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -130,7 +163,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Instituto del Cáncer de El Salvador" data-depto="San Salvador">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -142,7 +175,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio Lun - Vie: 7:00 AM - 4:00 PM</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Nacional San Juan de Dios de Santa Ana" data-depto="Santa Ana">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -154,7 +187,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Nacional San Juan de Dios de San Miguel" data-depto="San Miguel">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -166,7 +199,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Médico Quirúrgico ISSS" data-depto="San Salvador">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -178,7 +211,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Regional ISSS Santa Ana" data-depto="Santa Ana">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -190,7 +223,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Regional ISSS San Miguel" data-depto="San Miguel">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -202,7 +235,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Nacional General Masferrer" data-depto="Usulután">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -214,7 +247,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital General ISSS" data-depto="San Salvador">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -226,7 +259,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Nacional San Rafael" data-depto="Santa Tecla">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -238,7 +271,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Policlínico Zacamil ISSS" data-depto="Mejicanos">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -250,7 +283,7 @@
                 <p class="dato" style="font-weight: 400; font-size: 0.85rem; color: #a1a1a1;">Servicio las 24 horas.</p>
             </div>
 
-            <div class="contacto-card">
+            <div class="contacto-card" data-nombre="Hospital Nacional Santa Teresa" data-depto="Zacatecoluca">
                 <div class="icono-card" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5z"/>
@@ -288,6 +321,49 @@
                 </div>
                 <h3>Correo electrónico</h3>
                 <a class="dato" href="mailto:soporte@canrisk.com">soporte@canrisk.com</a>
+            </div>
+        </div>
+
+        <!-- ACORDEÓN: PREGUNTAS RÁPIDAS SOBRE A QUIÉN LLAMAR -->
+        <div class="contacto-faq">
+            <h2 class="contacto-faq-titulo">Preguntas rápidas</h2>
+
+            <div class="faq-item">
+                <button class="faq-pregunta" type="button">
+                    ¿Cuándo debo llamar al 911 en vez de a un hospital?
+                </button>
+                <div class="faq-respuesta">
+                    <p>
+                        Llama al 911 si hay una emergencia que pone en riesgo la vida de forma
+                        inmediata: dificultad para respirar, sangrado que no se detiene, dolor
+                        de pecho intenso o pérdida de conciencia. Para citas, resultados de
+                        exámenes o dudas sobre tratamiento, contacta directamente al hospital.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta" type="button">
+                    ¿A quién llamo si no sé qué hospital me corresponde?
+                </button>
+                <div class="faq-respuesta">
+                    <p>
+                        Puedes comunicarte con el Instituto del Cáncer de El Salvador o con el
+                        hospital público más cercano a tu domicilio; ellos pueden orientarte
+                        y, si es necesario, referirte al centro especializado adecuado.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta" type="button">
+                    ¿El soporte técnico de Canrisk atiende temas médicos?
+                </button>
+                <div class="faq-respuesta">
+                    <p>
+                        No. Nuestro equipo de soporte solo resuelve problemas con la plataforma,
+                        como errores al iniciar sesión o al usar el cuestionario. Para consultas
+                        médicas, comunícate siempre con un hospital o profesional de la salud.
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -352,6 +428,53 @@
 
         sidebarBtn.addEventListener('click', toggleSidebar);
         menuOverlay.addEventListener('click', toggleSidebar);
+
+        // BUSCADOR INTERACTIVO DE HOSPITALES
+        const inputBuscador = document.getElementById('buscadorHospital');
+        const resultadoTexto = document.getElementById('buscadorResultado');
+        const tarjetas = document.querySelectorAll('#gridHospitales .contacto-card');
+
+        inputBuscador.addEventListener('input', () => {
+            const termino = inputBuscador.value.trim().toLowerCase();
+            let visibles = 0;
+
+            tarjetas.forEach(tarjeta => {
+                const nombre = (tarjeta.dataset.nombre || '').toLowerCase();
+                const depto = (tarjeta.dataset.depto || '').toLowerCase();
+                const coincide = nombre.includes(termino) || depto.includes(termino);
+
+                tarjeta.classList.toggle('oculta', !coincide);
+                if (coincide) visibles++;
+            });
+
+            if (termino === '') {
+                resultadoTexto.textContent = '';
+            } else if (visibles === 0) {
+                resultadoTexto.textContent = 'No se encontraron hospitales con ese criterio.';
+            } else {
+                resultadoTexto.textContent = `${visibles} hospital(es) encontrado(s).`;
+            }
+        });
+
+        // ACORDEÓN DE PREGUNTAS RÁPIDAS
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const pregunta = item.querySelector('.faq-pregunta');
+            const respuesta = item.querySelector('.faq-respuesta');
+
+            pregunta.addEventListener('click', () => {
+                const estaAbierto = item.classList.contains('abierto');
+
+                document.querySelectorAll('.faq-item.abierto').forEach(otro => {
+                    otro.classList.remove('abierto');
+                    otro.querySelector('.faq-respuesta').style.maxHeight = null;
+                });
+
+                if (!estaAbierto) {
+                    item.classList.add('abierto');
+                    respuesta.style.maxHeight = respuesta.scrollHeight + 'px';
+                }
+            });
+        });
     </script>
     <script src="../../JS/site.js" defer></script>
 </body>
