@@ -51,6 +51,56 @@
         .detalle-volver:hover {
             text-decoration: underline;
         }
+
+        /* --- BARRA DE PROGRESO --- */
+        .progress-container {
+            margin-top: 20px;
+        }
+        .progress-text {
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .progress-bar-bg {
+            background-color: #f3e5eb;
+            height: 16px;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+        }
+        .progress-bar-fill {
+            background-color: #a83862;
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+
+        /* --- BOTÓN DE DONACIÓN (ROSA) --- */
+        .btn-donar {
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px 20px;
+            background-color: #a83862;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(168, 56, 98, 0.25);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .btn-donar:hover {
+            background-color: #8c2d50;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(168, 56, 98, 0.35);
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -111,7 +161,6 @@
             </div>
         </div>
     </nav>
-
 
     <div class="detalle-wrapper">
         <a href="help.html" class="detalle-volver">&larr; Volver al Centro de ayuda</a>
@@ -179,7 +228,11 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const id = parseInt(params.get('id'));
-        const persona = personasAyuda.find(p => p.id === id);
+        
+        // Sincronización con localStorage para leer montos actualizados
+        const baseDatosLocal = (typeof personasAyuda !== 'undefined') ? personasAyuda : [];
+        const personas = JSON.parse(localStorage.getItem('personasAyudaData')) || baseDatosLocal;
+        const persona = personas.find(p => p.id === id);
         const contenedor = document.getElementById('detalleCard');
 
         if (persona) {
@@ -195,11 +248,14 @@
                     <p><strong>Meta:</strong> ${persona.meta}</p>
                     <p><strong>Teléfono:</strong> ${persona.telefono}</p>
                     <div class="progress-container">
-                        <span class="progress-text">Fondos recaudados: $${persona.recaudado}/$${persona.objetivo}</span>
+                        <span class="progress-text">Fondos recaudados: $${persona.recaudado} / $${persona.objetivo}</span>
                         <div class="progress-bar-bg">
                             <div class="progress-bar-fill" style="width: ${persona.porcentaje}%;"></div>
                         </div>
                     </div>
+                    <a href="donar.html?id=${persona.id}" class="btn-donar">
+                        Realizar Donación
+                    </a>
                 </div>
             `;
         } else {
