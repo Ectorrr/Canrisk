@@ -1,10 +1,3 @@
-/* ============================================================
-   CANRISK — HOJA DE ESTILOS MAESTRA
-   Sistema de diseño compartido por todas las páginas informativas.
-   Paleta: rosa cálido (identidad de marca) + rosa fucsia (calma / esperanza)
-   Tipografía: Poppins (títulos) + Nunito (texto)
-   ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
 
 /* ---------- 1. PALETA DE COLORES (referencia — sin variables) ----------
@@ -28,7 +21,7 @@ html {
 }
 
 body {
-  background-color: #fdf3f7;
+  background: linear-gradient(157deg,rgba(253, 243, 247, 1) 23%, rgba(243, 166, 194, 1) 100%);
   font-family: 'Nunito', 'Segoe UI', sans-serif;
   color: #3c2a35;
   min-height: 100vh;
@@ -351,6 +344,20 @@ img {
   flex: 0 0 auto;
 }
 
+.Photo svg {
+    width: 40px;
+    height: 40px;
+    color:#f3a6c2;
+    transition: color 0.2s ease;
+    margin:8px 0 0 0;
+
+}
+
+.Photo svg:hover {
+    color:#d65a94;
+}
+
+
 .PP-default {
   width: 42px;
   height: 42px;
@@ -546,7 +553,7 @@ img {
 }
 
 .Titulos-DEG h1 {
-  background: radial-gradient(circle, #d65a94 50%, #b6559c 20%);
+  background: radial-gradient(circle, #ff9ecb 50%, #ff65d9 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -676,12 +683,12 @@ img {
 
 /* Tarjetas de "Centro de ayuda" (con foto) */
 .help-grid {
-  display: column;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 50px;
+  gap: 28px;
   padding: 10px 5% 50px;
   max-width: 1250px;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 .help-card {
