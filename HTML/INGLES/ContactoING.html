@@ -79,6 +79,38 @@
       </header>
 
     <main class="contacto-main">
+        <!-- INTRODUCTION -->
+        <div class="contacto-intro-box">
+            <p>
+                Finding the right number in an urgent situation shouldn't be difficult.
+                That’s why we’ve gathered contact details for El Salvador’s main public
+                hospitals that treat cancer—along with our own technical support—all in one place.
+                Use the search bar to filter by hospital name or department,
+                or simply browse the full list below.
+            </p>
+        </div>
+
+        <!-- MINI STATISTICS -->
+        <div class="contacto-stats">
+            <div class="stat-pill">
+                <strong>15</strong>
+                <span>Hospitals</span>
+            </div>
+            <div class="stat-pill">
+                <strong>6</strong>
+                <span>Departments covered</span>
+            </div>
+            <div class="stat-pill">
+                <strong>24/7</strong>
+                <span>Most offer continuous service</span>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE SEARCH -->
+        <div class="contacto-buscador">
+            <input type="text" id="buscadorHospital" placeholder="Search by hospital or department (e.g., Santa Ana)">
+            <p class="buscador-resultado" id="buscadorResultado"></p>
+        </div>
 
         <div class="contacto-grid">
 
@@ -290,7 +322,48 @@
                 <a class="dato" href="mailto:soporte@canrisk.com">soporte@canrisk.com</a>
             </div>
         </div>
+<!-- ACCORDION: QUICK QUESTIONS ON WHO TO CALL -->
+        <div class="contacto-faq">
+            <h2 class="contacto-faq-titulo">Quick questions</h2>
 
+            <div class="faq-item">
+                <button class="faq-pregunta" type="button">
+                    When should I call 911 instead of the hospital?
+                </button>
+                <div class="faq-respuesta">
+                    <p>
+                        Call 911 if there is an immediate, life-threatening emergency:
+                        difficulty breathing, uncontrollable bleeding, severe chest pain,
+                        or loss of consciousness. For appointments, test results, or
+                        questions about treatment, contact the hospital directly.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta" type="button">
+                    Who should I call if I don't know which hospital I am assigned to?
+                </button>
+                <div class="faq-respuesta">
+                    <p>
+                        You can contact the El Salvador Cancer Institute or the
+                        public hospital nearest your home; they can provide guidance
+                        and, if necessary, refer you to the appropriate specialized center.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta" type="button">
+                    Does Canrisk technical support handle medical questions?
+                </button>
+                <div class="faq-respuesta">
+                    <p>
+                        No. Our support team only resolves platform-related issues,
+                        such as errors when logging in or using the questionnaire. For medical
+                        inquiries, please contact a hospital or healthcare professional.
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="contacto-lema">
             <p>Get informed with us</p>
         </div>
@@ -352,6 +425,53 @@
 
         sidebarBtn.addEventListener('click', toggleSidebar);
         menuOverlay.addEventListener('click', toggleSidebar);
+
+        // BUSCADOR INTERACTIVO DE HOSPITALES
+        const inputBuscador = document.getElementById('buscadorHospital');
+        const resultadoTexto = document.getElementById('buscadorResultado');
+        const tarjetas = document.querySelectorAll('#gridHospitales .contacto-card');
+
+        inputBuscador.addEventListener('input', () => {
+            const termino = inputBuscador.value.trim().toLowerCase();
+            let visibles = 0;
+
+            tarjetas.forEach(tarjeta => {
+                const nombre = (tarjeta.dataset.nombre || '').toLowerCase();
+                const depto = (tarjeta.dataset.depto || '').toLowerCase();
+                const coincide = nombre.includes(termino) || depto.includes(termino);
+
+                tarjeta.classList.toggle('oculta', !coincide);
+                if (coincide) visibles++;
+            });
+
+            if (termino === '') {
+                resultadoTexto.textContent = '';
+            } else if (visibles === 0) {
+                resultadoTexto.textContent = 'No hospitals were found matching that criterion.';
+            } else {
+                resultadoTexto.textContent = `${visibles} hospital(s) found.`;
+            }
+        });
+
+        // ACORDEÓN DE PREGUNTAS RÁPIDAS
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const pregunta = item.querySelector('.faq-pregunta');
+            const respuesta = item.querySelector('.faq-respuesta');
+
+            pregunta.addEventListener('click', () => {
+                const estaAbierto = item.classList.contains('abierto');
+
+                document.querySelectorAll('.faq-item.abierto').forEach(otro => {
+                    otro.classList.remove('abierto');
+                    otro.querySelector('.faq-respuesta').style.maxHeight = null;
+                });
+
+                if (!estaAbierto) {
+                    item.classList.add('abierto');
+                    respuesta.style.maxHeight = respuesta.scrollHeight + 'px';
+                }
+            });
+        });
     </script>
     <script src="../../JS/site.js" defer></script>
 </body>
