@@ -683,7 +683,7 @@ img {
 
 /* Tarjetas de "Centro de ayuda" (con foto) */
 .help-grid {
-  display: grid;
+  display: column;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 28px;
   padding: 10px 5% 50px;
