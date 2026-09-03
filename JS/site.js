@@ -12,7 +12,6 @@
 
   // Mapa ES <-> EN. Las rutas son relativas a la raíz del proyecto.
   var LANG_MAP = {
-    "index.html": "HTML/INGLES/PrincipalING.html",
     "principal.html": "HTML/INGLES/PrincipalING.html",
     "aboutus.html": "HTML/INGLES/aboutusENG.html",
     "contacto.html": "HTML/INGLES/ContactoING.html",
@@ -23,10 +22,10 @@
     "ficha1.html": "HTML/INGLES/helpING.html",
     "quizz.html": "HTML/INGLES/quizzING.html",
     "faq.html": "HTML/INGLES/faqING.html",
-    "Index.html": "INICIO/Index.html",
+    "Index.html": "INICIO/IndexING.html",
     "Faq.N.html": "INICIO/Faq.N-ING.html",
 
-    "principaling.html": "HTML/ESPANOL/Principal.html",
+    "principalING.html": "HTML/ESPANOL/Principal.html",
     "aboutuseng.html": "HTML/ESPANOL/aboutus.html",
     "contactoing.html": "HTML/ESPANOL/Contacto.html",
     "cancer-introing.html": "HTML/ESPANOL/cancer-intro.html",
@@ -35,7 +34,7 @@
     "helping.html": "HTML/ESPANOL/help.html",
     "quizzing.html": "HTML/ESPANOL/quizz.html",
     "faqing.html": "HTML/ESPANOL/faq.html",
-    "IndexING.html": "INICIO/IndexING.html",
+    "IndexING.html": "INICIO/Index.html",
     "Faq.N-ING.html": "INICIO/Faq.N.html",
   };
 
@@ -130,7 +129,7 @@
   });
 
   function setupLangSwitchNL() {
-    var btn = document.getElementById("langSwitch");
+    var btn = document.getElementById("langSwitchNL");
     if (!btn) return;
 
     var current = currentBasename();
