@@ -6,8 +6,41 @@
     <title>Introduction to Cancer - Canrisk</title>
     <link rel="stylesheet" href="../../CSS/Style-Info.css">
     <link rel="icon" type="image/png" href="../../MULTIMEDIA/Canrisk LOGO.svg">
-    <style>
-        /*  FLIP CARD  */
+        <style>
+        /*  DISPOSICIÓN DE 2 FILAS POR 3 COLUMNAS  */
+        .info-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 20px !important;
+            width: 100% !important;
+            max-width: 1200px;
+            margin: 2rem auto !important;
+            padding: 0 1rem;
+            box-sizing: border-box !important;
+        }
+
+        .info-grid .info-card {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-start !important;
+        }
+
+        /* Ajuste responsivo para pantallas pequeñas */
+        @media (max-width: 900px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /*  TARJETA QUE ROTA (FLIP CARD)  */
         .flip-card {
             perspective: 1200px;
             width: 100%;
@@ -79,7 +112,7 @@
             opacity: 0.7;
         }
 
-        /*  QUICK STATS BLOCK */
+        /*  BLOQUE DE DATOS RÁPIDOS  */
         .quick-stats {
             display: flex;
             flex-wrap: wrap;
@@ -119,7 +152,7 @@
             color: #555;
         }
 
-        /*  ICONS IN TITLES AND LISTS  */
+        /* ÍCONOS EN TÍTULOS Y LISTAS  */
         .info-card h3 .card-icon {
             margin-right: 0.4rem;
         }
@@ -161,7 +194,7 @@
         
         <ul class="sidebar-list">
             <li><a href="cancer-introING.html">Introduction to Cancer &rarr;</a></li>
-            <li><a href="cancerING.html">Cancer Types &rarr;</a></li>
+            <li><a href="CancerING.html">Cancer Types &rarr;</a></li>
             <li><a href="psycho-helpING.html">Psychological Support &rarr;</a></li>
             <li><a href="helpING.html">Help Center &rarr;</a></li>
             <li><a href="quizzING.html">Quiz &rarr;</a></li>
@@ -187,11 +220,16 @@
             <li class="box-II"><a href="ContactoING.html"><h4>Contact Us</h4></a></li>
         </ul>
 
-        <div class="right-group">
+           <div class="right-group">
             <a id="langSwitch" class="lang-switch" href="#" aria-label="Cambiar idioma / Switch language">ES</a>
             <div class="Photo">
-                <img src="../../MULTIMEDIA/profile.png" class="PP-default" alt="User profile picture">
-            </div>
+            <a href="../../INICIO/IndexING.html" aria-label="Perfil del usuario / User profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+            </a>
+        </div>
         </div>
 
     </nav>

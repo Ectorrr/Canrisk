@@ -138,7 +138,7 @@
             <span></span>
         </div>
         <ul class="sidebar-list">
-            <li><a href="IndexING.html">Home &rarr;</a></li>
+            <li><a href="../INICIO/IndexING.html">Home &rarr;</a></li>
         </ul>
     </nav>
 
@@ -165,14 +165,12 @@
                 <li class="box-I"><a href="../HTML/INGLES/loginING.html"><h4>Log in</h4></a></li>
                 <li class="box-I"><a href="../HTML/INGLES/registerING.html"><h4>Sign Up</h4></a></li>
             </ul>
-            <a id="langSwitch" class="lang-switch" href="Faq.N.html" aria-label="Cambiar idioma / Switch language">ES</a>
+             <a id="langSwitch" class="lang-switch" href="../../Canrisk/INICIO/Faq.N.html" aria-label="Cambiar idioma / Switch language">ES</a>
             <div class="Photo">
                 <img src="../MULTIMEDIA/profile.png" class="PP-default" alt="Foto de perfil del usuario">
             </div>
         </div>
-
-    <!--No agarra lo de idioma-->
-
+        
     </nav>
 
 <!-- Questions -->
@@ -331,16 +329,16 @@
         <div class="footer-social">
             <h2 class="Title_2">Canrisk's social media!</h2>
             <ul class="Social">
-                <li><a href="https://www.instagram.com/canrisk/" target="_blank"><img src="../../MULTIMEDIA/instagram.png" class="Inst-IMG" alt="Instagram logo"><p class="Inst-txt">Instagram</p></a></li>
-                <li><a href="https://www.facebook.com/Canrisk-110882646091155" target="_blank"><img src="../../MULTIMEDIA/facebook.png" class="Face-IMG" alt="Facebook logo"><p class="Face-txt">Facebook</p></a></li>
-                <li><a href="https://twitter.com/Canrisk1" target="_blank"><img src="../../MULTIMEDIA/gorjeo.png" class="Twit-IMG" alt="Twitter"><p class="Twit-txt">Twitter</p></a></li>
+                <li><a href="https://www.instagram.com/canrisk/" target="_blank"><img src="../../Canrisk/MULTIMEDIA/instagram.png" class="Inst-IMG" alt="Instagram logo"><p class="Inst-txt">Instagram</p></a></li>
+                <li><a href="https://www.facebook.com/Canrisk-110882646091155" target="_blank"><img src="../../Canrisk/MULTIMEDIA/facebook.png" class="Face-IMG" alt="Facebook logo"><p class="Face-txt">Facebook</p></a></li>
+                <li><a href="https://twitter.com/Canrisk1" target="_blank"><img src="../../Canrisk/MULTIMEDIA/gorjeo.png" class="Twit-IMG" alt="Twitter"><p class="Twit-txt">Twitter</p></a></li>
             </ul>
             </div>
         </div>
     </footer>
 
     <script>
-        const btn = document.getElementById('hamburgerBtn');
+              const btn = document.getElementById('hamburgerBtn');
         const nav = document.getElementById('mainNav');
 
         btn.addEventListener('click', () => {
@@ -361,6 +359,30 @@
 
         sidebarBtn.addEventListener('click', toggleSidebar);
         menuOverlay.addEventListener('click', toggleSidebar);
+
+        const faqSearch = document.getElementById('faqSearch');
+        const faqItems = document.querySelectorAll('.faq-item');
+        const faqCategories = document.querySelectorAll('.faq-category');
+        const faqNoResults = document.getElementById('faqNoResults');
+
+        faqSearch.addEventListener('input', () => {
+            const query = faqSearch.value.trim().toLowerCase();
+            let anyVisible = false;
+
+            faqCategories.forEach(category => {
+                let categoryHasVisible = false;
+                category.querySelectorAll('.faq-item').forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    const matches = text.includes(query);
+                    item.style.display = matches ? '' : 'none';
+                    if (matches) categoryHasVisible = true;
+                });
+                category.style.display = categoryHasVisible ? '' : 'none';
+                if (categoryHasVisible) anyVisible = true;
+            });
+
+            faqNoResults.style.display = anyVisible ? 'none' : 'block';
+        });
     </script>
 
 
