@@ -12,31 +12,35 @@
 
   // Mapa ES <-> EN. Las rutas son relativas a la raíz del proyecto.
   var LANG_MAP = {
-    "index.html": "HTML/INGLES/PrincipalING.html",
+    // Páginas en español -> inglés
     "principal.html": "HTML/INGLES/PrincipalING.html",
     "aboutus.html": "HTML/INGLES/aboutusENG.html",
     "contacto.html": "HTML/INGLES/ContactoING.html",
+    "contacto-detalle.html": "HTML/INGLES/Contacto-detalleING.html",
     "cancer-intro.html": "HTML/INGLES/cancer-introING.html",
     "cancer.html": "HTML/INGLES/CancerING.html",
-    "psycho-help.html": "HTML/INGLES/psychohelpING.html",
+    "psycho-help.html": "HTML/INGLES/psycho-helpING.html",
     "help.html": "HTML/INGLES/helpING.html",
+    "help-detalle.html": "HTML/INGLES/helpING.html",
     "ficha1.html": "HTML/INGLES/helpING.html",
     "quizz.html": "HTML/INGLES/quizzING.html",
     "faq.html": "HTML/INGLES/faqING.html",
-    "Index.html": "INICIO/Index.html",
-    "Faq.N.html": "INICIO/Faq.N.html",
+    "index.html": "INICIO/IndexING.html",
+    "faq.n.html": "INICIO/Faq.N-ING.html",
 
+    // Páginas en inglés -> español
     "principaling.html": "HTML/ESPANOL/Principal.html",
     "aboutuseng.html": "HTML/ESPANOL/aboutus.html",
     "contactoing.html": "HTML/ESPANOL/Contacto.html",
+    "contacto-detalleing.html": "HTML/ESPANOL/Contacto-Detalle.html",
     "cancer-introing.html": "HTML/ESPANOL/cancer-intro.html",
     "cancering.html": "HTML/ESPANOL/cancer.html",
-    "psychohelping.html": "HTML/ESPANOL/psycho-help.html",
+    "psycho-helping.html": "HTML/ESPANOL/psycho-help.html",
     "helping.html": "HTML/ESPANOL/help.html",
     "quizzing.html": "HTML/ESPANOL/quizz.html",
     "faqing.html": "HTML/ESPANOL/faq.html",
-    "IndexING.html": "INICIO/IndexING.html",
-    "Faq.N-ING.html": "INICIO/Faq.N-ING.html",
+    "indexing.html": "INICIO/Index.html",
+    "faq.n-ing.html": "INICIO/Faq.N.html"
   };
 
   function currentBasename() {
@@ -47,7 +51,14 @@
   }
 
   function rootPrefix() {
-    return /\/HTML\/(ESPANOL|INGLES)\//i.test(window.location.pathname) ? "../../" : "";
+    var path = window.location.pathname;
+    if (/\/HTML\/(ESPANOL|INGLES)\//i.test(path)) return "../../";
+    if (/\/INICIO\//i.test(path)) return "../";
+    return "";
+  }
+
+  function currentIsEnglish() {
+    return (document.documentElement.lang || "es").toLowerCase().indexOf("en") === 0;
   }
 
   /* ---------- 1. Resaltar la página actual (navbar + sidebar) ---------- */
@@ -75,7 +86,7 @@
     try { session = JSON.parse(localStorage.getItem("userSession")); } catch (e) { /* noop */ }
     if (!session || !session.username) return;
 
-    var isEnglish = (document.documentElement.lang || "es").toLowerCase().indexOf("en") === 0;
+    var isEnglish = currentIsEnglish();
 
     var wrapper = document.createElement("button");
     wrapper.type = "button";
@@ -108,19 +119,19 @@
 
   /* ---------- 3. Botón de cambio de idioma ---------- */
   function setupLangSwitch() {
-    var btn = document.getElementById("langSwitch");
+    var btn = document.getElementById("langSwitch") || document.getElementById("langSwitchNL");
     if (!btn) return;
 
     var current = currentBasename();
     var target = LANG_MAP[current];
 
     if (!target) {
-      var isEnglish = (document.documentElement.lang || "es").toLowerCase().indexOf("en") === 0;
+      var isEnglish = currentIsEnglish();
       target = isEnglish ? "HTML/ESPANOL/Principal.html" : "HTML/INGLES/PrincipalING.html";
     }
 
     btn.setAttribute("href", rootPrefix() + target);
-    btn.textContent = target.indexOf("/INGLES/") !== -1 ? "EN" : "ES";
+    btn.textContent = currentIsEnglish() ? "ES" : "EN";
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -128,20 +139,4 @@
     setupSessionIndicator();
     setupLangSwitch();
   });
-
-  function setupLangSwitchNL() {
-    var btn = document.getElementById("langSwitch");
-    if (!btn) return;
-
-    var current = currentBasename();
-    var target = LANG_MAP[current];
-
-    if(!target) {
-      var isEnglish = (document.documentElement.lang || "es").toLowerCase().indexOf("en") === 0;
-      target = isEnglish ? "INICIO/index.html" : "INICIO/IndexING.html";
-    }
-
-    btn.setAttribute("href", rootPrefix() + target);
-    btn.textContent = target.indexOf("/INGLES/") !== -1 ? "EN" : "ES";
-  }
 })();

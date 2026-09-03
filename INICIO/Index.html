@@ -46,6 +46,27 @@
     </nav>
     <!-- ENCABEZADO PRINCIPAL (HERO) --> 
     <header class="hero-section">
+    <!-- CAROUSEL DE IMAGENES -->
+    <div class="carousel">
+        <div class="carousel-track" id="track">
+        <div class="carousel-slide"><img src="../MULTIMEDIA/1.jpg" alt=></div>
+        <div class="carousel-slide"><img src="../MULTIMEDIA/2.jpg" alt=></div>
+        <div class="carousel-slide"><img src="../MULTIMEDIA/3.jpg" alt=></div>
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-button prev" onclick="prevSlide()">❮</button>
+            <button class="carousel-button next" onclick="nextSlide()">❯</button>
+
+            <!-- NUEVO: Contenedor de indicadores de línea (abajo del carrusel) -->
+            <div class="carousel-indicators-lines">
+                <!-- Agrega un botón por cada imagen/slide que tengas en tu carrusel -->
+                <button class="indicator-line active" onclick="currentSlide(0)"></button>
+                <button class="indicator-line" onclick="currentSlide(1)"></button>
+                <button class="indicator-line" onclick="currentSlide(2)"></button>
+            </div>
+        </div>
+    </div>
+    <br>
         <div class="hero-container">
             <div class="Titulos-DEG">
                 <h1 class="hero-title">Canrisk, tu sitio informativo sobre el cáncer</h1>
@@ -59,13 +80,10 @@
                 </strong>
             </p>
         </div>
-             <!-- CAROUSEL DE IMAGENES -->
-    <div class="carousel">
-        <div class="carousel-track" id="track">
-        <div class="carousel-slide"><img src="../MULTIMEDIA/1.jpg" alt=></div>
-        <div class="carousel-slide"><img src="../MULTIMEDIA/2.jpg" alt=></div>
-        <div class="carousel-slide"><img src="../MULTIMEDIA/3.jpg" alt=></div>
-        </div>
+             
+</div>
+<br>
+</div>
     </div>
         <div class="action-container" style="padding-top: 0;">
                 <a href="../HTML/ESPANOL/register.html" class="btn-quizz">Regístrate hoy y sé parte del cambio</a>
@@ -125,22 +143,35 @@
             menuOverlay.addEventListener('click', toggleSidebar);
         }
 
-        /* Carousel */
-        var carouselIndex = 0;
-        var track = document.getElementById("track");
-        var slides = document.querySelectorAll(".carousel-slide");
+        /* ---- Carousel ---- */
+        var currentSlideIndex = 0;
+        var track = document.getElementById('track');
+        var slides = document.querySelectorAll('.carousel-slide');
+        var indicators = document.querySelectorAll('.indicator-line');
         var carousel = document.querySelector('.carousel');
 
-        function showSlide(i) {
+        function showSlide(index) {
             if (!track || slides.length === 0) return;
-            carouselIndex = (i + slides.length) % slides.length;
-            track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+            // Wrap around
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            currentSlideIndex = index;
+
+            // Move the track
+            track.style.transform = 'translateX(-' + (currentSlideIndex * 100) + '%)';
+
+            // Update indicator lines
+            indicators.forEach(function(ind) { ind.classList.remove('active'); });
+            if (indicators[currentSlideIndex]) {
+                indicators[currentSlideIndex].classList.add('active');
+            }
         }
 
-        function nextSlide() { showSlide(carouselIndex + 1); }
-        function prevSlide() { showSlide(carouselIndex - 1); }
+        function nextSlide() { showSlide(currentSlideIndex + 1); }
+        function prevSlide() { showSlide(currentSlideIndex - 1); }
+        function currentSlide(index) { showSlide(index); }
 
-        /* Auto-play: avanza cada 4 s, se pausa al pasar el cursor */
+        // Auto-play: avanza cada 15 s, se pausa al pasar el cursor
         var autoPlay = setInterval(nextSlide, 15000);
         if (carousel) {
             carousel.addEventListener('mouseenter', function() { clearInterval(autoPlay); });
