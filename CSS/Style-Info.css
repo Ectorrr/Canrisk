@@ -560,6 +560,14 @@ img {
   -webkit-text-fill-color: transparent;
 }
 
+.Titulos-DEG-C {
+  background: radial-gradient(circle,rgb(255, 254, 254) 10%, #715c68 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 /* ============================================================
    7. SECCIONES DE CONTENIDO (texto + imagen + resaltado)
    ============================================================ */
@@ -1311,7 +1319,6 @@ footer {
   height: 70%;
   margin: 20px auto;
   overflow: hidden;
-  box-shadow: 10px 8px 24px rgba(182, 64, 118, 0.12);
   border-radius: 24px;
 }
 
@@ -1333,25 +1340,22 @@ footer {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgb(249, 248, 248);
+      background: none;
       border: none;
-      color: #000000;
+      color: #b23d74;
       font-size: 24px;
-      padding: 10px;
       cursor: pointer;
-      border-radius: 50%;
     }
 
-    .carousel-button.prev { left: 15px; }
-    .carousel-button.next { right: 15px; }
+    .carousel-button.prev { left: 50px; }
+    .carousel-button.next { right: 50px; }
 
     .carousel-button {
-      transition: background 0.25s ease, transform 0.25s ease;
+      transition: color 0.25s ease, transform 0.25s ease;
     }
 
     .carousel-button:hover {
-      background: var(--primary-color, #b23d74);
-      transform: translateY(-50%) scale(1.1);
+      color:white;
     }
 
     @keyframes apareceSuave {
@@ -1380,3 +1384,38 @@ footer {
         cursor: pointer;
       }
     }
+
+      /* Contenedor general en posición relativa para poder alinear las líneas abajo */
+  .carousel-container {
+      position: relative;
+      padding-bottom: 30px; /* Espacio inferior para que las líneas no tapen las imágenes */
+  }
+
+  /* Contenedor de las líneas abajo y centrado */
+  .carousel-indicators-lines {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px; /* Espacio entre cada línea */
+      z-index: 15;
+  }
+
+  /* Estilo de los botones para que parezcan líneas */
+  .indicator-line {
+      width: 35px;          /* Longitud de la línea */
+      height: 5px;          /* Grosor de la línea */
+      padding: 0;
+      border: none;
+      background-color: rgba(0, 0, 0, 0.3); /* Color de línea inactiva (gris transparente) */
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 2px;   /* Bordes ligeramente suaves */
+  }
+
+  /* Estilo de la línea activa */
+  .indicator-line.active {
+      background-color: #b6559c; /* Color de la línea activa (ej: negro) */
+  }
+

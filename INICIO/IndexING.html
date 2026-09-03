@@ -7,6 +7,73 @@
     <link rel="stylesheet" href="../CSS/Style-Info.css">
     <link rel="icon" type="image/png" href="../MULTIMEDIA/Canrisk LOGO.svg">
 </head>
+<style>
+    /* ===== DIAGNOSIS PATH (TIMELINE) ===== */
+        .diagnosis-path {
+            background: linear-gradient(15deg, #d65a94, #f3a6c2 );
+            padding: 3rem 1.2rem;
+            margin: 3rem 0;
+        }
+ 
+        .diagnosis-path h2 {
+            text-align: center;
+            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+        }
+ 
+        .diagnosis-path .sub {
+            text-align: center;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+            margin-bottom: 2.2rem;
+        }
+ 
+        .timeline {
+            max-width: 950px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0;
+            counter-reset: step;
+        }
+ 
+        .timeline-step {
+            flex: 1 1 170px;
+            max-width: 200px;
+            text-align: center;
+            padding: 0 0.8rem;
+            position: relative;
+        }
+ 
+        .timeline-step .step-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            color: #a83862;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.7rem;
+            font-size: 1.1rem;
+        }
+ 
+        .timeline-step h4 {
+            color: #fff;
+            font-size: 0.92rem;
+            margin: 0 0 0.4rem 0;
+        }
+ 
+        .timeline-step p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+</style>
 <body>
 
     <!-- LOGO AND SIDEBAR TOGGLE BUTTON -->
@@ -61,12 +128,21 @@
     <div class="carousel">
         <div class="carousel-track" id="track">
         <div class="carousel-slide"><img src="../MULTIMEDIA/1.jpg" alt=></div>
-        <div class="carousel-slide"><img src="../MULTIMEDIA/5.jpg" alt=></div>
-        <div class="carousel-slide"><img src="../MULTIMEDIA/6.jpg" alt=></div>
+        <div class="carousel-slide"><img src="../MULTIMEDIA/2.jpg" alt=></div>
+        <div class="carousel-slide"><img src="../MULTIMEDIA/3.jpg" alt=></div>
         </div>
-    </div>
-        <div class="action-container" style="padding-top: 0;">
-                <a href="../HTML/INGLES/registerING.html" class="btn-quizz">Sign up today and be part of the change</a>
+        <div class="carousel-container">
+            <button class="carousel-button prev" onclick="prevSlide()">❮</button>
+            <button class="carousel-button next" onclick="nextSlide()">❯</button>
+
+            <!-- NUEVO: Contenedor de indicadores de línea (abajo del carrusel) -->
+            <div class="carousel-indicators-lines">
+                <!-- Agrega un botón por cada imagen/slide que tengas en tu carrusel -->
+                <button class="indicator-line active" onclick="currentSlide(0)"></button>
+                <button class="indicator-line" onclick="currentSlide(1)"></button>
+                <button class="indicator-line" onclick="currentSlide(2)"></button>
+            </div>
+        </div>
     </div>
     </header>
 
@@ -90,6 +166,40 @@
                 <h3>Privacy First</h3>
                 <p>We respect the privacy of every person who seeks help on our site, without
                     exception.</p>
+            </div>
+        </div>
+        <!-- "MORE ABOUT US (NOT FINISHED)"-->
+        <div class="diagnosis-path">
+            <div class="Titulos-DEG-C">
+                <h2> What is our purpose?</h2>
+            </div>
+            <p class="sub">To change how people understands cancer, and prevent further deaths due to medical misinformation. </p>
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="step-circle">1</div>
+                    <h4>Initial consultation</h4>
+                    <p>You visit a general practitioner and explain the symptoms you've noticed.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">2</div>
+                    <h4>Screening tests</h4>
+                    <p>Lab tests, imaging, or specific studies are ordered depending on the case.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">3</div>
+                    <h4>Biopsy</h4>
+                    <p>If there's a suspicious lesion, a small tissue sample is taken for analysis.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">4</div>
+                    <h4>Diagnosis and staging</h4>
+                    <p>The medical team confirms the diagnosis and determines what stage it's at.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-circle">5</div>
+                    <h4>Treatment plan</h4>
+                    <p>A personalized plan is defined together with oncology specialists.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -123,22 +233,35 @@
             menuOverlay.addEventListener('click', toggleSidebar);
         }
 
-        /*  Carousel */
-        var carouselIndex = 0;
-        var track = document.getElementById("track");
-        var slides = document.querySelectorAll(".carousel-slide");
+        /* ---- Carousel ---- */
+        var currentSlideIndex = 0;
+        var track = document.getElementById('track');
+        var slides = document.querySelectorAll('.carousel-slide');
+        var indicators = document.querySelectorAll('.indicator-line');
         var carousel = document.querySelector('.carousel');
 
-        function showSlide(i) {
+        function showSlide(index) {
             if (!track || slides.length === 0) return;
-            carouselIndex = (i + slides.length) % slides.length;
-            track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+            // Wrap around
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            currentSlideIndex = index;
+
+            // Move the track
+            track.style.transform = 'translateX(-' + (currentSlideIndex * 100) + '%)';
+
+            // Update indicator lines
+            indicators.forEach(function(ind) { ind.classList.remove('active'); });
+            if (indicators[currentSlideIndex]) {
+                indicators[currentSlideIndex].classList.add('active');
+            }
         }
 
-        function nextSlide() { showSlide(carouselIndex + 1); }
-        function prevSlide() { showSlide(carouselIndex - 1); }
+        function nextSlide() { showSlide(currentSlideIndex + 1); }
+        function prevSlide() { showSlide(currentSlideIndex - 1); }
+        function currentSlide(index) { showSlide(index); }
 
-        /* Auto-play: advances every 4s, pauses on hover */
+        // Auto-play: avanza cada 15 s, se pausa al pasar el cursor
         var autoPlay = setInterval(nextSlide, 15000);
         if (carousel) {
             carousel.addEventListener('mouseenter', function() { clearInterval(autoPlay); });
