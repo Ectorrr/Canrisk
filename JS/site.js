@@ -36,7 +36,7 @@
     "quizzing.html": "HTML/ESPANOL/quizz.html",
     "faqing.html": "HTML/ESPANOL/faq.html",
     "IndexING.html": "INICIO/IndexING.html",
-    "Faq.N-ING.html": "INICIO/Faq.N.html",
+    "Faq.N-ING.html": "INICIO/Faq.N-ING.html",
   };
 
   function currentBasename() {
