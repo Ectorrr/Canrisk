@@ -1,9 +1,8 @@
 /* ============================================================
    CANRISK — LOGIN / REGISTRO
-   Página independiente (no carga Style-Info.css), por eso
-   declara sus propios colores en esta misma hoja.
+   Página independiente.
 
-   Paleta de referencia (sin variables):
+   Paleta de referencia:
    Rosa marca: #d65a94  |  oscuro: #b23d74  |  suave: #fbd7e7
    Fondo: #fdf3f7   Superficie: #ffffff
    Texto: #3c2a35   Texto suave: #715c68   Bordes: #f0d4e0
