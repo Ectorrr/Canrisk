@@ -88,29 +88,14 @@
   text-decoration: underline;
 }
 
-/* ---------- 4. FRASE FINAL DESTACADA ---------- */
-.contacto-lema {
-  background: #fbd7e7;
-  border-radius: 16px;
-  padding: 26px 20px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(182, 64, 118, 0.08);
-}
 
-.contacto-lema p {
-  color: #8a3c78;
-  font-size: 1.05rem;
-  letter-spacing: 0.5px;
-  font-weight: 700;
-}
-
-/* ---------- 5. RESPONSIVE ---------- */
+/* ---------- 4. RESPONSIVE ---------- */
 @media (max-width: 650px) {
   .contacto-grid { grid-template-columns: 1fr !important; }
 }
 
 /* ============================================================
-   6. INTRODUCCIÓN DE LA PÁGINA DE CONTACTO
+   5. INTRODUCCIÓN DE LA PÁGINA DE CONTACTO
    ============================================================ */
 .contacto-intro-box {
   max-width: 760px;
@@ -168,7 +153,7 @@
 }
 
 /* ============================================================
-   7. BUSCADOR DE HOSPITALES
+   6. BUSCADOR DE HOSPITALES
    ============================================================ */
 .contacto-buscador {
   max-width: 460px;
@@ -214,7 +199,7 @@
 }
 
 /* ============================================================
-   8. ACORDEÓN — PREGUNTAS RÁPIDAS
+   7. ACORDEÓN — PREGUNTAS RÁPIDAS
    ============================================================ */
 .contacto-faq {
   max-width: 720px;
@@ -297,7 +282,7 @@
 }
 
 /* ============================================================
-   9. FOTOS
+   8. FOTOS
    ============================================================ */
 
    .Hospital-photo {
