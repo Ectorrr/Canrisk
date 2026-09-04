@@ -40,13 +40,17 @@
     "quizzing.html": "HTML/ESPANOL/quizz.html",
     "faqing.html": "HTML/ESPANOL/faq.html",
     "indexing.html": "INICIO/Index.html",
-    "faq.n-ing.html": "INICIO/Faq.N.html"
+    "faq.n-ing.html": "INICIO/Faq.N.html",
   };
 
   function currentBasename() {
     var path = window.location.pathname;
     var last = path.substring(path.lastIndexOf("/") + 1);
-    try { last = decodeURIComponent(last); } catch (e) { /* noop */ }
+    try {
+      last = decodeURIComponent(last);
+    } catch (e) {
+      /* noop */
+    }
     return last.toLowerCase() || "index.html";
   }
 
@@ -58,23 +62,27 @@
   }
 
   function currentIsEnglish() {
-    return (document.documentElement.lang || "es").toLowerCase().indexOf("en") === 0;
+    return (
+      (document.documentElement.lang || "es").toLowerCase().indexOf("en") === 0
+    );
   }
 
   /* ---------- 1. Resaltar la página actual (navbar + sidebar) ---------- */
   function highlightActivePage() {
     var current = currentBasename();
 
-    document.querySelectorAll(".Info-nav a, .sidebar-list a").forEach(function (a) {
-      var href = a.getAttribute("href");
-      if (!href) return;
-      var base = href.substring(href.lastIndexOf("/") + 1).toLowerCase();
-      if (base === current) {
-        a.classList.add("active");
-        var boxII = a.closest(".box-II");
-        if (boxII) boxII.classList.add("active");
-      }
-    });
+    document
+      .querySelectorAll(".Info-nav a, .sidebar-list a")
+      .forEach(function (a) {
+        var href = a.getAttribute("href");
+        if (!href) return;
+        var base = href.substring(href.lastIndexOf("/") + 1).toLowerCase();
+        if (base === current) {
+          a.classList.add("active");
+          var boxII = a.closest(".box-II");
+          if (boxII) boxII.classList.add("active");
+        }
+      });
   }
 
   /* ---------- 2. Texto de sesión junto a la foto de perfil ---------- */
@@ -83,7 +91,11 @@
     if (!photo) return;
 
     var session = null;
-    try { session = JSON.parse(localStorage.getItem("userSession")); } catch (e) { /* noop */ }
+    try {
+      session = JSON.parse(localStorage.getItem("userSession"));
+    } catch (e) {
+      /* noop */
+    }
     if (!session || !session.username) return;
 
     var isEnglish = currentIsEnglish();
@@ -91,7 +103,9 @@
     var wrapper = document.createElement("button");
     wrapper.type = "button";
     wrapper.className = "session-text show";
-    wrapper.title = isEnglish ? "Click to log out" : "Haz clic para cerrar sesión";
+    wrapper.title = isEnglish
+      ? "Click to log out"
+      : "Haz clic para cerrar sesión";
 
     var greeting = document.createElement("span");
     greeting.className = "session-greeting";
@@ -119,7 +133,9 @@
 
   /* ---------- 3. Botón de cambio de idioma ---------- */
   function setupLangSwitch() {
-    var btn = document.getElementById("langSwitch") || document.getElementById("langSwitchNL");
+    var btn =
+      document.getElementById("langSwitch") ||
+      document.getElementById("langSwitchNL");
     if (!btn) return;
 
     var current = currentBasename();
@@ -127,7 +143,9 @@
 
     if (!target) {
       var isEnglish = currentIsEnglish();
-      target = isEnglish ? "HTML/ESPANOL/Principal.html" : "HTML/INGLES/PrincipalING.html";
+      target = isEnglish
+        ? "HTML/ESPANOL/Principal.html"
+        : "HTML/INGLES/PrincipalING.html";
     }
 
     btn.setAttribute("href", rootPrefix() + target);
