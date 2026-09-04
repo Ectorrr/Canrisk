@@ -923,3 +923,39 @@ footer {
     padding: 20px;
   }
 }
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  font-family: var(--font-heading);
+  text-align: left;
+  justify-content: center;
+}
+
+.user-info .session-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.user-info strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 1px 0; /* Un pequeño margen para separar los textos */
+}
+
+.user-info .logout-link {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.user-info .logout-link:hover {
+  opacity: 0.8;
+  color: var(--color-accent);
+}

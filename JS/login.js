@@ -21,7 +21,7 @@ function loginUser(e) {
       JSON.stringify({ type: "users", username }),
     );
     const isEnglish = window.location.pathname.includes("/INGLES/");
-    window.location.href = isEnglish ? "PrincipalING.html" : "Principal.html";
+    window.location.href = isEnglish ? "PrincipalING.php" : "Principal.php";
   } else {
     alert("Credenciales inválidas");
   }

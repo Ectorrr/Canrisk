@@ -1,5 +1,5 @@
 // Datos de las personas del Centro de Ayuda
-// Se usa tanto en help.html (para el listado) como en help-detalle.html (para el detalle en grande)
+// Se usa tanto en help.php (para el listado) como en help-detalle.php (para el detalle en grande)
 const personasAyuda = [
   {
     id: 1,

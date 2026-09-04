@@ -1,4 +1,4 @@
-// Datos de los hospitales para la página Contacto-Detalle.html
+// Datos de los hospitales para la página Contacto-Detalle.php
 const hospitalesData = [
   {
     id: 1,

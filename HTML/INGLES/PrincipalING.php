@@ -1,4 +1,16 @@
-<!doctype html>
+<?php
+session_start();
+if (!isset($_SESSION["userSession"])) {
+    $isEnglish   = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+    $redirectUrl = $isEnglish ? "LoginING.php" : "login.php";
+    
+    header("Location: " . $redirectUrl);
+    exit; 
+}
+
+$sesion    = $_SESSION["userSession"] ?? null;
+$isEnglish = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+?><!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,13 +50,13 @@
 
       <ul class="sidebar-list">
         <li>
-          <a href="cancer-introING.html">Introduction to Cancer &rarr;</a>
+          <a href="cancer-introING.php">Introduction to Cancer &rarr;</a>
         </li>
-        <li><a href="CancerING.html">Cancer Types &rarr;</a></li>
-        <li><a href="psycho-helpING.html">Psychological Support &rarr;</a></li>
-        <li><a href="helpING.html">Help Center &rarr;</a></li>
-        <li><a href="quizzING.html">Quiz &rarr;</a></li>
-        <li><a href="faqING.html">Frequently Asked Questions &rarr;</a></li>
+        <li><a href="CancerING.php">Cancer Types &rarr;</a></li>
+        <li><a href="psycho-helpING.php">Psychological Support &rarr;</a></li>
+        <li><a href="helpING.php">Help Center &rarr;</a></li>
+        <li><a href="quizzING.php">Quiz &rarr;</a></li>
+        <li><a href="faqING.php">Frequently Asked Questions &rarr;</a></li>
       </ul>
     </nav>
 
@@ -66,13 +78,13 @@
 
       <ul class="Info-nav">
         <li class="box-II">
-          <h4><a href="../INGLES/PrincipalING.html">Home Page</a></h4>
+          <h4><a href="../INGLES/PrincipalING.php">Home Page</a></h4>
         </li>
         <li class="box-II">
-          <a href="../INGLES/aboutusENG.html"><h4>About us</h4></a>
+          <a href="../INGLES/aboutusENG.php"><h4>About us</h4></a>
         </li>
         <li class="box-II">
-          <a href="../INGLES/ContactoING.html"><h4>Contact us</h4></a>
+          <a href="../INGLES/ContactoING.php"><h4>Contact us</h4></a>
         </li>
       </ul>
 
@@ -80,15 +92,13 @@
         <a
           id="langSwitch"
           class="lang-switch"
-          href="#"
+          href="<?php echo $isEnglish ? '../Principal.php' : 'INGLES/PrincipalING.php'; ?>"
           aria-label="Cambiar idioma / Switch language"
-          >ES</a
+          ><?php echo $isEnglish ? 'ES' : 'EN'; ?></a
         >
-        <div class="Photo">
-          <a
-            href="../../INICIO/IndexING.html"
-            aria-label="Perfil del usuario / User profile"
-          >
+
+        <?php if ($sesion): ?>
+          <div class="Photo user-session">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="48"
@@ -103,8 +113,39 @@
                 d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
               />
             </svg>
-          </a>
-        </div>
+            <div class="user-info">
+              <span class="session-label">
+                <?php echo $isEnglish ? 'Signed in as' : 'Sesión iniciada como'; ?>
+              </span>
+              <strong><?php echo htmlspecialchars($sesion['username'], ENT_QUOTES); ?></strong>
+              <a class="logout-link" href="../../PHP/logout.php">
+                <?php echo $isEnglish ? 'Log out' : 'Cerrar sesión'; ?>
+              </a>
+            </div>
+          </div>
+        <?php else: ?>
+          <div class="Photo">
+            <a
+              href="login.php"
+              aria-label="Iniciar sesión / Login"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                />
+              </svg>
+            </a>
+          </div>
+        <?php endif; ?>
       </div>
     </nav>
 
@@ -117,7 +158,7 @@
           tools, emotional support, and assistance for young people and families
           going through oncology treatment.
         </p>
-        <a href="cancerING.html" class="btn-cancer">
+        <a href="cancerING.php" class="btn-cancer">
           <span>Learn About Cancer Types</span> &rarr;
         </a>
       </div>

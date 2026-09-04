@@ -1,4 +1,16 @@
-<!doctype html>
+<?php
+session_start();
+if (!isset($_SESSION["userSession"])) {
+    $isEnglish   = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+    $redirectUrl = $isEnglish ? "LoginING.php" : "login.php";
+    
+    header("Location: " . $redirectUrl);
+    exit; 
+}
+
+$sesion    = $_SESSION["userSession"] ?? null;
+$isEnglish = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+?><!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -37,12 +49,12 @@
       </div>
 
       <ul class="sidebar-list">
-        <li><a href="cancer-intro.html">Introducción al cáncer &rarr;</a></li>
-        <li><a href="cancer.html">Tipos de Cáncer &rarr;</a></li>
-        <li><a href="psycho-help.html">Apoyo psicológico &rarr;</a></li>
-        <li><a href="help.html">Centro de ayuda &rarr;</a></li>
-        <li><a href="quizz.html">Cuestionario &rarr;</a></li>
-        <li><a href="faq.html">Preguntas frecuentes &rarr;</a></li>
+        <li><a href="cancer-intro.php">Introducción al cáncer &rarr;</a></li>
+        <li><a href="cancer.php">Tipos de Cáncer &rarr;</a></li>
+        <li><a href="psycho-help.php">Apoyo psicológico &rarr;</a></li>
+        <li><a href="help.php">Centro de ayuda &rarr;</a></li>
+        <li><a href="quizz.php">Cuestionario &rarr;</a></li>
+        <li><a href="faq.php">Preguntas frecuentes &rarr;</a></li>
       </ul>
     </nav>
 
@@ -63,13 +75,13 @@
 
       <ul class="Info-nav">
         <li class="box-II">
-          <h4><a href="../ESPANOL/Principal.html">Inicio</a></h4>
+          <h4><a href="../ESPANOL/Principal.php">Inicio</a></h4>
         </li>
         <li class="box-II">
-          <a href="../ESPANOL/aboutus.html"><h4>Sobre nosotros</h4></a>
+          <a href="../ESPANOL/aboutus.php"><h4>Sobre nosotros</h4></a>
         </li>
         <li class="box-II">
-          <a href="../ESPANOL/Contacto.html"><h4>Contáctanos</h4></a>
+          <a href="../ESPANOL/Contacto.php"><h4>Contáctanos</h4></a>
         </li>
       </ul>
 
@@ -77,22 +89,65 @@
         <a
           id="langSwitch"
           class="lang-switch"
-          href="#"
+          href="<?php echo $isEnglish ? '../Principal.php' : 'INGLES/PrincipalING.php'; ?>"
           aria-label="Cambiar idioma / Switch language"
-          >ES</a
+          ><?php echo $isEnglish ? 'ES' : 'EN'; ?></a
         >
-        <div class="Photo">
-          <img
-            src="../../MULTIMEDIA/profile.png"
-            class="PP-default"
-            alt="Foto de perfil del usuario"
-          />
-        </div>
+
+        <?php if ($sesion): ?>
+          <div class="Photo user-session">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+              />
+            </svg>
+            <div class="user-info">
+              <span class="session-label">
+                <?php echo $isEnglish ? 'Signed in as' : 'Sesión iniciada como'; ?>
+              </span>
+              <strong><?php echo htmlspecialchars($sesion['username'], ENT_QUOTES); ?></strong>
+              <a class="logout-link" href="../../PHP/logout.php">
+                <?php echo $isEnglish ? 'Log out' : 'Cerrar sesión'; ?>
+              </a>
+            </div>
+          </div>
+        <?php else: ?>
+          <div class="Photo">
+            <a
+              href="login.php"
+              aria-label="Iniciar sesión / Login"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                />
+              </svg>
+            </a>
+          </div>
+        <?php endif; ?>
       </div>
     </nav>
 
     <div class="detalle-wrapper">
-      <a href="help.html" class="detalle-volver"
+      <a href="help.php" class="detalle-volver"
         >&larr; Volver al Centro de ayuda</a
       >
       <div class="detalle-card" id="detalleCard">
@@ -221,7 +276,7 @@
                             <div class="progress-bar-fill" style="width: ${persona.porcentaje}%;"></div>
                         </div>
                     </div>
-                    <a href="donar.html?id=${persona.id}" class="btn-donar">
+                    <a href="donar.php?id=${persona.id}" class="btn-donar">
                         Realizar Donación
                     </a>
                 </div>

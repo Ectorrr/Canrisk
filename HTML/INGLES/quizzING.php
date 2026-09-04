@@ -1,9 +1,21 @@
-<!doctype html>
-<html lang="es">
+<?php
+session_start();
+if (!isset($_SESSION["userSession"])) {
+    $isEnglish   = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+    $redirectUrl = $isEnglish ? "LoginING.php" : "login.php";
+    
+    header("Location: " . $redirectUrl);
+    exit; 
+}
+
+$sesion    = $_SESSION["userSession"] ?? null;
+$isEnglish = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+?><!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cuestionario - Canrisk</title>
+    <title>Quiz - Canrisk</title>
     <link rel="stylesheet" href="../../CSS/Style-Info.css" />
     <link rel="stylesheet" href="../../CSS/quizz.css" />
     <link
@@ -13,12 +25,12 @@
     />
   </head>
   <body>
-    <!-- ===== LOGO Y BOTÓN DEL MENÚ LATERAL ===== -->
+    <!--  LOGO AND SIDEBAR TOGGLE BUTTON -->
     <div class="navbar-brand">
       <button
         class="hamburger-sidebar-btn"
         id="sidebarBtn"
-        aria-label="Abrir menú lateral"
+        aria-label="Open side menu"
       >
         <span></span>
         <span></span>
@@ -28,7 +40,7 @@
       <img src="../../MULTIMEDIA/Canrisk LOGO.svg" alt="Canrisk" class="C-L" />
     </div>
 
-    <!-- ===== MENÚ LATERAL (SIDEBAR) ===== -->
+    <!--SIDEBAR MENU -->
     <nav class="sidebar-menu" id="sidebarMenu">
       <div class="sidebar-decoracion">
         <span></span>
@@ -37,24 +49,26 @@
       </div>
 
       <ul class="sidebar-list">
-        <li><a href="cancer-intro.html">Introducción al cáncer &rarr;</a></li>
-        <li><a href="cancer.html">Tipos de Cáncer &rarr;</a></li>
-        <li><a href="psycho-help.html">Apoyo psicológico &rarr;</a></li>
-        <li><a href="help.html">Centro de ayuda &rarr;</a></li>
-        <li><a href="quizz.html">Cuestionario &rarr;</a></li>
-        <li><a href="faq.html">Preguntas frecuentes &rarr;</a></li>
+        <li>
+          <a href="cancer-introING.php">Introduction to Cancer &rarr;</a>
+        </li>
+        <li><a href="CancerING.php">Cancer Types &rarr;</a></li>
+        <li><a href="psycho-helpING.php">Psychological Support &rarr;</a></li>
+        <li><a href="helpING.php">Help Center &rarr;</a></li>
+        <li><a href="quizzING.php">Quiz &rarr;</a></li>
+        <li><a href="faqING.php">Frequently Asked Questions &rarr;</a></li>
       </ul>
     </nav>
 
-    <!-- ===== FONDO OSCURO AL ABRIR EL SIDEBAR ===== -->
+    <!-- SIDEBAR DARK OVERLAY -->
     <div class="overlay-menu" id="menuOverlay"></div>
 
-    <!-- ===== BARRA DE NAVEGACIÓN SUPERIOR ===== -->
+    <!-- TOP NAVIGATION BAR  -->
     <nav class="navbar" id="mainNav">
       <button
         class="hamburger"
         id="hamburgerBtn"
-        aria-label="Abrir menú"
+        aria-label="Open menu"
         aria-expanded="false"
       >
         <span></span>
@@ -64,13 +78,13 @@
 
       <ul class="Info-nav">
         <li class="box-II">
-          <h4><a href="../ESPANOL/Principal.html">Inicio</a></h4>
+          <h4><a href="PrincipalING.php">Home Page</a></h4>
         </li>
         <li class="box-II">
-          <a href="../ESPANOL/aboutus.html"><h4>Sobre nosotros</h4></a>
+          <a href="aboutusENG.php"><h4>About Us</h4></a>
         </li>
         <li class="box-II">
-          <a href="../ESPANOL/Contacto.html"><h4>Contáctanos</h4></a>
+          <a href="ContactoING.php"><h4>Contact Us</h4></a>
         </li>
       </ul>
 
@@ -78,15 +92,13 @@
         <a
           id="langSwitch"
           class="lang-switch"
-          href="#"
+          href="<?php echo $isEnglish ? '../Principal.php' : 'INGLES/PrincipalING.php'; ?>"
           aria-label="Cambiar idioma / Switch language"
-          >ES</a
+          ><?php echo $isEnglish ? 'ES' : 'EN'; ?></a
         >
-        <div class="Photo">
-          <a
-            href="../../INICIO/Index.html"
-            aria-label="Perfil del usuario / User profile"
-          >
+
+        <?php if ($sesion): ?>
+          <div class="Photo user-session">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="48"
@@ -101,31 +113,61 @@
                 d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
               />
             </svg>
-          </a>
-        </div>
+            <div class="user-info">
+              <span class="session-label">
+                <?php echo $isEnglish ? 'Signed in as' : 'Sesión iniciada como'; ?>
+              </span>
+              <strong><?php echo htmlspecialchars($sesion['username'], ENT_QUOTES); ?></strong>
+              <a class="logout-link" href="../../PHP/logout.php">
+                <?php echo $isEnglish ? 'Log out' : 'Cerrar sesión'; ?>
+              </a>
+            </div>
+          </div>
+        <?php else: ?>
+          <div class="Photo">
+            <a
+              href="login.php"
+              aria-label="Iniciar sesión / Login"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                />
+              </svg>
+            </a>
+          </div>
+        <?php endif; ?>
       </div>
     </nav>
-
     <!-- ===== ENCABEZADO DE LA PÁGINA ===== -->
     <div class="Titulos">
-      <h1>Cuestionario de Concientización</h1>
+      <h1>Awareness Questionnaire</h1>
     </div>
     <br />
     <div class="fila-texto-img">
       <div class="content-text">
         <div class="Start">
           <p>
-            ¿Qué tanto conocemos realmente sobre el cáncer? Este cuestionario
-            busca evaluar el nivel de información y comprensión general que
-            tiene la comunidad sobre la enfermedad, sus definiciones y los
-            hábitos preventivos clave.
+            How much do we really know about cancer? This questionnaire aims to
+            assess the community's level of information and general
+            understanding about the disease, its definitions, and key
+            preventative habits.
           </p>
           <br />
           <p>
-            Tu participación nos ayuda a identificar áreas críticas donde se
-            requiere mayor difusión de contenido educativo, entender la relación
-            de las personas con los chequeos médicos y fortalecer la empatía
-            colectiva.
+            Your participation helps us identify critical areas where greater
+            dissemination of educational content is needed, understand people's
+            relationship with medical checkups, and strengthen collective
+            empathy.
           </p>
         </div>
       </div>
@@ -145,44 +187,43 @@
         target="_blank"
         class="btn-quizz"
       >
-        Responder Cuestionario en Google Forms &rarr;
+        Answer the questionnaire in Google Forms &rarr;
       </a>
     </div>
 
     <div class="info-grid">
       <div class="info-card">
-        <h3>Concepto y Conocimiento Real</h3>
+        <h3>Concept and Real Knowledge</h3>
         <p>
-          ¿Qué es el cáncer para ti? Analizamos la autopercepción que posees de
-          la enfermedad, midiendo si te consideras poco, medianamente o bien
-          informado frente a sus implicaciones.
+          What does cancer mean to you? We analyze your self-perception of the
+          disease, measuring whether you consider yourself poorly, moderately,
+          or well-informed about its implications.
         </p>
       </div>
 
       <div class="info-card">
-        <h3>Prevención y Rutina Médica</h3>
+        <h3>Prevention and Medical Routine</h3>
         <p>
-          La prevención salva vidas. Registramos la frecuencia con la que las
-          personas se realizan chequeos médicos periódicos para evaluar el nivel
-          de proactividad en el cuidado de la salud.
+          Prevention saves lives. We record how often people get regular medical
+          checkups to assess their level of proactivity in healthcare.
         </p>
       </div>
 
       <div class="info-card">
-        <h3>Entorno Hospitalario e Interés</h3>
+        <h3>Hospital Environment and Interest</h3>
         <p>
-          Evaluamos si los usuarios conocen los centros médicos especializados
-          en tratamientos oncológicos y medimos su interés en continuar
-          informándose para apoyar a sus seres queridos.
+          We assess whether users are familiar with medical centers specializing
+          in cancer treatments and measure their interest in continuing to seek
+          information to support their loved ones.
         </p>
       </div>
 
       <div class="info-card">
-        <h3>Empatía y Acompañamiento</h3>
+        <h3>Empathy and Support</h3>
         <p>
-          Buscamos entender la perspectiva humana y social del proceso,
-          analizando la disposición individual de acompañar, visitar y
-          comprender el día a día de un paciente en tratamiento.
+          We seek to understand the human and social perspective of the process,
+          analyzing the individual's willingness to accompany, visit, and
+          understand the daily life of a patient in treatment.
         </p>
       </div>
     </div>
@@ -190,77 +231,73 @@
     <!-- ===== SECCIÓN DE DATOS DE CONCIENTIZACIÓN ===== -->
     <section class="awareness-banner">
       <div class="awareness-header">
-        <h2>¿Por qué es vital informarnos?</h2>
+        <h2>Why is it vital to be informed?</h2>
         <p>
-          La desinformación sigue siendo una de las principales barreras para
-          una detección temprana y un acompañamiento efectivo.
+          Misinformation remains one of the main barriers to early detection and
+          effective support.
         </p>
       </div>
 
       <div class="stats-grid">
         <div class="stat-box">
           <div class="stat-number">30% - 50%</div>
-          <h4>Casos Prevenibles</h4>
+          <h4>Preventable Cases</h4>
           <p>
-            Entre un tercio y la mitad de los casos de cáncer pueden prevenirse
-            adoptando estilos de vida saludables y evitando factores de riesgo
-            conocidos.
+            Between one-third and one-half of all cancer cases can be prevented
+            by adopting healthy lifestyles and avoiding known risk factors.
           </p>
         </div>
 
         <div class="stat-box">
-          <div class="stat-number">Detección Precoz</div>
-          <h4>Mayor Eficacia</h4>
+          <div class="stat-number">Early Detection</div>
+          <h4>Greater Effectiveness</h4>
           <p>
-            Identificar la enfermedad en sus etapas iniciales aumenta
-            considerablemente las probabilidades de éxito en el tratamiento y la
-            recuperación.
+            Identifying the disease in its early stages significantly increases
+            the chances of successful treatment and recovery.
           </p>
         </div>
 
         <div class="stat-box">
-          <div class="stat-number">Red de Apoyo</div>
-          <h4>Impacto Emocional</h4>
+          <div class="stat-number">Support Network</div>
+          <h4>Emotional Impact</h4>
           <p>
-            Contar con un entorno familiar y comunitario bien informado reduce
-            significativamente el estrés y la ansiedad durante el proceso del
-            paciente.
+            Having a well-informed family and community support network
+            significantly reduces stress and anxiety during the patient's
+            journey.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ===== PIE DE PÁGINA ===== -->
+    <!-- FOOTER -->
     <footer>
       <div class="footer-container">
         <div class="footer-content">
           <div class="footer-col">
-            <h2 class="Title">DERECHOS DE AUTOR</h2>
+            <h2 class="Title">COPYRIGHT</h2>
             <ul class="Advice">
               <li>&copy; Canrisk 2026</li>
-              <li>&copy; Todos los derechos reservados al equipo de Canrisk</li>
-              <li>Agradecimientos especiales al equipo de Canrisk</li>
-              <li>que han hecho esta pagina algo posible.</li>
+              <li>&copy; All rights reserved to the Canrisk team</li>
+              <li>Special thanks to the Canrisk team</li>
+              <li>who have made this page possible.</li>
             </ul>
           </div>
           <div class="footer-col">
-            <h2 class="Title_1">INFORMACIÓN IMPORTANTE</h2>
+            <h2 class="Title_1">IMPORTANT INFORMATION</h2>
             <ul class="Advice_1">
               <li>
-                Esta pagina NO reemplaza la ayuda de un profesional medico.
+                This page DOES NOT replace the help of a medical professional.
               </li>
               <li>
-                En caso de tener algun tipo de emergencia o un sintoma puede
+                In case you have any type of emergency or a symptom you can
               </li>
-              <li>
-                apoyarse en los diferentes números de hospitales que nosotros
-              </li>
-              <li>proporcionamos, o llame directamente al 911.</li>
+              <li>rely on the different numbers of hospitals that we</li>
+              <li>we provide, or call 911 directly.</li>
             </ul>
           </div>
         </div>
         <div class="footer-social">
-          <h2 class="Title_2">Redes sociales de Canrisk!</h2>
+          <h2 class="Title_2">Canrisk social networks!</h2>
           <ul class="Social">
             <li>
               <a href="https://www.instagram.com/canrisk/" target="_blank"

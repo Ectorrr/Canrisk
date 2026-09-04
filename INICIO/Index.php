@@ -1,11 +1,21 @@
+<?php
+session_start();
+//Verificar si la sesion esta iniciada
+if (isset($_SESSION["userSession"])) {
+    $isEnglish   = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+    $redirectUrl = $isEnglish ? "../HTML/INGLES/PrincipalING.php" : "../HTML/ESPANOL/Principal.php";
+    
+    header("Location: " . $redirectUrl);
+    exit; 
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canrisk - Información y apoyo sobre el cáncer</title>
-    <link rel="stylesheet" href="../CSS/Style-Info.css">
-    <link rel="stylesheet" href="../CSS/principal.css">
+    <link rel="stylesheet" href="..//CSS/Style-Info.css">
     <link rel="icon" type="image/png" href="../MULTIMEDIA/Canrisk LOGO.svg">
 </head>
 <body>
@@ -28,16 +38,16 @@
         </button>
 
         <ul class="Info-nav">
-            <li class="box-II"><h4><a href="Faq.N.html">Preguntas frecuentes</a></h4></li>
-            <li class="box-II"><a href="Index.html"><h4>Inicio</h4></a></li>
+            <li class="box-II"><h4><a href="Faq.N.php">Preguntas frecuentes</a></h4></li>
+            <li class="box-II"><a href="Index.php"><h4>Inicio</h4></a></li>
         </ul>
 
         <div class="right-group">
             <ul class="Index">
-                <li class="box-I"><a href="../../Canrisk/HTML/ESPANOL/login.html"><h4>Iniciar Sesión</h4></a></li>
-                <li class="box-I"><a href="../../Canrisk/HTML/ESPANOL/register.html"><h4>Registrarse</h4></a></li>
+                <li class="box-I"><a href="../../Canrisk/HTML/ESPANOL/login.php"><h4>Iniciar Sesión</h4></a></li>
+                <li class="box-I"><a href="../../Canrisk/HTML/ESPANOL/register.php"><h4>Registrarse</h4></a></li>
             </ul>
-            <a id="langSwitchNL" class="lang-switchNL" href="IndexING.html" aria-label="Cambiar idioma / Switch language">EN</a>
+            <a id="langSwitchNL" class="lang-switchNL" href="IndexING.php" aria-label="Cambiar idioma / Switch language">EN</a>
 
             <div class="Photo">
                 <img src="../MULTIMEDIA/profile.png" class="PP-default" alt="Foto de perfil del usuario">
@@ -87,7 +97,7 @@
 </div>
     </div>
         <div class="action-container" style="padding-top: 0;">
-                <a href="../HTML/ESPANOL/register.html" class="btn-quizz">Regístrate hoy y sé parte del cambio</a>
+                <a href="../HTML/ESPANOL/register.php" class="btn-quizz">Regístrate hoy y sé parte del cambio</a>
     </div>
     </header>
 

@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+session_start();
+//Verificar si la sesion esta iniciada
+if (isset($_SESSION["userSession"])) {
+    $isEnglish   = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+    $redirectUrl = $isEnglish ? "../HTML/INGLES/PrincipalING.php" : "../HTML/ESPANOL/Principal.php";
+    
+    header("Location: " . $redirectUrl);
+    exit; 
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,16 +38,16 @@
         </button>
 
         <ul class="Info-nav">
-            <li class="box-II"><h4><a href="../INICIO/Faq.N-ING.html">Frequently Asked Questions</a></h4></li>
-            <li class="box-II"><a href="../INICIO/IndexING.html"><h4>Home Page</h4></a></li>
+            <li class="box-II"><h4><a href="../INICIO/Faq.N-ING.php">Frequently Asked Questions</a></h4></li>
+            <li class="box-II"><a href="../INICIO/IndexING.php"><h4>Home Page</h4></a></li>
         </ul>
 
         <div class="right-group">
             <ul class="Index">
-                <li class="box-I"><a href="../HTML/INGLES/loginING.html"><h4>Log in</h4></a></li>
-                <li class="box-I"><a href="../HTML/INGLES/registerING.html"><h4>Sign Up</h4></a></li>
+                <li class="box-I"><a href="../HTML/INGLES/loginING.php"><h4>Log in</h4></a></li>
+                <li class="box-I"><a href="../HTML/INGLES/registerING.php"><h4>Sign Up</h4></a></li>
             </ul>
-            <a id="langSwitchNL" class="lang-switchNL" href="../INICIO/Index.html" aria-label="Cambiar idioma / Switch language">ES</a>
+            <a id="langSwitchNL" class="lang-switchNL" href="../INICIO/Index.php" aria-label="Cambiar idioma / Switch language">ES</a>
             <div class="Photo">
                 <img src="../MULTIMEDIA/profile.png" class="PP-default" alt="User profile picture">
             </div>
@@ -86,7 +96,7 @@
 </div>
     </div>
         <div class="action-container" style="padding-top: 0;">
-                <a href="../HTML/ESPANOL/register.html" class="btn-quizz">Register today and be part of the change</a>
+                <a href="../HTML/ESPANOL/register.php" class="btn-quizz">Register today and be part of the change</a>
     </div>
     </header>
 

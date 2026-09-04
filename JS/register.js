@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alert(`¡Registro exitoso! Bienvenido, ${name} 🎉`);
 
     const isEnglish = window.location.pathname.includes("/INGLES/");
-    window.location.href = isEnglish ? "loginING.html" : "login.html";
+    window.location.href = isEnglish ? "loginING.php" : "login.php";
   });
 
   function validarNombre(name) {

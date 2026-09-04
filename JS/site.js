@@ -13,34 +13,34 @@
   // Mapa ES <-> EN. Las rutas son relativas a la raíz del proyecto.
   var LANG_MAP = {
     // Páginas en español -> inglés
-    "principal.html": "HTML/INGLES/PrincipalING.html",
-    "aboutus.html": "HTML/INGLES/aboutusENG.html",
-    "contacto.html": "HTML/INGLES/ContactoING.html",
-    "contacto-detalle.html": "HTML/INGLES/Contacto-detalleING.html",
-    "cancer-intro.html": "HTML/INGLES/cancer-introING.html",
-    "cancer.html": "HTML/INGLES/CancerING.html",
-    "psycho-help.html": "HTML/INGLES/psycho-helpING.html",
-    "help.html": "HTML/INGLES/helpING.html",
-    "help-detalle.html": "HTML/INGLES/helpING.html",
-    "ficha1.html": "HTML/INGLES/helpING.html",
-    "quizz.html": "HTML/INGLES/quizzING.html",
-    "faq.html": "HTML/INGLES/faqING.html",
-    "index.html": "INICIO/IndexING.html",
-    "faq.n.html": "INICIO/Faq.N-ING.html",
+    "principal.php": "HTML/INGLES/PrincipalING.php",
+    "aboutus.php": "HTML/INGLES/aboutusENG.php",
+    "contacto.php": "HTML/INGLES/ContactoING.php",
+    "contacto-detalle.php": "HTML/INGLES/Contacto-detalleING.php",
+    "cancer-intro.php": "HTML/INGLES/cancer-introING.php",
+    "cancer.php": "HTML/INGLES/CancerING.php",
+    "psycho-help.php": "HTML/INGLES/psycho-helpING.php",
+    "help.php": "HTML/INGLES/helpING.php",
+    "help-detalle.php": "HTML/INGLES/helpING.php",
+    "ficha1.php": "HTML/INGLES/helpING.php",
+    "quizz.php": "HTML/INGLES/quizzING.php",
+    "faq.php": "HTML/INGLES/faqING.php",
+    "index.php": "INICIO/IndexING.php",
+    "faq.n.php": "INICIO/Faq.N-ING.php",
 
     // Páginas en inglés -> español
-    "principaling.html": "HTML/ESPANOL/Principal.html",
-    "aboutuseng.html": "HTML/ESPANOL/aboutus.html",
-    "contactoing.html": "HTML/ESPANOL/Contacto.html",
-    "contacto-detalleing.html": "HTML/ESPANOL/Contacto-Detalle.html",
-    "cancer-introing.html": "HTML/ESPANOL/cancer-intro.html",
-    "cancering.html": "HTML/ESPANOL/cancer.html",
-    "psycho-helping.html": "HTML/ESPANOL/psycho-help.html",
-    "helping.html": "HTML/ESPANOL/help.html",
-    "quizzing.html": "HTML/ESPANOL/quizz.html",
-    "faqing.html": "HTML/ESPANOL/faq.html",
-    "indexing.html": "INICIO/Index.html",
-    "faq.n-ing.html": "INICIO/Faq.N.html",
+    "principaling.php": "HTML/ESPANOL/Principal.php",
+    "aboutuseng.php": "HTML/ESPANOL/aboutus.php",
+    "contactoing.php": "HTML/ESPANOL/Contacto.php",
+    "contacto-detalleing.php": "HTML/ESPANOL/Contacto-Detalle.php",
+    "cancer-introing.php": "HTML/ESPANOL/cancer-intro.php",
+    "cancering.php": "HTML/ESPANOL/cancer.php",
+    "psycho-helping.php": "HTML/ESPANOL/psycho-help.php",
+    "helping.php": "HTML/ESPANOL/help.php",
+    "quizzing.php": "HTML/ESPANOL/quizz.php",
+    "faqing.php": "HTML/ESPANOL/faq.php",
+    "indexing.php": "INICIO/Index.php",
+    "faq.n-ing.php": "INICIO/Faq.N.php",
   };
 
   function currentBasename() {
@@ -51,7 +51,7 @@
     } catch (e) {
       /* noop */
     }
-    return last.toLowerCase() || "index.html";
+    return last.toLowerCase() || "index.php";
   }
 
   function rootPrefix() {
@@ -144,8 +144,8 @@
     if (!target) {
       var isEnglish = currentIsEnglish();
       target = isEnglish
-        ? "HTML/ESPANOL/Principal.html"
-        : "HTML/INGLES/PrincipalING.html";
+        ? "HTML/ESPANOL/Principal.php"
+        : "HTML/INGLES/PrincipalING.php";
     }
 
     btn.setAttribute("href", rootPrefix() + target);

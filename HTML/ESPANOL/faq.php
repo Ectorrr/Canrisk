@@ -1,12 +1,28 @@
-<!doctype html>
+<?php
+session_start();
+if (!isset($_SESSION["userSession"])) {
+    $isEnglish   = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+    $redirectUrl = $isEnglish ? "LoginING.php" : "login.php";
+    
+    header("Location: " . $redirectUrl);
+    exit; 
+}
+
+$sesion    = $_SESSION["userSession"] ?? null;
+$isEnglish = strpos($_SERVER["REQUEST_URI"], "/INGLES/") !== false;
+?><!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Preguntas Frecuentes</title>
-    <link rel="stylesheet" href="../CSS/Style-Info.css" />
-    <link rel="stylesheet" href="../CSS/faq.css" />
-    <link rel="icon" type="image/png" href="../MULTIMEDIA/Canrisk LOGO.svg" />
+    <link rel="stylesheet" href="../../CSS/Style-Info.css" />
+    <link rel="stylesheet" href="../../CSS/faq.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../MULTIMEDIA/Canrisk LOGO.svg"
+    />
   </head>
 
   <body>
@@ -22,7 +38,7 @@
         <span></span>
       </button>
       <h1>Canrisk</h1>
-      <img src="../MULTIMEDIA/Canrisk LOGO.svg" alt="Canrisk" class="C-L" />
+      <img src="../../MULTIMEDIA/Canrisk LOGO.svg" alt="Canrisk" class="C-L" />
     </div>
 
     <!--  MENÚ LATERAL (SIDEBAR)  -->
@@ -32,13 +48,18 @@
         <span></span>
         <span></span>
       </div>
+
       <ul class="sidebar-list">
-        <li><a href="../INICIO/Index.html">Inicio &rarr;</a></li>
+        <li><a href="cancer-intro.php">Introducción al cáncer &rarr;</a></li>
+        <li><a href="cancer.php">Tipos de Cáncer &rarr;</a></li>
+        <li><a href="psycho-help.php">Apoyo psicológico &rarr;</a></li>
+        <li><a href="help.php">Centro de ayuda &rarr;</a></li>
+        <li><a href="quizz.php">Cuestionario &rarr;</a></li>
+        <li><a href="faq.php">Preguntas frecuentes &rarr;</a></li>
       </ul>
     </nav>
 
     <!-- FONDO OSCURO AL ABRIR EL SIDEBAR  -->
-
     <div class="overlay-menu" id="menuOverlay"></div>
 
     <!-- BARRA DE NAVEGACIÓN SUPERIOR  -->
@@ -56,36 +77,74 @@
 
       <ul class="Info-nav">
         <li class="box-II">
-          <h4><a href="../INICIO/Faq.N.html">Preguntas frecuentes</a></h4>
+          <h4><a href="../ESPANOL/Principal.php">Inicio</a></h4>
         </li>
         <li class="box-II">
-          <a href="../INICIO/Index.html"><h4>Inicio</h4></a>
+          <a href="../ESPANOL/aboutus.php"><h4>Sobre nosotros</h4></a>
+        </li>
+        <li class="box-II">
+          <a href="../ESPANOL/Contacto.php"><h4>Contáctanos</h4></a>
         </li>
       </ul>
 
       <div class="right-group">
-        <ul class="Index">
-          <li class="box-I">
-            <a href="../../HTML/ESPANOL/login.html"><h4>Iniciar Sesión</h4></a>
-          </li>
-          <li class="box-I">
-            <a href="../../HTML/ESPANOL/register.html"><h4>Registrarse</h4></a>
-          </li>
-        </ul>
         <a
           id="langSwitch"
           class="lang-switch"
-          href="../../Canrisk/INICIO/Faq.N-ING.html"
+          href="<?php echo $isEnglish ? '../Principal.php' : 'INGLES/PrincipalING.php'; ?>"
           aria-label="Cambiar idioma / Switch language"
-          >EN</a
+          ><?php echo $isEnglish ? 'ES' : 'EN'; ?></a
         >
-        <div class="Photo">
-          <img
-            src="../MULTIMEDIA/profile.png"
-            class="PP-default"
-            alt="Foto de perfil del usuario"
-          />
-        </div>
+
+        <?php if ($sesion): ?>
+          <div class="Photo user-session">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+              />
+            </svg>
+            <div class="user-info">
+              <span class="session-label">
+                <?php echo $isEnglish ? 'Signed in as' : 'Sesión iniciada como'; ?>
+              </span>
+              <strong><?php echo htmlspecialchars($sesion['username'], ENT_QUOTES); ?></strong>
+              <a class="logout-link" href="../../PHP/logout.php">
+                <?php echo $isEnglish ? 'Log out' : 'Cerrar sesión'; ?>
+              </a>
+            </div>
+          </div>
+        <?php else: ?>
+          <div class="Photo">
+            <a
+              href="login.php"
+              aria-label="Iniciar sesión / Login"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                />
+              </svg>
+            </a>
+          </div>
+        <?php endif; ?>
       </div>
     </nav>
 
@@ -112,7 +171,7 @@
 
       <div class="IMG">
         <img
-          src="../../Canrisk/MULTIMEDIA/signodeinterrogacion.avif"
+          src="../../MULTIMEDIA/signodeinterrogacion.avif"
           alt="Evaluación de conocimiento sobre el cáncer"
           class="IMG-TXT"
         />
@@ -267,7 +326,7 @@
             Escuchar sin juzgar, preguntar qué necesita en lugar de asumirlo, y
             acompañarlo en las citas médicas si lo desea, suele ser de gran
             ayuda. Visita nuestra sección de
-            <a href="psycho-help.html">Apoyo Psicológico</a> para más
+            <a href="psycho-help.php">Apoyo Psicológico</a> para más
             orientación práctica.
           </div>
         </details>
@@ -290,7 +349,7 @@
             En El Salvador existen líneas gratuitas como #TeEscucho del ISSS
             (7071-1302, disponible 24/7) o FOSALUD. Puedes encontrar el detalle
             completo en nuestra sección de
-            <a href="psycho-help.html">Apoyo Psicológico</a>.
+            <a href="psycho-help.php">Apoyo Psicológico</a>.
           </div>
         </details>
       </div>
@@ -397,36 +456,37 @@
           <h2 class="Title_2">Redes sociales de Canrisk!</h2>
           <ul class="Social">
             <li>
-              <a href="https://www.instagram.com/canrisk/" target="_blank"
-                ><img
-                  src="../../Canrisk/MULTIMEDIA/instagram.png"
+              <a href="https://www.instagram.com/canrisk/" target="_blank">
+                <img
+                  src="../../MULTIMEDIA/instagram.png"
                   class="Inst-IMG"
                   alt="Instagram logo"
                 />
-                <p class="Inst-txt">Instagram</p></a
-              >
+                <span class="Inst-txt">Instagram</span>
+              </a>
             </li>
             <li>
               <a
                 href="https://www.facebook.com/Canrisk-110882646091155"
                 target="_blank"
-                ><img
-                  src="../../Canrisk/MULTIMEDIA/facebook.png"
+              >
+                <img
+                  src="../../MULTIMEDIA/facebook.png"
                   class="Face-IMG"
                   alt="Facebook logo"
                 />
-                <p class="Face-txt">Facebook</p></a
-              >
+                <span class="Face-txt">Facebook</span>
+              </a>
             </li>
             <li>
-              <a href="https://twitter.com/Canrisk1" target="_blank"
-                ><img
-                  src="../../Canrisk/MULTIMEDIA/gorjeo.png"
+              <a href="https://twitter.com/Canrisk1" target="_blank">
+                <img
+                  src="../../MULTIMEDIA/gorjeo.png"
                   class="Twit-IMG"
                   alt="Twitter"
                 />
-                <p class="Twit-txt">Twitter</p></a
-              >
+                <span class="Twit-txt">Twitter</span>
+              </a>
             </li>
           </ul>
         </div>
