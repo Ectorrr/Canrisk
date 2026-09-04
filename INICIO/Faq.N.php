@@ -66,7 +66,7 @@ if (isset($_SESSION["userSession"])) {
 
       <ul class="Info-nav">
         <li class="box-II">
-          <h4><a href="../INICIO/Faq.N.php">Preguntas frecuentes</a></h4>
+          <a href="../INICIO/Faq.N.html"><h4>Preguntas frecuentes</h4></a>
         </li>
         <li class="box-II">
           <a href="../INICIO/Index.php"><h4>Inicio</h4></a>

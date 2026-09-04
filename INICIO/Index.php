@@ -19,23 +19,58 @@ if (isset($_SESSION["userSession"])) {
     <link rel="icon" type="image/png" href="../MULTIMEDIA/Canrisk LOGO.svg">
 </head>
 <body>
-
-    <!-- LOGO Y BOTÓN DEL MENÚ LATERAL -->
+    <!--  LOGO Y BOTÓN DEL MENÚ LATERAL  -->
     <div class="navbar-brand">
-        <h1>Canrisk</h1>
-        <img src="../MULTIMEDIA/Canrisk LOGO.svg" alt="Canrisk" class="C-L">
+      <button
+        class="hamburger-sidebar-btn"
+        id="sidebarBtn"
+        aria-label="Abrir menú lateral"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <h1>Canrisk</h1>
+      <img src="../MULTIMEDIA/Canrisk LOGO.svg" alt="Canrisk" class="C-L" />
     </div>
 
+    <!--  MENÚ LATERAL (SIDEBAR)  -->
+    <nav class="sidebar-menu" id="sidebarMenu">
+      <div class="sidebar-decoracion">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="sidebar-list">
+        <li><a href="../INICIO/Index.html">Inicio &rarr;</a></li>
+      </ul>
+    </nav>
 
+    <!-- FONDO OSCURO AL ABRIR EL SIDEBAR  -->
 
-    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+    <div class="overlay-menu" id="menuOverlay"></div>
+
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR  -->
     <nav class="navbar" id="mainNav">
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+      <ul class="Info-nav">
+        <li class="box-II">
+          <a href="../INICIO/Faq.N.html"><h4>Preguntas frecuentes</h4></a>
+        </li>
+        <li class="box-II">
+          <a href="../INICIO/Index.html"><h4>Inicio</h4></a>
+        </li>
+      </ul>
 
         <ul class="Info-nav">
             <li class="box-II"><h4><a href="Faq.N.php">Preguntas frecuentes</a></h4></li>
@@ -53,7 +88,7 @@ if (isset($_SESSION["userSession"])) {
                 <img src="../MULTIMEDIA/profile.png" class="PP-default" alt="Foto de perfil del usuario">
 
         </div>
-
+      </div>
     </nav>
     <!-- ENCABEZADO PRINCIPAL (HERO) --> 
     <header class="hero-section">
